@@ -6,269 +6,339 @@
 <title>Spring Break Resort Finder</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f7f4ee; --surface:#ffffff; --surface-2:#f1ece2; --ink:#1d2a33; --ink-2:#4a5a66; --ink-3:#7b8893;
-  --line:#e3dccf; --ocean:#0f6e7c; --ocean-2:#e2f1f2; --sun:#e98b2a; --sun-2:#fdf0e1;
-  --good:#2f8a4e; --good-2:#e4f3e8; --warn:#b7791f; --warn-2:#fbf1dc; --bad:#b4442f; --bad-2:#f8e3dd;
-  --radius:16px; --shadow:0 1px 2px rgba(29,42,51,.05),0 6px 20px rgba(29,42,51,.06);
+  --bg:#f8fafc; --surface:#ffffff; --surface-2:#f8fafc; --surface-3:#f1f5f9; --ink:#1e293b; --ink-strong:#0f172a; --ink-2:#475569; --ink-3:#64748b; --ink-4:#94a3b8;
+  --line:#e2e8f0; --line-2:#f1f5f9;
+  --brand:#16a34a; --brand-7:#15803d; --brand-8:#166534; --brand-9:#14532d; --brand-50:#f0fdf4; --brand-100:#dcfce7; --brand-200:#bbf7d0;
+  --ocean:#15803d; --ocean-2:#f0fdf4;
+  --sun:#f59e0b; --sun-2:#fffbeb; --sun-ink:#92400e;
+  --good:#047857; --good-2:#ecfdf5; --warn:#b45309; --warn-2:#fffbeb; --bad:#be123c; --bad-2:#fff1f2;
+  --radius:24px; --shadow:0 1px 2px rgba(15,23,42,.05); --shadow-lg:0 20px 25px -5px rgba(15,23,42,.10),0 8px 10px -6px rgba(15,23,42,.10);
 }
 *{box-sizing:border-box}
 html,body{margin:0}
-body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em;margin:0}
-a{color:var(--ocean)}
-.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
-header.hero{background:linear-gradient(160deg,#0f6e7c 0%,#13505c 60%,#1d3a47 100%);color:#fff;padding:36px 0 30px}
-.hero h1{font-size:clamp(28px,4vw,42px);line-height:1.1}
-.hero p.lede{max-width:760px;color:#d6eaec;margin:10px 0 18px;font-size:16px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:5px 11px;border-radius:999px;font-size:13px;font-weight:500}
-.updated{font-size:12px;color:#a9cdd2;margin-top:14px}
-section{margin:26px 0}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
-.panel h2{font-size:22px;margin-bottom:6px}
-.sub{color:var(--ink-2);margin:0 0 14px}
+body{background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:var(--brand-100);color:var(--brand-9)}
+h1,h2,h3{font-family:Inter,system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;margin:0;color:var(--ink-strong)}
+a{color:var(--brand-7)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 16px}
+@media (min-width:640px){.wrap{padding:0 24px}}
+@media (min-width:1024px){.wrap{padding:0 32px}}
+/* sticky header */
+.topbar{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,232,240,.8)}
+.topbar .wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brandmark{display:flex;align-items:center;gap:12px}
+.logo{width:40px;height:40px;border-radius:16px;background:linear-gradient(45deg,var(--brand-7),var(--brand));display:grid;place-items:center;color:#fff;box-shadow:0 4px 10px rgba(22,163,74,.25);flex:none}
+.brandmark h1{font-size:19px;line-height:1.2}
+.brandmark p{margin:0;font-size:12px;line-height:1.35;color:var(--ink-3);font-weight:500}
+.topchips{display:flex;gap:10px;font-size:12px;font-weight:600}
+.topchips span{padding:6px 12px;border-radius:12px;background:var(--surface-3);color:#334155}
+.topchips span.g{background:var(--brand-50);color:var(--brand-7);border:1px solid rgba(187,247,208,.6)}
+@media (max-width:860px){.topchips{display:none}.brandmark h1{font-size:16px}}
+/* intro */
+.intro{text-align:center;max-width:820px;margin:40px auto 32px}
+.eyebrow{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;background:var(--brand-100);color:var(--brand-8);padding:6px 14px;border-radius:999px;margin-bottom:12px}
+.intro h2{font-size:clamp(26px,4vw,38px);line-height:1.15;margin-bottom:14px}
+.intro p{color:var(--ink-2);font-size:16px;margin:0 0 16px}
+.notice{background:var(--sun-2);border:1px solid rgba(253,230,138,.8);color:#78350f;padding:14px 16px;border-radius:16px;font-size:14px;font-weight:500}
+.notice u{text-decoration-color:#fbbf24;text-decoration-thickness:2px;font-weight:700}
+section{margin:24px 0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+@media (min-width:640px){.panel{padding:24px}}
+.panel h2{font-size:20px;margin-bottom:4px}
+.sub{color:var(--ink-2);margin:0 0 14px;font-size:14px}
 .grid-2{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
 @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
 /* seaweed */
 .zones{display:grid;gap:8px}
-.zone{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:start;padding:9px 10px;border-radius:10px;background:var(--surface-2)}
+.zone{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:start;padding:10px 12px;border-radius:12px;background:#fff;border:1px solid var(--line-2)}
 .zone b{font-size:13px}
 .zone span{font-size:13.5px;color:var(--ink-2)}
 @media (max-width:520px){.zone{grid-template-columns:1fr;gap:4px}}
-.risk{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;text-align:center}
-.r0,.r1{background:var(--good-2);color:var(--good)}
-.r2{background:#e9f4e4;color:#4b7f2a}
-.r3{background:var(--warn-2);color:var(--warn)}
-.r4{background:#fbe7d3;color:#b0611c}
-.r5,.r6{background:var(--bad-2);color:var(--bad)}
-.callout{border-left:4px solid var(--sun);background:var(--sun-2);padding:12px 14px;border-radius:8px;font-size:14px;margin-top:12px}
+.risk{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:8px;white-space:nowrap;text-align:center}
+.r0,.r1{background:#dcfce7;color:#15803d}
+.r2{background:#ecfccb;color:#4d7c0f}
+.r3{background:#fef3c7;color:#b45309}
+.r4{background:#ffedd5;color:#c2410c}
+.r5,.r6{background:#ffe4e6;color:#be123c}
+.callout{border:1px solid rgba(253,230,138,.8);background:var(--sun-2);padding:12px 14px;border-radius:14px;font-size:14px;margin-top:12px;color:#78350f}
+.callout.g{border-color:var(--brand-200);background:var(--brand-50);color:var(--brand-9)}
 .callout ul{margin:6px 0 0;padding-left:18px}
 .callout li{margin:3px 0}
-/* controls */
-.controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+/* filter panel */
+.toprow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.search{position:relative;flex:1 1 320px;max-width:420px}
+.search svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--ink-4)}
+.search input{width:100%;padding:12px 14px 12px 38px;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;font:inherit;font-size:14px;color:var(--ink)}
+.search input:focus{outline:none;background:#fff;box-shadow:0 0 0 2px var(--brand)}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{border:none;cursor:pointer;font:inherit;font-size:12px;font-weight:600;padding:8px 12px;border-radius:12px;background:var(--surface-3);color:var(--ink-2);transition:.15s}
+.pill:hover{background:#e2e8f0}
+.pill.on{background:var(--brand);color:#fff;font-weight:700;box-shadow:var(--shadow)}
+.tagrow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line-2)}
+.tagrow .lbl{font-size:12px;font-weight:600;color:var(--ink-3);margin-right:4px}
+.chipcheck{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;font-weight:500;padding:7px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink-2);transition:.15s;user-select:none}
+.chipcheck:hover{border-color:var(--brand)}
+.chipcheck input{position:absolute;opacity:0;pointer-events:none}
+.chipcheck:has(input:checked){border-color:var(--brand);background:var(--brand-50);color:var(--brand-7);font-weight:600}
+.chipcheck:has(input:focus-visible){box-shadow:0 0 0 2px var(--brand)}
+.resetlink{margin-left:auto;border:none;background:none;cursor:pointer;font:inherit;font-size:12px;font-weight:700;color:#e11d48;padding:6px 8px}
+.resetlink:hover{color:#9f1239}
+details.tune{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2)}
+details.tune>summary{cursor:pointer;list-style:none;font-size:13px;font-weight:700;color:var(--brand-7)}
+details.tune>summary::after{content:" ▾"}
+details.tune[open]>summary::after{content:" ▴"}
+.controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:14px}
 @media (max-width:980px){.controls{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.controls{grid-template-columns:1fr}}
-.ctl h3{font-family:Inter,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-bottom:10px}
-.slider{display:grid;grid-template-columns:112px 1fr 30px;align-items:center;gap:8px;margin:6px 0;font-size:14px}
-.slider output{font-variant-numeric:tabular-nums;color:var(--ink-2);text-align:right;font-size:13px}
-input[type=range]{width:100%;accent-color:var(--ocean)}
-.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
-.num{display:flex;align-items:center;gap:6px;font-size:14px}
-.num input{width:56px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
-select{padding:7px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink);max-width:100%}
-.checks{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:14px}
-@media (max-width:420px){.checks{grid-template-columns:1fr}}
-.checks label,.toggle{display:flex;gap:7px;align-items:center;cursor:pointer}
-input[type=checkbox]{accent-color:var(--ocean);width:16px;height:16px}
-.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink)}
-.btn:hover{border-color:var(--ocean);color:var(--ocean)}
-.resultbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:22px 0 12px}
-.resultbar .count{font-weight:600}
+.ctl h3{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-4);font-weight:700;margin:0 0 10px}
+.slider{display:grid;grid-template-columns:104px 1fr 26px;align-items:center;gap:8px;margin:6px 0;font-size:13.5px}
+.slider output{font-variant-numeric:tabular-nums;color:var(--ink-2);text-align:right;font-size:13px;font-weight:600}
+input[type=range]{width:100%;accent-color:var(--brand)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0}
+.num{display:flex;align-items:center;gap:6px;font-size:13.5px}
+.num input{width:56px;padding:7px 8px;border:1px solid var(--line);border-radius:10px;font:inherit;background:var(--surface-2)}
+select{padding:8px 10px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:13.5px;background:var(--surface-2);color:var(--ink);max-width:100%}
+input:focus-visible,select:focus-visible{outline:2px solid var(--brand);outline-offset:1px}
+input[type=checkbox]{accent-color:var(--brand)}
+.rangebox{margin-bottom:14px}
+.rangebox label{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px}
+.rangebox output{font-weight:700;color:var(--brand-7)}
+.rangebox .muted{font-size:12px;margin-top:4px}
+.resultbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:26px 0 14px}
+.resultbar .count{font-weight:700;color:var(--ink-strong)}
 /* cards */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
 @media (max-width:400px){.cards{grid-template-columns:1fr}}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
-.card.flag{border-color:#efc9bf}
-.card-top{padding:16px 16px 12px;display:grid;grid-template-columns:1fr auto;gap:10px}
-.rank{font-size:12px;color:var(--ink-3);font-weight:600}
-.card h3{font-size:19px;line-height:1.2;margin:2px 0 3px}
-.loc{font-size:13px;color:var(--ink-2)}
-.score{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:20px;color:var(--ocean);background:conic-gradient(var(--ocean) calc(var(--p)*1%),var(--ocean-2) 0);position:relative}
-.score::before{content:"";position:absolute;inset:6px;background:#fff;border-radius:50%}
-.score span{position:relative}
-.score small{display:block;font-size:9px;color:var(--ink-3);font-weight:600;text-align:center;margin-top:-3px}
-.fav{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;border:1.5px solid var(--sun);background:#fff;color:#a55f12;white-space:nowrap}
-.fav:hover{background:var(--sun-2)}
-.fav.on{background:var(--sun);color:#fff}
-.favrow{padding:0 16px 12px}
-.badges{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px}
-.tag{font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
-.tag.ocean{background:var(--ocean-2);color:var(--ocean)}
-.bars{padding:12px 16px 4px;display:grid;gap:5px}
-.bar{display:grid;grid-template-columns:78px 1fr 28px;align-items:center;gap:8px;font-size:12px;color:var(--ink-2)}
-.track{height:7px;background:var(--surface-2);border-radius:99px;overflow:hidden}
-.fill{height:100%;border-radius:99px;background:var(--ocean)}
-.bar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 16px}
-.fact{background:var(--surface-2);border-radius:10px;padding:8px 10px}
-.fact .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}
-.fact .v{font-size:13.5px;font-weight:600}
-.kids{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}
-.kid{font-size:12px;padding:3px 8px;border-radius:6px;border:1px solid var(--line);color:var(--ink-2)}
-.kid.yes{border-color:#b9dcc4;background:var(--good-2);color:var(--good);font-weight:600}
-.cost{margin:0 16px 12px;padding:10px 12px;border-radius:10px;background:var(--sun-2);display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
-.cost .k{font-size:12px;color:#8a5a1f;font-weight:600}
-.cost .v{font-weight:700;font-size:16px;color:#6b4214}
-.cost .s{font-size:11.5px;color:#8a6a3f;width:100%}
-.card details{border-top:1px solid var(--line);margin-top:auto}
-.card summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:13.5px;color:var(--ocean);list-style:none}
+.card{background:var(--surface);border:1px solid rgba(226,232,240,.8);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;transition:box-shadow .3s}
+.card:hover{box-shadow:var(--shadow-lg)}
+.card:hover h3{color:var(--brand-7)}
+.band{position:relative;height:116px;border-radius:var(--radius) var(--radius) 0 0;background:linear-gradient(135deg,#0f172a 0%,#14532d 100%);overflow:visible}
+.band.mid{background:linear-gradient(135deg,#0f172a 0%,#78350f 100%)}
+.band.hi{background:linear-gradient(135deg,#0f172a 0%,#881337 100%)}
+.band::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120% 90% at 85% 120%,rgba(255,255,255,.12),transparent 60%);pointer-events:none}
+.rankb{position:absolute;top:12px;left:12px;background:rgba(15,23,42,.8);backdrop-filter:blur(8px);color:#fff;font-size:11px;font-weight:700;padding:5px 10px;border-radius:12px;z-index:2}
+.score{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.96);border-radius:12px;padding:7px 12px;text-align:right;box-shadow:0 4px 10px rgba(0,0,0,.15);z-index:3;min-width:96px}
+.score .k{font-size:9px;color:var(--ink-4);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.score .v{font-size:22px;font-weight:800;color:var(--ink-strong);line-height:1.1}
+.score .v{font-size:19px}
+.score .v small{font-size:13px;color:var(--ink-2);font-weight:700}
+.score .meter{height:4px;border-radius:9px;background:var(--surface-3);margin-top:4px;overflow:hidden}
+.score .meter i{display:block;height:100%;background:var(--brand)}
+.bandloc{position:absolute;left:14px;bottom:12px;color:#e2e8f0;font-size:12px;font-weight:500;display:flex;align-items:center;gap:5px;z-index:2}
+.bandloc svg{color:#4ade80}
+.cbody{padding:18px 20px 4px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
+.metarow{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.regchip{font-size:10px;font-weight:600;background:var(--surface-3);color:var(--ink-2);padding:3px 8px;border-radius:6px}
+.card h3{font-size:18px;line-height:1.25;letter-spacing:-.01em;transition:color .2s}
+.loc{font-size:12.5px;color:var(--ink-3);margin-top:2px}
+.fav{display:inline-flex;align-items:center;gap:5px;cursor:pointer;font:inherit;font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:10px;border:1px solid var(--line);background:#fff;color:var(--ink-2);white-space:nowrap;transition:.15s}
+.fav:hover{border-color:var(--sun);color:var(--sun-ink)}
+.fav.on{background:var(--sun-2);border-color:var(--sun);color:var(--sun-ink)}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:10.5px;font-weight:600;padding:4px 9px;border-radius:8px;background:var(--surface-3);color:#334155}
+.tag.ocean{background:var(--brand-50);color:var(--brand-7)}
+.quick{display:grid;background:var(--surface-2);border:1px solid var(--line-2);border-radius:14px;padding:4px 12px}
+.qrow{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line);font-size:12.5px;color:var(--ink-3)}
+.qrow:last-child{border-bottom:none}
+.qrow b{color:var(--ink-strong);font-weight:600;text-align:right}
+.qrow:focus{outline:2px solid var(--brand);outline-offset:2px}
+.bars{display:grid;gap:5px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:14px;padding:10px 12px}
+.bar{display:grid;grid-template-columns:76px 1fr 28px;align-items:center;gap:8px;font-size:12px;color:var(--ink-3);font-weight:500}
+.track{height:6px;background:#e2e8f0;border-radius:99px;overflow:hidden}
+.fill{height:100%;border-radius:99px;background:var(--brand)}
+.bar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:700}
+.cost{padding:12px 14px;border-radius:14px;background:var(--brand-50);border:1px solid var(--brand-100);display:flex;justify-content:space-between;align-items:baseline;gap:4px 8px;flex-wrap:wrap}
+.cost .k{font-size:10.5px;color:var(--brand-8);font-weight:700;text-transform:uppercase;letter-spacing:.06em;width:100%}
+.cost .v{font-weight:800;font-size:19px;color:var(--brand-7)}
+.cost .s{font-size:11.5px;color:var(--ink-2);width:100%}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-2);border-radius:14px;overflow:hidden}
+.fact{padding:9px 12px;border-bottom:1px solid var(--line-2)}
+.fact:nth-child(odd){border-right:1px solid var(--line-2)}
+.fact:nth-last-child(-n+2){border-bottom:none}
+.fact .k{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-4);font-weight:700}
+.fact .v{font-size:13px;font-weight:600;color:var(--ink-strong)}
+.kids{display:flex;flex-wrap:wrap;gap:6px;padding-bottom:4px}
+.kid{font-size:10.5px;font-weight:500;padding:4px 9px;border-radius:8px;background:var(--surface-3);color:var(--ink-4)}
+.kid.yes{background:var(--brand-50);color:var(--brand-7);font-weight:600}
+.card details{margin-top:auto;padding:12px 20px 20px}
+.card summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:center;gap:6px;padding:12px;border-radius:12px;background:#0f172a;color:#fff;font-size:12px;font-weight:700;transition:background .2s}
+.card summary:hover{background:var(--brand)}
 summary::-webkit-details-marker{display:none}
-.card summary::after{content:" ▾"}
-.card details[open] summary::after{content:" ▴"}
-.collapsible{margin:30px 0}
+.card summary::after{content:"›";font-size:16px;line-height:1;transition:transform .2s}
+.card details[open] summary::after{transform:rotate(90deg)}
+.more{padding:14px 2px 0;font-size:13px;color:var(--ink-2)}
+.more h4{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-4);margin:14px 0 4px}
+.more ul{margin:0;padding-left:0;list-style:none}
+.more li{margin:4px 0;display:flex;gap:6px}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pc>div{border-radius:14px;padding:10px 12px}
+.pc>div:first-child{background:rgba(236,253,245,.7);border:1px solid #d1fae5;color:#064e3b}
+.pc>div:last-child{background:rgba(255,241,242,.7);border:1px solid #ffe4e6;color:#881337}
+.pc h4{margin-top:0}
+.pc>div:first-child li::before{content:"✓";color:#059669;font-weight:700}
+.pc>div:last-child li::before{content:"!";color:#e11d48;font-weight:700}
+@media (max-width:420px){.pc{grid-template-columns:1fr}}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.links a{flex:1 1 45%;text-align:center;font-size:12px;font-weight:700;text-decoration:none;border:1px solid var(--brand-200);padding:9px 10px;border-radius:12px;background:var(--brand-50);color:var(--brand-8)}
+.links a:hover{background:var(--brand-100)}
+.empty{text-align:center;padding:48px;color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line-2);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-4)}
+.tablewrap{overflow-x:auto}
+footer{background:#fff;border-top:1px solid var(--line);margin-top:56px;padding:32px 0 40px;color:var(--ink-3);font-size:12.5px}
+footer ol{padding-left:18px}
+footer .center{text-align:center;color:var(--ink-4)}
+.muted{color:var(--ink-3)}
+/* collapsibles */
+.collapsible{margin:24px 0}
 .collapsible>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
-.collapsible>summary::after{content:"Show ▾";margin-left:auto;font-size:13px;font-weight:600;color:var(--ocean)}
+.collapsible>summary::after{content:"Show ▾";margin-left:auto;font-size:12px;font-weight:700;color:var(--brand-7);background:var(--brand-50);padding:4px 10px;border-radius:8px}
 .collapsible[open]>summary::after{content:"Hide ▴"}
-.ctitle{font-family:Fraunces,Georgia,serif;font-size:22px;font-weight:700}
-.chint{color:var(--ink-3);font-size:13.5px}
-.subpanel{background:var(--surface-2);border-radius:12px;padding:16px}
-.subpanel .zone{background:#fff}
-.subh{font-size:18px;margin-bottom:6px}
+.ctitle{font-size:18px;font-weight:800;color:var(--ink-strong);letter-spacing:-.01em}
+.chint{color:var(--ink-3);font-size:13px}
+.subpanel{background:var(--surface-2);border:1px solid var(--line-2);border-radius:16px;padding:16px}
+.subh{font-size:17px;margin-bottom:6px}
 .perks{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:14px}
-.perk{background:var(--surface-2);border-radius:12px;padding:14px 16px;font-size:14px}
-.perk h4{margin:0 0 6px;font-size:15px}
+.perk{background:var(--surface-2);border:1px solid var(--line-2);border-radius:16px;padding:14px 16px;font-size:13.5px}
+.perk h4{margin:0 0 6px;font-size:14.5px;color:var(--ink-strong)}
 .perk ul{margin:0;padding-left:18px}
 .perk li{margin:3px 0;color:var(--ink-2)}
-.perk.alert{background:var(--sun-2);border-left:4px solid var(--sun)}
-.filters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
-@media (max-width:860px){.filters{grid-template-columns:1fr}}
-.rangebox label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
-.rangebox output{font-weight:700;color:var(--ocean)}
-.rangebox .muted{font-size:12px;margin-top:4px}
+.perk.alert{background:var(--sun-2);border-color:rgba(253,230,138,.8)}
+/* tooltips */
 [data-tip]{position:relative;cursor:help}
-[data-tip]:hover::after,[data-tip]:focus::after{content:attr(data-tip);position:absolute;z-index:20;left:0;right:0;top:calc(100% + 6px);background:#1d2a33;color:#fff;font-size:12.5px;line-height:1.45;font-weight:400;padding:9px 11px;border-radius:9px;box-shadow:0 8px 24px rgba(0,0,0,.18);white-space:pre-line;text-align:left;pointer-events:none}
+[data-tip]:hover::after,[data-tip]:focus::after{content:attr(data-tip);position:absolute;z-index:30;left:0;right:0;top:calc(100% + 6px);background:#0f172a;color:#fff;font-size:12px;line-height:1.45;font-weight:400;padding:9px 11px;border-radius:10px;box-shadow:var(--shadow-lg);white-space:pre-line;text-align:left;pointer-events:none;text-transform:none;letter-spacing:0}
 .tag[data-tip]:hover::after,.tag[data-tip]:focus::after{right:auto;width:270px}
 .score[data-tip]:hover::after,.score[data-tip]:focus::after{left:auto;right:0;width:280px;top:calc(100% + 8px)}
-.bar:focus,.score:focus{outline:2px solid var(--ocean);outline-offset:2px;border-radius:6px}
-.more{padding:0 16px 16px;font-size:13.5px;color:var(--ink-2)}
-.more h4{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin:12px 0 4px}
-.more ul{margin:0;padding-left:18px}
-.more li{margin:2px 0}
-.pc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media (max-width:420px){.pc{grid-template-columns:1fr}}
-.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.links a{font-size:12.5px;font-weight:600;text-decoration:none;border:1px solid var(--line);padding:6px 10px;border-radius:8px;background:#fff}
-.links a:hover{border-color:var(--ocean)}
-.empty{text-align:center;padding:40px;color:var(--ink-2)}
-table{width:100%;border-collapse:collapse;font-size:13.5px}
-th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
-.tablewrap{overflow-x:auto}
-footer{padding:26px 0 40px;color:var(--ink-3);font-size:12.5px}
-footer ol{padding-left:18px}
-.muted{color:var(--ink-3)}
+.bar:focus,.score:focus{outline:2px solid var(--brand);outline-offset:2px}
+.band .score{position:absolute}
+.cards{align-items:start}
 </style>
 </head>
 <body>
 
-<header class="hero">
+<header class="topbar">
   <div class="wrap">
-    <h1>Spring Break 2027 Resort Finder</h1>
-    <p class="lede">All-inclusive, beachfront, kid-friendly resorts within a nonstop or one-stop flight of Austin, ranked so the beaches least likely to have seaweed come first.</p>
-    <div class="chips">
-      <span class="chip">📅 Sun Mar 14 – Thu Mar 18, 2027 · 4 nights</span>
-      <span class="chip">✈️ From Austin (AUS) · max 1 stop</span>
-      <span class="chip">🍹 Food + drinks included</span>
-      <span class="chip">🌊 Low-sargassum beaches first</span>
+    <div class="brandmark">
+      <div class="logo"><svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+      <div><h1>Austin Family Resort &amp; Flight Matrix</h1><p>March 14–18, 2027 · Beachfront all-inclusives · Low-seaweed first</p></div>
     </div>
-    <div class="updated">Research updated October 11, 2026. All prices are rough planning estimates. Check live rates before booking.</div>
+    <div class="topchips"><span class="g">AUS Departure Gateway</span><span>Nonstop or 1 stop</span></div>
   </div>
 </header>
 
 <main class="wrap">
+  <div class="intro">
+    <span class="eyebrow">Spring Break 2027 · Family All-Inclusive Finder</span>
+    <h2>Beachfront Family All-Inclusive Resorts from Austin (AUS)</h2>
+    <p>Kid-friendly resorts with water parks and slides, multiple restaurants and pools, and drinks included, within a nonstop or one-stop flight of Austin. Ranked so the beaches least likely to have seaweed come first.</p>
+    <div class="notice">⚠️ <b>Pricing &amp; estimate notice:</b> nightly rates, trip totals and flight costs are <u>estimates</u> for spring break week, researched October 11, 2026. Check live rates before booking.</div>
+  </div>
 
 
-  <details class="panel collapsible" id="scoresBox" style="margin:26px 0 0">
-    <summary><span class="ctitle">How the scores work</span><span class="chint">What each of the five factors measures</span></summary>
-    <div style="margin-top:12px">
-    <div class="tablewrap">
-    <table>
-      <tr><th>Factor</th><th>What it measures</th></tr>
-      <tr><td><b>Clean beach</b></td><td>Mostly the location's mid-March sargassum exposure, from the seaweed guide at the bottom of the page. Pacific scores 5/5 and Riviera Maya scores 1/5. Points come off when the ocean isn't reliably swimmable: −1.5 for a no-swim beach, −0.6 for "conditions vary".</td></tr>
-      <tr><td><b>Kids' fun</b></td><td>Water park, slides, lazy river, bowling, mini golf, arcade, kids and teen clubs, and pool count. A full water park with a lazy river plus bowling is a 5. A kids club and one pool is a 2.</td></tr>
-      <tr><td><b>Drink quality</b></td><td>What the all-inclusive plan actually pours. A 4–5 means premium or top-shelf spirits are included for every guest (Beaches, Moon Palace, Hard Rock, Hyatt Ziva, Finest, Majestic). A 3 means house and "select international" brands, with premium only in a club-level upgrade (Dreams, Royalton, Palladium). Riu is about a 2.5. These are brand-policy judgments, not reviewer scores.</td></tr>
-      <tr><td><b>Price</b></td><td>The midpoint of the estimated nightly rate for 2 adults and 2 kids during spring break. Under $650 a night scores 5/5. Over $1,700 scores about 1/5.</td></tr>
-      <tr><td><b>Easy travel</b></td><td>Daily nonstop from AUS = 5, seasonal or limited nonstop ≈ 4.3, one stop = 3. Points come off for airport transfers over 60 and 90 minutes.</td></tr>
-    </table>
+
+  <section class="panel" id="filterPanel">
+    <div class="toprow">
+      <div class="search">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="text" id="q" placeholder="Search resorts, locations, features..." aria-label="Search">
+      </div>
+      <div class="pills" id="regionPills"></div>
+      <select id="region" aria-label="Region" hidden><option value="all">All regions</option></select>
     </div>
+    <div class="tagrow">
+      <span class="lbl">Must have:</span>
+      <label class="chipcheck"><input type="checkbox" data-need="slides">Water slides</label>
+      <label class="chipcheck"><input type="checkbox" data-need="waterpark">Real water park</label>
+      <label class="chipcheck"><input type="checkbox" data-need="lazy">Lazy river</label>
+      <label class="chipcheck"><input type="checkbox" data-need="bowlgolf">Bowling / mini golf</label>
+      <label class="chipcheck"><input type="checkbox" data-need="swim">Swimmable beach</label>
+      <label class="chipcheck"><input type="checkbox" data-need="pools4">4+ pools</label>
+      <label class="chipcheck"><input type="checkbox" id="favOnly"><span>★ Favorites (<span id="favCount">0</span>)</span></label>
+      <button class="resetlink" id="reset">Reset Filters</button>
     </div>
-  </details>
-  <section class="panel">
-    <h2>Tune the ranking</h2>
-    <p class="sub">Set how much each factor matters and how many people are going. The cards re-rank instantly and the cost estimates update.</p>
-    <div class="controls">
-      <div class="ctl">
-        <h3>What matters most</h3>
-        <div class="slider"><label for="w-seaweed">Clean beach</label><input id="w-seaweed" type="range" min="0" max="10" value="9"><output id="o-seaweed">9</output></div>
-        <div class="slider"><label for="w-kids">Kids' fun</label><input id="w-kids" type="range" min="0" max="10" value="8"><output id="o-kids">8</output></div>
-        <div class="slider"><label for="w-drinks">Drink quality</label><input id="w-drinks" type="range" min="0" max="10" value="5"><output id="o-drinks">5</output></div>
-        <div class="slider"><label for="w-price">Price</label><input id="w-price" type="range" min="0" max="10" value="6"><output id="o-price">6</output></div>
-        <div class="slider"><label for="w-flight">Easy travel</label><input id="w-flight" type="range" min="0" max="10" value="5"><output id="o-flight">5</output></div>
-      </div>
-      <div class="ctl">
-        <h3>Your group</h3>
-        <div class="row">
-          <label class="num">Adults <input id="adults" type="number" min="1" max="8" value="2"></label>
-          <label class="num">Kids <input id="kids" type="number" min="0" max="8" value="2"></label>
-          <label class="num">Nights <input id="nights" type="number" min="1" max="14" value="4"></label>
+    <details class="tune" open>
+      <summary>Filter by beach, kids' fun, drinks, budget, travel &amp; group size</summary>
+      <div class="controls">
+        <div class="ctl">
+          <h3>Beach, kids &amp; drinks</h3>
+          <div class="rangebox">
+            <label for="maxRisk"><span>🌊 Beach: seaweed risk</span></label>
+            <select id="maxRisk" style="width:100%">
+              <option value="6">Any seaweed risk</option>
+              <option value="4">Moderate or better</option>
+              <option value="3">Low–moderate or better</option>
+              <option value="2">Low or better</option>
+              <option value="0">None (Pacific coast only)</option>
+            </select>
+          </div>
+          <div class="rangebox">
+            <label for="kidsMin"><span>🛝 Kids' fun</span></label>
+            <select id="kidsMin" style="width:100%">
+              <option value="0">Any</option>
+              <option value="3">Good or better (slides or kids' water play)</option>
+              <option value="4">Great or better (real water park)</option>
+              <option value="4.5">Excellent (water park + lazy river / bowling)</option>
+            </select>
+          </div>
+          <div class="rangebox">
+            <label for="drinksMin"><span>🍹 Drinks</span></label>
+            <select id="drinksMin" style="width:100%">
+              <option value="0">Any</option>
+              <option value="3">Mid-tier or better</option>
+              <option value="4">Top-shelf included for everyone</option>
+            </select>
+          </div>
         </div>
-        <p class="muted" style="font-size:12.5px;margin:8px 0 14px">Nightly rates are estimated for one room with 2 adults and 2 kids. Other group sizes are scaled roughly, with kids counted at about half an adult.</p>
-        <h3>Region & sort</h3>
-        <div class="row">
-          <select id="region" aria-label="Region">
-            <option value="all">All regions</option>
-          </select>
-          <select id="maxRisk" aria-label="Maximum seaweed risk">
-            <option value="6">Any seaweed risk</option>
-            <option value="3">Low–moderate or better</option>
-            <option value="2">Low or better</option>
-            <option value="0">Pacific only (none)</option>
-          </select>
-          <select id="sort" aria-label="Sort">
-            <option value="score">Sort: best match</option>
-            <option value="cost">Sort: lowest est. cost</option>
-            <option value="seaweed">Sort: least seaweed</option>
-            <option value="kids">Sort: most kid fun</option>
-            <option value="drinks">Sort: best drinks</option>
-            <option value="travel">Sort: shortest travel</option>
-          </select>
+        <div class="ctl">
+          <h3>Your group</h3>
+          <div class="row">
+            <label class="num">Adults <input id="adults" type="number" min="1" max="8" value="2"></label>
+            <label class="num">Kids <input id="kids" type="number" min="0" max="8" value="2"></label>
+            <label class="num">Nights <input id="nights" type="number" min="1" max="14" value="4"></label>
+          </div>
+          <p class="muted" style="font-size:12px;margin:6px 0 14px">Nightly rates assume one room for 2 adults + 2 kids. Other sizes are scaled roughly, with kids counted at about half an adult.</p>
+          <h3>Sort</h3>
+          <div class="row">
+            <select id="sort" aria-label="Sort" style="width:100%">
+              <option value="seaweed">Least seaweed first</option>
+              <option value="cost">Lowest est. cost</option>
+              <option value="kids">Most kid fun</option>
+              <option value="drinks">Best drinks</option>
+              <option value="travel">Shortest travel</option>
+            </select>
+          </div>
+        </div>
+        <div class="ctl">
+          <h3>💵 Budget &amp; ✈️ travel</h3>
+          <div class="rangebox">
+            <label for="stops"><span>Flight stops</span></label>
+            <select id="stops" style="width:100%">
+              <option value="any">Nonstop or 1 stop</option>
+              <option value="nonstop">Nonstop available (incl. seasonal)</option>
+              <option value="daily">Daily nonstop only</option>
+            </select>
+          </div>
+          <div class="rangebox">
+            <label for="maxTravel"><span>Max travel time, Austin → resort</span><output id="o-travel"></output></label>
+            <input id="maxTravel" type="range" min="180" max="510" step="15" value="510">
+          </div>
+          <div class="rangebox">
+            <label for="maxCost"><span>Max est. trip total</span><output id="o-cost"></output></label>
+            <input id="maxCost" type="range" min="0" max="100" step="250" value="100">
+            <div class="muted">Midpoint of each resort's estimate for your group, nights and flights.</div>
+          </div>
         </div>
       </div>
-      <div class="ctl">
-        <h3>Must have</h3>
-        <div class="checks">
-          <label><input type="checkbox" data-need="slides"> Water slides</label>
-          <label><input type="checkbox" data-need="waterpark"> Real water park</label>
-          <label><input type="checkbox" data-need="lazy"> Lazy river</label>
-          <label><input type="checkbox" data-need="bowlgolf"> Bowling / mini golf</label>
-          <label><input type="checkbox" data-need="swim"> Swimmable beach</label>
-          <label><input type="checkbox" data-need="drinks4"> Top-shelf drinks</label>
-          <label><input type="checkbox" data-need="pools4"> 4+ pools</label>
-        </div>
-        <div class="row" style="margin-top:12px">
-          <label class="toggle"><input type="checkbox" id="favOnly"> <span>★ Show favorites only (<span id="favCount">0</span>)</span></label>
-          <button class="btn" id="reset">Reset</button>
-        </div>
-      </div>
-    </div>
-    <div class="filters">
-      <div class="rangebox">
-        <label for="stops"><span>Flight stops</span></label>
-        <select id="stops" style="width:100%">
-          <option value="any">Nonstop or 1 stop</option>
-          <option value="nonstop">Nonstop available (incl. seasonal)</option>
-          <option value="daily">Daily nonstop only</option>
-        </select>
-      </div>
-      <div class="rangebox">
-        <label for="maxTravel"><span>Max travel time, Austin → resort</span><output id="o-travel"></output></label>
-        <input id="maxTravel" type="range" min="180" max="510" step="15" value="510">
-        <div class="muted">Flight time + airport transfer. Excludes check-in and layover waits beyond a typical connection.</div>
-      </div>
-      <div class="rangebox">
-        <label for="maxCost"><span>Max est. trip total</span><output id="o-cost"></output></label>
-        <input id="maxCost" type="range" min="0" max="100" step="250" value="100">
-        <div class="muted">Uses the midpoint of each resort's estimate for your group, nights and flights.</div>
-      </div>
-    </div>
+    </details>
   </section>
 
   <div class="resultbar">
     <div class="count" id="count"></div>
-    <div class="muted" style="font-size:13px">Hover (or tap) any score or bar to see why it scored that way.</div>
+    <div class="muted" style="font-size:13px">Hover (or tap) any line on a card for the details behind it.</div>
   </div>
   <div class="cards" id="cards"></div>
   <div class="empty panel" id="empty" hidden>No resorts match. Loosen a filter, or if "favorites only" is on, add favorites with the ☆ button on each card first.</div>
@@ -372,7 +442,8 @@ footer ol{padding-left:18px}
 
 </main>
 
-<footer class="wrap">
+<footer>
+<div class="wrap">
   <p><b>Sources used for this update</b></p>
   <ol>
     <li><a href="https://optics.marine.usf.edu/projects/SaWS.html" target="_blank" rel="noopener">USF Optical Oceanography Lab: Sargassum Watch outlook bulletins (Sept 2026)</a></li>
@@ -389,6 +460,8 @@ footer ol{padding-left:18px}
     <li>Other options: <a href="https://globetotting.com/all-inclusive-family-hotel-club-med-ixtapa" target="_blank" rel="noopener">Club Med Ixtapa</a>, <a href="https://all-inclusive-guide.com/resorts/dreams-playa-bonita-panama/" target="_blank" rel="noopener">Dreams Playa Bonita</a>, <a href="https://familydestinationsguide.com/best-all-inclusive-resorts-in-mazatlan/" target="_blank" rel="noopener">Mazatlán</a>, <a href="https://www.howisthesargassum.com/blog/best-hotels-cozumel-2026" target="_blank" rel="noopener">Cozumel</a></li>
   </ol>
   <p>Estimates are for planning only. Resort amenities change, so confirm anything that's a dealbreaker (slides, lazy river, kids club hours) directly with the resort.</p>
+  <p class="center">Curated for March 14–18, 2027 family spring break from Austin (AUS) · beachfront all-inclusives · low-seaweed guidance. All pricing is estimated.</p>
+</div>
 </footer>
 
 <script>
@@ -403,7 +476,7 @@ const hm=m=>`${Math.floor(m/60)}h${String(m%60).padStart(2,"0")}`;
 // k = kids amenities: slides, waterpark, lazy, bowling, minigolf, arcade, flowrider, kidsclub, teens
 // nonstop: "daily" | "seasonal" | "none"
 const resorts=[
-{ id:"hzpv", name:"Hyatt Ziva Puerto Vallarta", area:"Conchas Chinas, Puerto Vallarta", region:"Pacific Mexico",
+{ id:"hzpv", url:"https://www.hyatt.com/en-US/hotel/mexico/hyatt-ziva-puerto-vallarta/pvrif", name:"Hyatt Ziva Puerto Vallarta", area:"Conchas Chinas, Puerto Vallarta", region:"Pacific Mexico",
   airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (~2h20, limited days; check it lines up with Mar 14/18), otherwise 1 stop via DFW/IAH", flight:[450,700], transfer:20,
   risk:0, swim:true, beach:"Long sandy cove between rocky points. Fairly calm, with a small shore break. Free kayaks and boogie boards.",
   restaurants:"5 + food carts", pools:5, poolsNote:"5 pools (2 adults-only) + kids' pool",
@@ -412,7 +485,7 @@ const resorts=[
   pros:["Zero sargassum risk (Pacific)","Banderas Bay whale season runs into March, a great kid excursion","Short ride from the airport and Old Town"],
   cons:["No water slides or water park","Older property. Swim-up suites are 18+","Only 5 restaurants"] },
 
-{ id:"hrv", name:"Hard Rock Hotel Vallarta", area:"Nuevo Vallarta, Riviera Nayarit", region:"Pacific Mexico",
+{ id:"hrv", url:"https://hotel.hardrock.com/vallarta/", name:"Hard Rock Hotel Vallarta", area:"Nuevo Vallarta, Riviera Nayarit", region:"Pacific Mexico",
   airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (limited days), otherwise 1 stop", flight:[450,700], transfer:15,
   risk:0, swim:true, beach:"Wide, swimmable Nuevo Vallarta beach on Banderas Bay.",
   restaurants:"6", pools:3, poolsNote:"2 large free-form pools (one with a water slide) + kids' pool",
@@ -421,7 +494,7 @@ const resorts=[
   pros:["No seaweed, swimmable beach","15 minutes from PVR","Good value for a Hard Rock"],
   cons:["Only one pool slide, no real water park","Fewer pools than the Caribbean mega-resorts"] },
 
-{ id:"dbm", name:"Dreams Bahia Mita Surf & Spa", area:"Bahía de Mita / Punta de Mita, Riviera Nayarit", region:"Pacific Mexico",
+{ id:"dbm", url:"https://www.hyattinclusivecollection.com/en/resorts-hotels/dreams/mexico/bahia-mita-surf-spa-resort/", name:"Dreams Bahia Mita Surf & Spa", area:"Bahía de Mita / Punta de Mita, Riviera Nayarit", region:"Pacific Mexico",
   airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (limited days), otherwise 1 stop", flight:[450,700], transfer:40,
   risk:0, swim:true, beach:"Bay beach listed as swimmable. The surf theme means some days have waves.",
   restaurants:"7 + cafés", pools:6, poolsNote:"5–6 pools incl. heated water-park pool + kids' pool",
@@ -430,7 +503,7 @@ const resorts=[
   pros:["New 18,600 sq ft kids' water park with pirate ship and 3 slides","Explorer's Club (3–12) and Core Zone teens club","No seaweed"],
   cons:["Roughly 40-minute transfer","Mixed food reviews","Top-shelf requires Preferred Club"] },
 
-{ id:"gpv", name:"Grand Palladium Vallarta (Family Selection)", area:"Litibú / Punta de Mita, Riviera Nayarit", region:"Pacific Mexico",
+{ id:"gpv", url:"https://www.palladiumhotelgroup.com/en/hotels/mexico/riviera-nayarit/grand-palladium-vallarta-resort-spa", name:"Grand Palladium Vallarta (Family Selection)", area:"Litibú / Punta de Mita, Riviera Nayarit", region:"Pacific Mexico",
   airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (limited days), otherwise 1 stop", flight:[450,700], transfer:40,
   risk:0, swim:"partial", beach:"Beachfront on the open Pacific north of Punta de Mita. Reviewers like the beach, but check surf conditions.",
   restaurants:"5 + snack bar", pools:3, poolsNote:"2 pools + kids' pool",
@@ -439,7 +512,7 @@ const resorts=[
   pros:["Free kids' water park with slide, plus playground and arcade","No seaweed, and cheaper than most Vallarta options"],
   cons:["Only 5 restaurants and reports of long waits for reservations","About 40-minute transfer","Fewer pools than the Caribbean Palladiums"] },
 
-{ id:"rpcsl", name:"Riu Palace Cabo San Lucas", area:"El Médano Beach, Cabo San Lucas", region:"Pacific Mexico",
+{ id:"rpcsl", url:"https://www.riu.com/en/hotel/mexico/los-cabos/hotel-riu-palace-cabo-san-lucas/", name:"Riu Palace Cabo San Lucas", area:"El Médano Beach, Cabo San Lucas", region:"Pacific Mexico",
   airport:"SJD", nonstop:"daily", flightNote:"Daily Southwest nonstop (~2h50). American and Delta add seasonal nonstops this winter.", flight:[450,700], transfer:45,
   risk:0, swim:true, beach:"Médano Beach, widely called the most swimmable beach in Los Cabos.",
   restaurants:"7", pools:5, poolsNote:"5 pools (2 swim-up bars, adults only)",
@@ -448,7 +521,7 @@ const resorts=[
   pros:["On-site Splash Water World (5 slides)","Swimmable beach, which is rare in Cabo","Nonstop flight and the best price in the Pacific group"],
   cons:["Médano is a college spring-break party zone from February into early April","Riu drinks and food are mid-tier","Cabo water is cool in March (about 70–72°F)"] },
 
-{ id:"hzlc", name:"Hyatt Ziva Los Cabos", area:"San José del Cabo", region:"Pacific Mexico",
+{ id:"hzlc", url:"https://www.hyatt.com/en-US/hotel/mexico/hyatt-ziva-los-cabos/sjdif", name:"Hyatt Ziva Los Cabos", area:"San José del Cabo", region:"Pacific Mexico",
   airport:"SJD", nonstop:"daily", flightNote:"Daily Southwest nonstop (~2h50). American and Delta add seasonal nonstops.", flight:[450,700], transfer:20,
   risk:0, swim:"partial", beach:"Protected cove. Swimmable in calm conditions, but swells can bring red-flag days.",
   restaurants:"7 (17 restaurants + bars)", pools:5, poolsNote:"4–5 pools incl. infinity + adults-only",
@@ -457,7 +530,7 @@ const resorts=[
   pros:["20 minutes from SJD, nonstop from Austin","Mini water park with slides, kids club and teen lounge","Calmer, more family feel than Médano"],
   cons:["Beach swimming depends on conditions","Cool Pacific water in March"] },
 
-{ id:"hrlc", name:"Hard Rock Hotel Los Cabos", area:"Diamante, Pacific side of Cabo San Lucas", region:"Pacific Mexico",
+{ id:"hrlc", url:"https://hotel.hardrock.com/los-cabos/", name:"Hard Rock Hotel Los Cabos", area:"Diamante, Pacific side of Cabo San Lucas", region:"Pacific Mexico",
   airport:"SJD", nonstop:"daily", flightNote:"Daily Southwest nonstop (~2h50)", flight:[450,700], transfer:50,
   risk:0, swim:false, beach:"Pacific-facing and NOT swimmable (red-flag surf). For walking and sunsets only.",
   restaurants:"8 à la carte", pools:6, poolsNote:"5–6 pools incl. family pool with flume slides",
@@ -466,7 +539,7 @@ const resorts=[
   pros:["4-lane bowling alley, slides, kids club and teen lounge","Big pool complex","No seaweed"],
   cons:["You can't swim in the ocean","About 50-minute transfer","Pricier"] },
 
-{ id:"riugc", name:"Riu Guanacaste", area:"Matapalo Beach, Guanacaste, Costa Rica", region:"Costa Rica",
+{ id:"riugc", url:"https://www.riu.com/en/hotel/costa-rica/guanacaste/hotel-riu-guanacaste/", name:"Riu Guanacaste", area:"Matapalo Beach, Guanacaste, Costa Rica", region:"Costa Rica",
   airport:"LIR", nonstop:"none", flightNote:"1 stop (Southwest's AUS–LIR nonstop is summer-only in 2027)", flight:[550,850], transfer:30,
   risk:0, swim:true, beach:"Matapalo Beach on the Pacific. Swimmable, with warm water (about 80°F).",
   restaurants:"6+ (plus taco & grill stations)", pools:6, poolsNote:"6 pools, 3 with swim-up bars",
@@ -475,7 +548,7 @@ const resorts=[
   pros:["Free Splash Water World next door (5 slides incl. 4-lane racer)","Fully renovated and reopened in 2026","Lowest price on the list, warm Pacific water, dry season"],
   cons:["Sister Riu Palace Costa Rica is closed for renovation until spring 2027, so expect possible construction nearby","Riu-level drinks","1-stop flight"] },
 
-{ id:"barua", name:"Barceló Aruba", area:"Palm Beach, Aruba", region:"Aruba",
+{ id:"barua", url:"https://www.barcelo.com/en-us/barcelo-aruba/", name:"Barceló Aruba", area:"Palm Beach, Aruba", region:"Aruba",
   airport:"AUA", nonstop:"none", flightNote:"1 stop (via MIA, IAH or CLT)", flight:[600,900], transfer:20,
   risk:1, swim:true, beach:"Palm Beach: calm, clear and very swimmable.",
   restaurants:"7", pools:1, poolsNote:"1 large pool",
@@ -484,7 +557,7 @@ const resorts=[
   pros:["Aruba is the safest Caribbean seaweed bet","Calm, kid-safe water"],
   cons:["Only one pool and no slides, so weak on kid fun","Aruba is pricey for what you get"] },
 
-{ id:"btc", name:"Beaches Turks & Caicos", area:"Grace Bay, Providenciales", region:"Turks & Caicos",
+{ id:"btc", url:"https://www.beaches.com/resorts/turks-caicos/", name:"Beaches Turks & Caicos", area:"Grace Bay, Providenciales", region:"Turks & Caicos",
   airport:"PLS", nonstop:"none", flightNote:"1 stop (via MIA, CLT or DFW)", flight:[650,950], transfer:15,
   risk:2, swim:true, beach:"Grace Bay, often voted the world's best beach. A barrier reef keeps it calm.",
   restaurants:"20+", pools:10, poolsNote:"10 pools + water park",
@@ -493,7 +566,7 @@ const resorts=[
   pros:["Best kids' setup on the list: 45,000 sq ft Pirates Island water park with lazy river, Sesame Street","20+ restaurants, 14 bars","Transfers, tips and taxes included"],
   cons:["By far the most expensive: family suites run about $1,900+/night even off-peak","1-stop flight"] },
 
-{ id:"bneg", name:"Beaches Negril", area:"Seven Mile Beach, Negril, Jamaica", region:"Jamaica",
+{ id:"bneg", url:"https://www.beaches.com/resorts/negril/", name:"Beaches Negril", area:"Seven Mile Beach, Negril, Jamaica", region:"Jamaica",
   airport:"MBJ", nonstop:"none", flightNote:"1 stop (via DFW, IAH, ATL or MIA)", flight:[550,800], transfer:80,
   risk:2, swim:true, beach:"The widest part of Seven Mile Beach. Calm and west-facing.",
   restaurants:"13", pools:4, poolsNote:"3 pools + water park pools",
@@ -502,7 +575,7 @@ const resorts=[
   pros:["Pirates Island water park with big slides and lazy river","13 restaurants, premium drinks, transfers and tips included","Negril is historically clear in March"],
   cons:["About 75–90-minute transfer from Montego Bay","Premium price","Western Jamaica is still rebuilding after Hurricane Melissa (Oct 2025). The resort reopened Dec 2025, but some off-site tours and roads may be limited"] },
 
-{ id:"mpj", name:"Moon Palace Jamaica", area:"Ocho Rios, Jamaica", region:"Jamaica",
+{ id:"mpj", url:"https://jamaica.moonpalace.com/", name:"Moon Palace Jamaica", area:"Ocho Rios, Jamaica", region:"Jamaica",
   airport:"MBJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:105,
   risk:2, swim:true, beach:"White sand, calm water.",
   restaurants:"8", pools:4, poolsNote:"4 pools (one with a slide) + kids' pool",
@@ -511,7 +584,7 @@ const resorts=[
   pros:["FlowRider double surf simulator and Wired Lounge arcade","Calm, swimmable beach","Palace 'kids stay free' offers and resort credits often apply"],
   cons:["About 1h45 transfer from Montego Bay","No real water park"] },
 
-{ id:"rbw", name:"Royalton Blue Waters", area:"Falmouth (Trelawny), Jamaica", region:"Jamaica",
+{ id:"rbw", url:"https://www.marriott.com/MBJRB", name:"Royalton Blue Waters", area:"Falmouth (Trelawny), Jamaica", region:"Jamaica",
   airport:"MBJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:35,
   risk:2, swim:true, beach:"Listed as swimmable.",
   restaurants:"~7", pools:4, poolsNote:"Several pools + kids' pool + swim-up bars",
@@ -520,7 +593,7 @@ const resorts=[
   pros:["Kids club (4–12) plus a teens club","Reasonable price, good food variety"],
   cons:["Just a water slide, no water park","Best drinks require Diamond Club","Reopened Sept 15, 2026 after Hurricane Melissa repairs, so recent reviews are thin"] },
 
-{ id:"gpj", name:"Grand Palladium Jamaica", area:"Lucea (Hanover), Jamaica", region:"Jamaica",
+{ id:"gpj", url:"https://www.palladiumhotelgroup.com/en/hotels/jamaica/jamaicamontegobay/grand-palladium-jamaica-resort-spa", name:"Grand Palladium Jamaica", area:"Lucea (Hanover), Jamaica", region:"Jamaica",
   airport:"MBJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:40,
   risk:2, swim:true, beach:"On the northwest coast. Rocky in places, with a sandy swimming area.",
   restaurants:"10", pools:3, poolsNote:"Huge main pool + kids' water play park (shared complex)",
@@ -529,7 +602,7 @@ const resorts=[
   pros:["10 restaurants and 17 bars","Baby, mini and teen clubs","Budget-friendly"],
   cons:["Water play area is aimed at little kids","The beach is the weakest of the Jamaica picks","Hanover took a direct hit from Hurricane Melissa. The resort is open, but check recent reviews for repair status"] },
 
-{ id:"hzc", name:"Hyatt Ziva Cancún", area:"Punta Cancún (north tip of Hotel Zone)", region:"Cancún (protected)",
+{ id:"hzc", url:"https://www.hyatt.com/en-US/hotel/mexico/hyatt-ziva-cancun/canif", name:"Hyatt Ziva Cancún", area:"Punta Cancún (north tip of Hotel Zone)", region:"Cancún (protected)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops on Southwest and American (~2h40). Delta adds one this winter.", flight:[400,650], transfer:20,
   risk:3, swim:true, beach:"Two beaches on the tip of the peninsula, including a calm, north-facing side that's good for little swimmers.",
   restaurants:"7 + food carts", pools:4, poolsNote:"3 infinity pools + kids' pool",
@@ -538,7 +611,7 @@ const resorts=[
   pros:["Best Cancún spot for avoiding seaweed","Nonstop and only 20 minutes from the airport","Walkable to Hotel Zone attractions"],
   cons:["Kids' water area with slides is small","Mixed food reviews","Under-13s not allowed in swim-up rooms"] },
 
-{ id:"dpm", name:"Dreams Playa Mujeres", area:"Playa Mujeres, north of Cancún", region:"Cancún (protected)",
+{ id:"dpm", url:"https://www.hyattinclusivecollection.com/en/resorts-hotels/dreams/mexico/playa-mujeres-golf-spa-resort/", name:"Dreams Playa Mujeres", area:"Playa Mujeres, north of Cancún", region:"Cancún (protected)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
   risk:3, swim:true, beach:"Wide, less crowded beach. Swimmable.",
   restaurants:"10", pools:5, poolsNote:"65,000 sq ft of pools on 3 levels",
@@ -547,7 +620,7 @@ const resorts=[
   pros:["Huge pool area with 2 slides and a mini water park in the kids club","10 restaurants, 13 bars","Explorer's Club and Core Zone teens club"],
   cons:["Food consistency varies","Far from Hotel Zone nightlife (fine for families)"] },
 
-{ id:"gpcm", name:"Grand Palladium Costa Mujeres (Family Selection)", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
+{ id:"gpcm", url:"https://www.palladiumhotelgroup.com/en/hotels/mexico/costamujerescancun/family-selection-at-grand-palladium-select-costa-mujeres", name:"Grand Palladium Select Costa Mujeres (Family Selection)", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
   risk:3, swim:true, beach:"Private beach area on Costa Mujeres.",
   restaurants:"10", pools:5, poolsNote:"Multiple pools incl. family pool",
@@ -556,7 +629,7 @@ const resorts=[
   pros:["Children's aquatic park with slides","Baby, mini and junior clubs","Best value in the protected Cancún zone"],
   cons:["Very large resort with lots of walking","Popular restaurants need app reservations"] },
 
-{ id:"mecm", name:"Majestic Elegance Costa Mujeres", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
+{ id:"mecm", url:"https://www.majestic-resorts.com/costa-mujeres/resorts/majestic-elegance-costa-mujeres", name:"Majestic Elegance Costa Mujeres", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
   risk:3, swim:true, beach:"White sand. Lounge chairs and palapas provided.",
   restaurants:"8", pools:12, poolsNote:"12 pools (7 reserved for Elegance Club) + kids' pool",
@@ -565,7 +638,7 @@ const resorts=[
   pros:["Premium drinks included","12 pools, 13 bars","Access to the water park at sister Majestic Mirage"],
   cons:["Water park is at the sister resort","Best pools reserved for the club level"] },
 
-{ id:"fpm", name:"Finest Playa Mujeres", area:"Playa Mujeres, north of Cancún", region:"Cancún (protected)",
+{ id:"fpm", url:"https://www.finestresorts.com/cancun/finest-playa-mujeres/", name:"Finest Playa Mujeres", area:"Playa Mujeres, north of Cancún", region:"Cancún (protected)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
   risk:3, swim:true, beach:"Swimmable beach with a beach bar.",
   restaurants:"12", pools:10, poolsNote:"10 pools (4 heated) + kids' pool with slides",
@@ -574,7 +647,7 @@ const resorts=[
   pros:["12 restaurants, 16 bars, 10 pools","Premium drinks","Kids' clubs by age, game room, kids' theater"],
   cons:["Some reviewers complain about the food","Dress code at some restaurants","Pricey"] },
 
-{ id:"phc", name:"Planet Hollywood Cancún", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
+{ id:"phc", url:"https://www.marriott.com/CUNPC", name:"Planet Hollywood Cancún", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
   risk:3, swim:true, beach:"Listed as swimmable.",
   restaurants:"~10", pools:5, poolsNote:"4 pools + lazy river + 2 splash parks",
@@ -583,7 +656,7 @@ const resorts=[
   pros:["Lazy river and two splash parks (Shipwreck Cove slides, Jurassic Splash)","Stars Kids Club, lots of dining variety"],
   cons:["Planet Play indoor park and FlowRider cost extra","Average drinks unless you upgrade"] },
 
-{ id:"hrpc", name:"Hard Rock Hotel & Casino Punta Cana", area:"Macao / Arena Gorda, Punta Cana, DR", region:"Dominican Republic",
+{ id:"hrpc", url:"https://hotel.hardrock.com/punta-cana/", name:"Hard Rock Hotel & Casino Punta Cana", area:"Macao / Arena Gorda, Punta Cana, DR", region:"Dominican Republic",
   airport:"PUJ", nonstop:"none", flightNote:"1 stop (Southwest's PUJ nonstop is summer-only in 2027)", flight:[550,800], transfer:25,
   risk:5, swim:true, beach:"Long Atlantic-facing beach. Rougher surf and more seaweed exposure than Bávaro.",
   restaurants:"17", pools:13, poolsNote:"13 pools incl. 3 kids' pools",
@@ -592,7 +665,7 @@ const resorts=[
   pros:["Checks every kid box: water park, lazy river, bowling, mini golf","17 restaurants, 13 pools","Premium drinks"],
   cons:["Macao / Arena Gorda is one of Punta Cana's more seaweed-exposed stretches","Lively, party-leaning crowd in places"] },
 
-{ id:"rspc", name:"Royalton Splash Punta Cana", area:"Bávaro / Arena Gorda, Punta Cana, DR", region:"Dominican Republic",
+{ id:"rspc", url:"https://www.marriott.com/PUJRS", name:"Royalton Splash Punta Cana", area:"Bávaro / Arena Gorda, Punta Cana, DR", region:"Dominican Republic",
   airport:"PUJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:25,
   risk:5, swim:true, beach:"Bávaro area beach. Exposure is moderate to high in recent years.",
   restaurants:"~8", pools:5, poolsNote:"Several pools + wave pool",
@@ -601,7 +674,7 @@ const resorts=[
   pros:["One of the Caribbean's biggest resort water parks: 7 big slides incl. roller-coaster slide, wave pool","Arcade, kids club"],
   cons:["Punta Cana seaweed risk","Best drinks require Diamond Club"] },
 
-{ id:"hzcc", name:"Hyatt Ziva Cap Cana", area:"Juanillo Beach, Cap Cana, DR", region:"Dominican Republic",
+{ id:"hzcc", url:"https://www.hyatt.com/en-US/hotel/dominican-republic/hyatt-ziva-cap-cana/pujif", name:"Hyatt Ziva Cap Cana", area:"Juanillo Beach, Cap Cana, DR", region:"Dominican Republic",
   airport:"PUJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:15,
   risk:4, swim:true, beach:"Juanillo Beach in gated Cap Cana. Reef-protected and calm.",
   restaurants:"6 + food truck", pools:4, poolsNote:"Infinity pools + water park",
@@ -610,7 +683,7 @@ const resorts=[
   pros:["Water park with 5 slides and a lazy river","Calmest beach of the DR picks","15 minutes from PUJ"],
   cons:["Punta Cana-area seaweed risk (moderate)","Only 6 restaurants","Slides need about a 4-ft height"] },
 
-{ id:"mpc", name:"Moon Palace The Grand – Cancún", area:"South of Cancún (Riviera Cancún)", region:"Riviera Maya (high seaweed)",
+{ id:"mpc", url:"https://thegrand.moonpalace.com/", name:"Moon Palace The Grand – Cancún", area:"South of Cancún (Riviera Cancún)", region:"Riviera Maya (high seaweed)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:15,
   risk:6, swim:"partial", beach:"East-facing and rougher. Reviewers rate it about 3/5 and say it's badly hit in seaweed years.",
   restaurants:"11 (25+ across complex)", pools:9, poolsNote:"9 pools at The Grand + access to the rest of the complex",
@@ -619,7 +692,7 @@ const resorts=[
   pros:["Huge water park, wave pool, lazy river, FlowRider and 6-lane bowling","Best drinks among the big family resorts","Palace often runs 'kids 17 and under stay free' offers plus resort credits (16% fee applies)"],
   cons:["HIGH seaweed exposure, the same coast that hit you last year","Beach is the weak spot"] },
 
-{ id:"rsrc", name:"Royalton Splash Riviera Cancún", area:"Puerto Morelos", region:"Riviera Maya (high seaweed)",
+{ id:"rsrc", url:"https://www.marriott.com/CUNSR", name:"Royalton Splash Riviera Cancún", area:"Puerto Morelos", region:"Riviera Maya (high seaweed)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:25,
   risk:6, swim:"partial", beach:"Puerto Morelos coast. High seaweed exposure.",
   restaurants:"12 dining venues", pools:6, poolsNote:"Water park + several pools",
@@ -628,7 +701,7 @@ const resorts=[
   pros:["14 slides, 2 lazy rivers, bowling, trampoline park, laser tag"],
   cons:["HIGH seaweed exposure in Riviera Maya","Average drinks without the upgrade"] },
 
-{ id:"nrm", name:"Nickelodeon Hotels & Resorts Riviera Maya", area:"Puerto Morelos", region:"Riviera Maya (high seaweed)",
+{ id:"nrm", url:"https://www.karismahotels.com/nickelodeon-hotels-resorts/riviera-maya", name:"Nickelodeon Hotels & Resorts Riviera Maya", area:"Puerto Morelos", region:"Riviera Maya (high seaweed)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:25,
   risk:6, swim:"partial", beach:"Oceanfront in Puerto Morelos. High seaweed exposure.",
   restaurants:"6–8", pools:5, poolsNote:"Water park + pools. Many suites have plunge pools",
@@ -643,21 +716,16 @@ const ADVISORY={"Pacific Mexico":null,"Costa Rica":[2,"Costa Rica: Level 2, exer
 const ADV_BY_ID={hzpv:[3,"Jalisco: Level 3 'reconsider travel' statewide. Puerto Vallarta itself has no US-government travel restrictions"],hrv:[2,"Nayarit: Level 2, exercise increased caution"],dbm:[2,"Nayarit: Level 2, exercise increased caution"],gpv:[2,"Nayarit: Level 2, exercise increased caution"],rpcsl:[2,"Baja California Sur: Level 2, exercise increased caution"],hzlc:[2,"Baja California Sur: Level 2, exercise increased caution"],hrlc:[2,"Baja California Sur: Level 2, exercise increased caution"]};
 resorts.forEach(r=>{r.adv=ADV_BY_ID[r.id]||ADVISORY[r.region];});
 resorts.forEach(r=>{const f=FLIGHT[r.airport]; r.flightMin = r.nonstop!=="none"&&f.ns ? f.ns : f.one; r.flightFallback = r.nonstop==="seasonal"? f.one : null; r.travelMin=r.flightMin+r.transfer;});
-// ---------- scoring ----------
-function priceScore(mid){ if(mid<=650)return 5; if(mid<=850)return 4.3; if(mid<=1050)return 3.6; if(mid<=1300)return 2.8; if(mid<=1700)return 2; return 1.2; }
-function flightScore(r){ let s = r.nonstop==="daily"?5 : r.nonstop==="seasonal"?4.3 : 3; if(r.transfer>90)s-=1; else if(r.transfer>60)s-=.5; return Math.max(1,s); }
-function factorScores(r){ const beach=Math.max(1,RISK_SCORE[r.risk]-(r.swim===false?1.5:r.swim==="partial"?0.6:0)); return { seaweed:beach, kids:r.kidsScore, drinks:r.drinks, price:priceScore((r.price[0]+r.price[1])/2), flight:flightScore(r) }; }
-
-const W=["seaweed","kids","drinks","price","flight"];
-const LABELS={seaweed:"Beach",kids:"Kids' fun",drinks:"Drinks",price:"Price",flight:"Travel"};
+// ---------- category labels ----------
+const kidsTier=v=> v>=4.5?"Excellent": v>=4?"Great": v>=3?"Good":"Basic";
+const drinksTier=v=> v>=4?"Top-shelf": v>=3?"Mid-tier":"Basic";
+const priceTier=mid=> mid<=650?"$": mid<=950?"$$": mid<=1400?"$$$":"$$$$";
 const KID_LABELS={waterpark:"Water park",slides:"Slides",lazy:"Lazy river",bowling:"Bowling",minigolf:"Mini golf",arcade:"Arcade",flowrider:"FlowRider",kidsclub:"Kids club",teens:"Teen club"};
 
 const $=id=>document.getElementById(id);
 const store={ get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}} };
 let favs=new Set(store.get("sb27-favs",[]));
 
-function weights(){ const w={}; W.forEach(k=>{w[k]=+$("w-"+k).value; $("o-"+k).textContent=w[k];}); return w; }
-function overall(fs,w){ let tot=0,sum=0; W.forEach(k=>{tot+=w[k]; sum+=w[k]*fs[k];}); return tot? Math.round(sum/tot/5*100) : 0; }
 
 function costRange(r){
   const a=Math.max(1,+$("adults").value||2), k=Math.max(0,+$("kids").value||0), n=Math.max(1,+$("nights").value||4);
@@ -669,7 +737,11 @@ const money=v=>"$"+(Math.round(v/50)*50).toLocaleString();
 
 function passes(r){
   const reg=$("region").value; if(reg!=="all" && r.region!==reg) return false;
+  const q=$("q").value.trim().toLowerCase();
+  if(q){ const hay=[r.name,r.area,r.region,r.beach,r.drinksNote,r.flightNote,r.poolsNote,r.restaurants,...r.pros,...r.cons,...Object.keys(r.k).filter(k=>r.k[k]).map(k=>KID_LABELS[k])].join(" ").toLowerCase(); if(!q.split(/\s+/).every(w=>hay.includes(w))) return false; }
   if(r.risk>+$("maxRisk").value) return false;
+  if(r.kidsScore<+$("kidsMin").value) return false;
+  if(r.drinks<+$("drinksMin").value) return false;
   const st=$("stops").value; if(st==="nonstop"&&r.nonstop==="none")return false; if(st==="daily"&&r.nonstop!=="daily")return false;
   if(r.travelMin>+$("maxTravel").value) return false;
   if($("favOnly").checked && !favs.has(r.id)) return false;
@@ -680,24 +752,21 @@ function passes(r){
     if(n==="lazy"&&!r.k.lazy)return false;
     if(n==="bowlgolf"&&!(r.k.bowling||r.k.minigolf))return false;
     if(n==="swim"&&r.swim!==true)return false;
-    if(n==="drinks4"&&r.drinks<4)return false;
     if(n==="pools4"&&r.pools<4)return false;
   }
   return true;
 }
 
 function render(){
-  const w=weights();
-  let list=resorts.map(r=>{const fs=factorScores(r);const cost=costRange(r);return {r,fs,score:overall(fs,w),cost,mid:(cost.lo+cost.hi)/2,w};});
+  let list=resorts.map(r=>{const cost=costRange(r);return {r,cost,mid:(cost.lo+cost.hi)/2};});
   // cost slider bounds follow group size / nights
   const cs=$("maxCost"), mids=list.map(x=>x.mid), cmin=Math.floor(Math.min(...mids)/250)*250, cmax=Math.ceil(Math.max(...mids)/250)*250;
   const atMax = !cs.dataset.ready || +cs.value>=+cs.max; cs.dataset.ready="1"; cs.min=cmin; cs.max=cmax; if(atMax||+cs.value>cmax) cs.value=cmax; if(+cs.value<cmin) cs.value=cmin;
   $("o-cost").textContent = +cs.value>=cmax ? "Any" : "≤ "+money(+cs.value);
   const tv=$("maxTravel"); $("o-travel").textContent = +tv.value>=+tv.max ? "Any" : "≤ "+hm(+tv.value);
   const s=$("sort").value;
-  const by={score:(a,b)=>b.score-a.score, cost:(a,b)=>(a.cost.lo+a.cost.hi)-(b.cost.lo+b.cost.hi), seaweed:(a,b)=>a.r.risk-b.r.risk||b.score-a.score, kids:(a,b)=>b.r.kidsScore-a.r.kidsScore||b.score-a.score, drinks:(a,b)=>b.r.drinks-a.r.drinks||b.score-a.score, travel:(a,b)=>a.r.travelMin-b.r.travelMin||b.score-a.score}[s];
-  // rank always reflects best-match order
-  const ranked=[...list].sort((a,b)=>b.score-a.score); ranked.forEach((x,i)=>x.rank=i+1);
+  const swimRank=r=>r.swim===true?0:r.swim==="partial"?1:2;
+  const by={cost:(a,b)=>a.mid-b.mid, seaweed:(a,b)=>a.r.risk-b.r.risk||swimRank(a.r)-swimRank(b.r)||b.r.kidsScore-a.r.kidsScore||a.mid-b.mid, kids:(a,b)=>b.r.kidsScore-a.r.kidsScore||a.r.risk-b.r.risk, drinks:(a,b)=>b.r.drinks-a.r.drinks||a.r.risk-b.r.risk, travel:(a,b)=>a.r.travelMin-b.r.travelMin||a.r.risk-b.r.risk}[s];
   list=list.filter(x=>passes(x.r) && x.mid<=+cs.value).sort(by);
   $("count").textContent=`${list.length} of ${resorts.length} resorts`;
   $("favCount").textContent=favs.size;
@@ -707,65 +776,72 @@ function render(){
 }
 
 const attr=t=>String(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
-function reasons(r,fs,score,w){
+function reasons(r){
   const kidsHave=Object.keys(KID_LABELS).filter(k=>r.k[k]).map(k=>KID_LABELS[k]);
-  const swimPen = r.swim===false?" −1.5 because the ocean isn't swimmable.": r.swim==="partial"?" −0.6 because swimming depends on conditions.":"";
-  const mid=(r.price[0]+r.price[1])/2;
-  const flightTxt = r.nonstop==="daily"?"Daily nonstop = 5": r.nonstop==="seasonal"?"Seasonal / limited-day nonstop = 4.3":"1-stop flight = 3";
-  const xferPen = r.transfer>90?" −1 for a transfer over 90 min.": r.transfer>60?" −0.5 for a transfer over 60 min.":"";
-  const tot=W.reduce((a,k)=>a+w[k],0)||1;
+  const swimTxt = r.swim===true?"Swimmable beach.": r.swim===false?"The ocean here isn't swimmable (pools only).":"Swimming depends on surf conditions.";
+  const ns = r.nonstop==="daily"?"Daily nonstop": r.nonstop==="seasonal"?"Seasonal / limited-day nonstop":"1-stop flight";
   return {
-    seaweed:`Beach ${fs.seaweed.toFixed(1)}/5 — Seaweed risk: ${RISK_LABEL[r.risk]}. ${RISK_WHY[r.risk]}${swimPen}\n${r.beach}`,
-    kids:`Kids' fun ${fs.kids.toFixed(1)}/5 — Has: ${kidsHave.join(", ")||"basic pools only"}. Pools: ${r.poolsNote}.`,
-    drinks:`Drinks ${fs.drinks.toFixed(1)}/5 — ${r.drinksNote}`,
-    price:`Price ${fs.price.toFixed(1)}/5 — Est. ${money(r.price[0])}–${money(r.price[1])}/night for 2 adults + 2 kids (midpoint ${money(mid)}). Scale: ≤$650 = 5, ≤$850 = 4.3, ≤$1,050 = 3.6, ≤$1,300 = 2.8, ≤$1,700 = 2.`,
-    flight:`Travel ${fs.flight.toFixed(1)}/5 — ${flightTxt}.${xferPen} Flight ~${hm(r.flightMin)} + ~${r.transfer} min transfer = ~${hm(r.travelMin)} door to resort.`,
-    overall:`Overall ${score}/100 — weighted by your sliders:\n`+W.map(k=>`${LABELS[k]} ${fs[k].toFixed(1)}/5 × weight ${w[k]} (${Math.round(w[k]/tot*100)}%)`).join("\n")
+    seaweed:`Seaweed risk: ${RISK_LABEL[r.risk]}. ${RISK_WHY[r.risk]} ${swimTxt}\n${r.beach}`,
+    kids:`${kidsTier(r.kidsScore)}: ${kidsHave.join(", ")||"basic pools only"}. Pools: ${r.poolsNote}.`,
+    drinks:`${drinksTier(r.drinks)}: ${r.drinksNote}`,
+    price:`Est. ${money(r.price[0])}–${money(r.price[1])} per night for 2 adults + 2 kids in spring break week. $ ≤ $650, $$ ≤ $950, $$$ ≤ $1,400, $$$$ above.`,
+    flight:`${ns}. Flight ~${hm(r.flightMin)} + ~${r.transfer} min transfer = ~${hm(r.travelMin)} door to resort.\n${r.flightNote}`
   };
 }
 function card(x){
-  const r=x.r, fs=x.fs, c=x.cost, why=reasons(r,fs,x.score,x.w);
+  const r=x.r, c=x.cost, why=reasons(r);
+  const swimShort = r.swim===true?"swimmable": r.swim===false?"no ocean swimming":"swim varies";
+  const quick=[
+    ["seaweed","🌊 Beach",`${r.risk===0?"No":RISK_LABEL[r.risk]} seaweed · ${swimShort}`],
+    ["kids","🛝 Kids' fun",`${kidsTier(r.kidsScore)}`],
+    ["drinks","🍹 Drinks",drinksTier(r.drinks)],
+    ["price","💵 Price",`${priceTier((r.price[0]+r.price[1])/2)} · ${money(r.price[0])}–${money(r.price[1])}/night`],
+    ["flight","✈️ Travel",`${r.nonstop==="none"?"1 stop":"Nonstop"} · ~${hm(r.travelMin)} to resort`]];
   const enc=encodeURIComponent;
   const gf=`https://www.google.com/travel/flights?q=${enc(`Flights from AUS to ${r.airport} on 2027-03-14 through 2027-03-18`)}`;
   const gh=`https://www.google.com/travel/search?q=${enc(r.name)}`;
   const ta=`https://www.tripadvisor.com/Search?q=${enc(r.name)}`;
-  const off=`https://www.google.com/search?q=${enc(r.name+" official site")}`;
+  const off=r.url;
   const swim = r.swim===true?"Swimmable beach": r.swim===false?"Beach not swimmable":"Beach: conditions vary";
   const nonstop = r.nonstop==="daily"?"Nonstop": r.nonstop==="seasonal"?"Seasonal nonstop":"1 stop";
   const flightFact = r.nonstop==="none" ? `~${hm(r.flightMin)} (1 stop)` : `~${hm(r.flightMin)} nonstop${r.flightFallback?` (or ~${hm(r.flightFallback)} w/ 1 stop)`:""}`;
   const kidChips=Object.keys(KID_LABELS).filter(k=>["waterpark","slides","lazy","bowling","minigolf"].includes(k)||r.k[k]).map(k=>`<span class="kid ${r.k[k]?"yes":""}">${r.k[k]?"✓ ":""}${KID_LABELS[k]}</span>`).join("");
-  return `<article class="card ${r.risk>=5?"flag":""}">
-    <div class="card-top">
+  const band = r.risk>=5?"hi": r.risk>=3?"mid":"";
+  const pin='<svg width="13" height="13" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>';
+  return `<article class="card">
+    <div class="band ${band}">
+      <div class="rankb">🌊 Seaweed: ${RISK_LABEL[r.risk]}</div>
+      <div class="score" tabindex="0" data-tip="${attr(why.price)}"><div class="k">Est. rate*</div><div class="v">${money(r.price[0])}<small>–${money(r.price[1])}</small></div><div class="k" style="margin-top:2px">per night (2+2)</div></div>
+      <div class="bandloc">${pin}${r.area.split(",").slice(-1)[0].trim()===r.area?r.area:r.area.split(",")[0]}, ${r.region.replace(" (high seaweed)","").replace(" (protected)","")}</div>
+    </div>
+    <div class="cbody">
       <div>
-        <div class="rank">#${x.rank} best match · ${r.region}</div>
-        <h3>${r.name}</h3>
+        <div class="metarow"><span class="regchip">${r.region}</span><button class="fav ${favs.has(r.id)?"on":""}" data-id="${r.id}" aria-pressed="${favs.has(r.id)}">${favs.has(r.id)?"★ Favorited":"☆ Add to favorites"}</button></div>
+        <h3 style="margin-top:8px">${r.name}</h3>
         <div class="loc">${r.area}</div>
       </div>
-      <div class="score" tabindex="0" style="--p:${x.score}" data-tip="${attr(why.overall)}"><span>${x.score}<small>score</small></span></div>
+      <div class="badges">
+        <span class="tag ocean">${nonstop} · ${r.airport}</span>
+        <span class="tag">${swim}</span>
+        <span class="tag" data-tip="${attr("US State Dept advisory. "+r.adv[1])}" tabindex="0">US advisory: L${r.adv[0]}</span>
+      </div>
+      <div class="quick">${quick.map(([k,l,v])=>`<div class="qrow" tabindex="0" data-tip="${attr(why[k])}"><span>${l}</span><b>${v}</b></div>`).join("")}</div>
+      <div class="cost"><span class="k">Est. trip total · ${c.people} people · ${c.n} nights · flights + resort</span><span class="v">${money(c.lo)}–${money(c.hi)}</span>
+        <span class="s">Flights ~$${r.flight[0]}–${r.flight[1]} per person RT · resort ${money(r.price[0])}–${money(r.price[1])}/night (2+2)</span></div>
+      <div class="facts">
+        <div class="fact"><div class="k">Flight from AUS</div><div class="v">${flightFact}</div></div>
+        <div class="fact"><div class="k">Door to resort</div><div class="v">~${hm(r.travelMin)} <span class="muted" style="font-weight:500">(+${r.transfer} min transfer)</span></div></div>
+        <div class="fact"><div class="k">Restaurants</div><div class="v">${r.restaurants}</div></div>
+        <div class="fact"><div class="k">Pools</div><div class="v">${r.poolsNote}</div></div>
+      </div>
+      <div class="kids">${kidChips}</div>
     </div>
-    <div class="favrow"><button class="fav ${favs.has(r.id)?"on":""}" data-id="${r.id}" aria-pressed="${favs.has(r.id)}">${favs.has(r.id)?"★ Favorited (tap to remove)":"☆ Add to favorites"}</button></div>
-    <div class="badges">
-      <span class="risk r${r.risk}">Seaweed: ${RISK_LABEL[r.risk]}</span>
-      <span class="tag ocean">${nonstop} · ${r.airport}</span>
-      <span class="tag">${swim}</span>
-      <span class="tag" data-tip="${attr("US State Dept advisory. "+r.adv[1])}" tabindex="0">US advisory: L${r.adv[0]}</span>
-    </div>
-    <div class="bars">${W.map(k=>`<div class="bar" tabindex="0" data-tip="${attr(why[k])}"><span>${LABELS[k]} ⓘ</span><div class="track"><div class="fill" style="width:${fs[k]/5*100}%;background:${k==="seaweed"?(fs[k]>=4?"#2f8a4e":fs[k]>=3?"#b7791f":"#b4442f"):"var(--ocean)"}"></div></div><em>${fs[k].toFixed(1)}</em></div>`).join("")}</div>
-    <div class="cost" style="margin-top:10px"><span class="k">Est. trip total (${c.people} people, ${c.n} nights, flights + resort)</span><span class="v">${money(c.lo)}–${money(c.hi)}</span>
-      <span class="s">Flights ~$${r.flight[0]}–${r.flight[1]} per person RT · resort ${money(r.price[0])}–${money(r.price[1])}/night (2+2)</span></div>
-    <div class="facts" style="padding-top:0">
-      <div class="fact"><div class="k">Flight from AUS</div><div class="v">${flightFact}</div></div>
-      <div class="fact"><div class="k">Door to resort</div><div class="v">~${hm(r.travelMin)} <span class="muted" style="font-weight:500">(+${r.transfer} min transfer)</span></div></div>
-      <div class="fact"><div class="k">Restaurants</div><div class="v">${r.restaurants}</div></div>
-      <div class="fact"><div class="k">Pools</div><div class="v">${r.poolsNote}</div></div>
-    </div>
-    <div class="kids">${kidChips}</div>
     <details>
-      <summary>Details & links</summary>
+      <summary>View March 14–18 Family Details</summary>
       <div class="more">
         <div class="pc">
-          <div><h4>Why it fits</h4><ul>${r.pros.map(p=>`<li>${p}</li>`).join("")}</ul></div>
-          <div><h4>Watch-outs</h4><ul>${r.cons.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+          <div><h4>Family pros</h4><ul>${r.pros.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+          <div><h4>Considerations / cons</h4><ul>${r.cons.map(p=>`<li>${p}</li>`).join("")}</ul></div>
         </div>
         <h4>Beach</h4><div>${r.beach}</div>
         <h4>Drinks</h4><div>${r.drinksNote}</div>
@@ -775,7 +851,7 @@ function card(x){
           <a href="${gf}" target="_blank" rel="noopener">✈️ Google Flights (Mar 14–18)</a>
           <a href="${gh}" target="_blank" rel="noopener">🏨 Live rates</a>
           <a href="${ta}" target="_blank" rel="noopener">⭐ Tripadvisor reviews & photos</a>
-          <a href="${off}" target="_blank" rel="noopener">🌐 Official site</a>
+          <a href="${off}" target="_blank" rel="noopener">🌐 Official resort website</a>
         </div>
       </div>
     </details>
@@ -783,11 +859,14 @@ function card(x){
 }
 
 // ---------- init ----------
-[...new Set(resorts.map(r=>r.region))].forEach(reg=>{const o=document.createElement("option");o.value=reg;o.textContent=reg;$("region").appendChild(o);});
+const REGIONS=[...new Set(resorts.map(r=>r.region))];
+REGIONS.forEach(reg=>{const o=document.createElement("option");o.value=reg;o.textContent=reg;$("region").appendChild(o);});
+function drawPills(){ const cur=$("region").value; $("regionPills").innerHTML=["all",...REGIONS].map(v=>`<button class="pill ${v===cur?"on":""}" data-reg="${attr(v)}">${v==="all"?"All Regions":v.replace(" (high seaweed)","")}</button>`).join(""); }
+$("regionPills").addEventListener("click",e=>{const b=e.target.closest(".pill"); if(!b)return; $("region").value=b.dataset.reg; drawPills(); render();});
+drawPills();
 document.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",render));
 $("reset").addEventListener("click",()=>{
-  const d={seaweed:9,kids:8,drinks:5,price:6,flight:5}; W.forEach(k=>$("w-"+k).value=d[k]);
-  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("maxRisk").value="6";$("sort").value="score";$("favOnly").checked=false;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
+  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("q").value="";drawPills();$("maxRisk").value="6";$("sort").value="seaweed";$("kidsMin").value="0";$("drinksMin").value="0";$("favOnly").checked=false;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
   document.querySelectorAll("[data-need]").forEach(c=>c.checked=false); render();
 });
 render();
