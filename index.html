@@ -84,6 +84,11 @@ section{margin:24px 0}
 .chipcheck input{position:absolute;opacity:0;pointer-events:none}
 .chipcheck:has(input:checked){border-color:var(--brand);background:var(--brand-50);color:var(--brand-7);font-weight:600}
 .chipcheck:has(input:focus-visible){box-shadow:0 0 0 2px var(--brand)}
+.chipgroup{display:flex;flex-wrap:wrap;gap:6px}
+.chipgroup .chipcheck{font-size:11.5px;padding:6px 10px}
+.chipcheck .n{color:var(--ink-4);font-weight:500}
+.qrow.list{flex-direction:column;align-items:stretch;gap:5px}
+.qrow.list .kids{padding:0}
 .resetlink{margin-left:auto;border:none;background:none;cursor:pointer;font:inherit;font-size:12px;font-weight:700;color:#e11d48;padding:6px 8px}
 .resetlink:hover{color:#9f1239}
 details.tune{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-2)}
@@ -251,10 +256,6 @@ footer .center{text-align:center;color:var(--ink-4)}
     </div>
     <div class="tagrow">
       <span class="lbl">Must have:</span>
-      <label class="chipcheck"><input type="checkbox" data-need="slides">Water slides</label>
-      <label class="chipcheck"><input type="checkbox" data-need="waterpark">Real water park</label>
-      <label class="chipcheck"><input type="checkbox" data-need="lazy">Lazy river</label>
-      <label class="chipcheck"><input type="checkbox" data-need="bowlgolf">Bowling / mini golf</label>
       <label class="chipcheck"><input type="checkbox" data-need="swim">Swimmable beach</label>
       <label class="chipcheck"><input type="checkbox" data-need="pools4">4+ pools</label>
       <label class="chipcheck"><input type="checkbox" id="favOnly"><span>★ Favorites (<span id="favCount">0</span>)</span></label>
@@ -264,7 +265,7 @@ footer .center{text-align:center;color:var(--ink-4)}
       <summary>Filter by beach, kids' fun, drinks, budget, travel &amp; group size</summary>
       <div class="controls">
         <div class="ctl">
-          <h3>Beach, kids &amp; drinks</h3>
+          <h3>Beach, kids &amp; drinks</h3><p class="muted" style="font-size:12px;margin:-4px 0 10px">Pick as many as you like. Resorts must have everything you check.</p>
           <div class="rangebox">
             <label for="maxRisk"><span>🌊 Beach: seaweed risk</span></label>
             <select id="maxRisk" style="width:100%">
@@ -276,21 +277,12 @@ footer .center{text-align:center;color:var(--ink-4)}
             </select>
           </div>
           <div class="rangebox">
-            <label for="kidsMin"><span>🛝 Kids' fun</span></label>
-            <select id="kidsMin" style="width:100%">
-              <option value="0">Any</option>
-              <option value="3">Good or better (slides or kids' water play)</option>
-              <option value="4">Great or better (real water park)</option>
-              <option value="4.5">Excellent (water park + lazy river / bowling)</option>
-            </select>
+            <label><span>🛝 Kids' fun: must have</span></label>
+            <div class="chipgroup" id="kidFilters"></div>
           </div>
           <div class="rangebox">
-            <label for="drinksMin"><span>🍹 Drinks</span></label>
-            <select id="drinksMin" style="width:100%">
-              <option value="0">Any</option>
-              <option value="3">Mid-tier or better</option>
-              <option value="4">Top-shelf included for everyone</option>
-            </select>
+            <label><span>🍹 Drinks: must have</span></label>
+            <div class="chipgroup" id="drinkFilters"></div>
           </div>
         </div>
         <div class="ctl">
@@ -400,7 +392,12 @@ footer .center{text-align:center;color:var(--ink-4)}
       <tr><td><b>Sunscape Curaçao</b></td><td>Below the seaweed belt, with a calm jetty-protected beach.</td><td>Man-made beach, crowded main pool, 5 restaurants with long lines, no slides, Wi-Fi fees.</td></tr>
       <tr><td><b>Cozumel west coast</b> (Iberostar Waves, Meliá)</td><td>The west coast is sheltered from sargassum.</td><td>Family options are thin (Iberostar has 1 pool and no slides), and getting there takes a 1-stop flight or a Cancún flight plus ferry.</td></tr>
       <tr><td><b>Club Med Cancún</b> (Punta Nizuc)</td><td>Partly sheltered point, kids clubs, drinks included.</td><td>Small main pool, dated and dark rooms, Wi-Fi fees.</td></tr>
-      <tr><td><b>Bahamas, Puerto Rico, USVI</b></td><td>Short flights. The Bahamas sit north of the main seaweed belt.</td><td>Almost no true family all-inclusives (Atlantis isn't all-inclusive), and researchers rank PR/USVI among the highest-risk areas for severe sargassum.</td></tr>
+      <tr><td><b>Bahamas</b></td><td>Short flights, and it sits north of the main seaweed belt.</td><td>Almost no true family all-inclusives. Atlantis isn't all-inclusive.</td></tr>
+      <tr><td colspan="3" style="background:var(--surface-3);font-weight:700;color:var(--ink-strong)">🇺🇸 Domestic / US-territory options (no passport needed)</td></tr>
+      <tr><td><b>Bolongo Bay Beach Resort</b> (St. Thomas, USVI)</td><td>The only true beachfront all-inclusive on US soil. Calm 1,000-ft cove beach, unlimited house drinks, free kayaks, paddleboards and snorkel gear. No passports needed.</td><td>Too small for your list: 1 small pool, 2 casual restaurants, no kids club, and top-shelf drinks cost extra. 1-stop flight. Researchers rank the USVI among the areas most at risk of severe sargassum.</td></tr>
+      <tr><td><b>voco Sandpiper All-Inclusive</b> (Port St. Lucie, FL; former Club Med)</td><td>A US all-inclusive (IHG) with pools and water sports, reached via Palm Beach (PBI).</td><td>It's on the St. Lucie River, not the ocean (the nearest beach is a 15–20 min drive). It reopened in Jan 2026 half-finished, with only the buffet open. The kids club and other restaurants aren't due until late 2026 or early 2027.</td></tr>
+      <tr><td><b>El Conquistador</b> (Fajardo, Puerto Rico)</td><td>Coquí water park with a lazy river and slides, 5 pools, many restaurants.</td><td>The resort's own FAQ says it is <b>not all-inclusive</b> (some packagers sell bundles). The water park and kids club cost extra, the beach is on Palomino Island by ferry, and northeast Puerto Rico is high-risk for seaweed.</td></tr>
+      <tr><td><b>Florida, Texas Gulf, Hawaii, Myrtle Beach, etc.</b></td><td>Easy domestic travel, and lots of family beach hotels.</td><td>There are no true family all-inclusives (food <i>and</i> drinks) that are beachfront. "All-inclusive" US lists mostly mean meal plans, lake or ranch resorts, or Disney. Hawaii is also 8+ hours from Austin.</td></tr>
       <tr><td><b>Hyatt Ziva Rose Hall, Dreams (ex-Hilton) Rose Hall</b> (Jamaica)</td><td>Montego Bay family resorts. Hilton Rose Hall had a water park and lazy river.</td><td>Closed since Hurricane Melissa, with reopening pushed into 2027.</td></tr>
     </table></div>
   </details>
@@ -716,11 +713,14 @@ const ADVISORY={"Pacific Mexico":null,"Costa Rica":[2,"Costa Rica: Level 2, exer
 const ADV_BY_ID={hzpv:[3,"Jalisco: Level 3 'reconsider travel' statewide. Puerto Vallarta itself has no US-government travel restrictions"],hrv:[2,"Nayarit: Level 2, exercise increased caution"],dbm:[2,"Nayarit: Level 2, exercise increased caution"],gpv:[2,"Nayarit: Level 2, exercise increased caution"],rpcsl:[2,"Baja California Sur: Level 2, exercise increased caution"],hzlc:[2,"Baja California Sur: Level 2, exercise increased caution"],hrlc:[2,"Baja California Sur: Level 2, exercise increased caution"]};
 resorts.forEach(r=>{r.adv=ADV_BY_ID[r.id]||ADVISORY[r.region];});
 resorts.forEach(r=>{const f=FLIGHT[r.airport]; r.flightMin = r.nonstop!=="none"&&f.ns ? f.ns : f.one; r.flightFallback = r.nonstop==="seasonal"? f.one : null; r.travelMin=r.flightMin+r.transfer;});
+const KID_EXTRA={rspc:["wavepool"],mpc:["wavepool"],btc:["characters","scuba"],bneg:["characters","scuba"],nrm:["characters"],rsrc:["trampoline"],dbm:["heated"],fpm:["heated"]};
+const DRINKS={hzpv:["topshelf","swimup","tasting"],hrv:["intl","swimup"],dbm:["intl","upgrade"],gpv:["intl","upgrade","swimup"],rpcsl:["intl","swimup","bar24"],hzlc:["topshelf","swimup","tasting"],hrlc:["topshelf","swimup"],riugc:["intl","swimup","bar24"],barua:["intl"],btc:["topshelf","wine","inroom","swimup"],bneg:["topshelf","wine","inroom","swimup"],mpj:["intl","swimup"],rbw:["intl","upgrade","swimup"],gpj:["intl","upgrade","inroom"],hzc:["topshelf","swimup","tasting","brewery"],dpm:["intl","upgrade","swimup"],gpcm:["intl","upgrade","inroom"],mecm:["topshelf"],fpm:["topshelf","swimup"],phc:["intl","upgrade"],hrpc:["topshelf","swimup"],rspc:["intl","upgrade"],hzcc:["intl","upgrade","swimup"],mpc:["topshelf","dispenser"],rsrc:["intl","upgrade"],nrm:["intl"]};
+const DRINK_LABELS={topshelf:"Top-shelf spirits for everyone",intl:"House + select international brands",upgrade:"Premium spirits with club upgrade",wine:"Premium wine (Mondavi)",swimup:"Swim-up bar",inroom:"Stocked in-room bar / minibar",dispenser:"In-room liquor dispenser",tasting:"Tequila / mezcal tastings",brewery:"On-site microbrewery",bar24:"24-hour bar"};
+resorts.forEach(r=>{(KID_EXTRA[r.id]||[]).forEach(k=>r.k[k]=true); r.d=DRINKS[r.id]||[];});
 // ---------- category labels ----------
-const kidsTier=v=> v>=4.5?"Excellent": v>=4?"Great": v>=3?"Good":"Basic";
-const drinksTier=v=> v>=4?"Top-shelf": v>=3?"Mid-tier":"Basic";
+const kidCount=r=>Object.keys(KID_LABELS).filter(k=>r.k[k]).length;
 const priceTier=mid=> mid<=650?"$": mid<=950?"$$": mid<=1400?"$$$":"$$$$";
-const KID_LABELS={waterpark:"Water park",slides:"Slides",lazy:"Lazy river",bowling:"Bowling",minigolf:"Mini golf",arcade:"Arcade",flowrider:"FlowRider",kidsclub:"Kids club",teens:"Teen club"};
+const KID_LABELS={waterpark:"Water park",slides:"Water slides",lazy:"Lazy river",wavepool:"Wave pool",bowling:"Bowling",minigolf:"Mini golf",arcade:"Arcade",flowrider:"FlowRider surf",trampoline:"Trampoline park & laser tag",characters:"Character experiences",scuba:"Kids' scuba program",heated:"Heated pools",kidsclub:"Kids club",teens:"Teen club"};
 
 const $=id=>document.getElementById(id);
 const store={ get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}} };
@@ -740,17 +740,13 @@ function passes(r){
   const q=$("q").value.trim().toLowerCase();
   if(q){ const hay=[r.name,r.area,r.region,r.beach,r.drinksNote,r.flightNote,r.poolsNote,r.restaurants,...r.pros,...r.cons,...Object.keys(r.k).filter(k=>r.k[k]).map(k=>KID_LABELS[k])].join(" ").toLowerCase(); if(!q.split(/\s+/).every(w=>hay.includes(w))) return false; }
   if(r.risk>+$("maxRisk").value) return false;
-  if(r.kidsScore<+$("kidsMin").value) return false;
-  if(r.drinks<+$("drinksMin").value) return false;
+  for(const cb of document.querySelectorAll("[data-kid]:checked")) if(!r.k[cb.dataset.kid]) return false;
+  for(const cb of document.querySelectorAll("[data-drink]:checked")) if(!r.d.includes(cb.dataset.drink)) return false;
   const st=$("stops").value; if(st==="nonstop"&&r.nonstop==="none")return false; if(st==="daily"&&r.nonstop!=="daily")return false;
   if(r.travelMin>+$("maxTravel").value) return false;
   if($("favOnly").checked && !favs.has(r.id)) return false;
   for(const cb of document.querySelectorAll("[data-need]:checked")){
     const n=cb.dataset.need;
-    if(n==="slides"&&!r.k.slides)return false;
-    if(n==="waterpark"&&!r.k.waterpark)return false;
-    if(n==="lazy"&&!r.k.lazy)return false;
-    if(n==="bowlgolf"&&!(r.k.bowling||r.k.minigolf))return false;
     if(n==="swim"&&r.swim!==true)return false;
     if(n==="pools4"&&r.pools<4)return false;
   }
@@ -766,7 +762,7 @@ function render(){
   const tv=$("maxTravel"); $("o-travel").textContent = +tv.value>=+tv.max ? "Any" : "≤ "+hm(+tv.value);
   const s=$("sort").value;
   const swimRank=r=>r.swim===true?0:r.swim==="partial"?1:2;
-  const by={cost:(a,b)=>a.mid-b.mid, seaweed:(a,b)=>a.r.risk-b.r.risk||swimRank(a.r)-swimRank(b.r)||b.r.kidsScore-a.r.kidsScore||a.mid-b.mid, kids:(a,b)=>b.r.kidsScore-a.r.kidsScore||a.r.risk-b.r.risk, drinks:(a,b)=>b.r.drinks-a.r.drinks||a.r.risk-b.r.risk, travel:(a,b)=>a.r.travelMin-b.r.travelMin||a.r.risk-b.r.risk}[s];
+  const by={cost:(a,b)=>a.mid-b.mid, seaweed:(a,b)=>a.r.risk-b.r.risk||swimRank(a.r)-swimRank(b.r)||b.r.kidsScore-a.r.kidsScore||a.mid-b.mid, kids:(a,b)=>kidCount(b.r)-kidCount(a.r)||b.r.kidsScore-a.r.kidsScore||a.r.risk-b.r.risk, drinks:(a,b)=>b.r.drinks-a.r.drinks||a.r.risk-b.r.risk, travel:(a,b)=>a.r.travelMin-b.r.travelMin||a.r.risk-b.r.risk}[s];
   list=list.filter(x=>passes(x.r) && x.mid<=+cs.value).sort(by);
   $("count").textContent=`${list.length} of ${resorts.length} resorts`;
   $("favCount").textContent=favs.size;
@@ -782,8 +778,8 @@ function reasons(r){
   const ns = r.nonstop==="daily"?"Daily nonstop": r.nonstop==="seasonal"?"Seasonal / limited-day nonstop":"1-stop flight";
   return {
     seaweed:`Seaweed risk: ${RISK_LABEL[r.risk]}. ${RISK_WHY[r.risk]} ${swimTxt}\n${r.beach}`,
-    kids:`${kidsTier(r.kidsScore)}: ${kidsHave.join(", ")||"basic pools only"}. Pools: ${r.poolsNote}.`,
-    drinks:`${drinksTier(r.drinks)}: ${r.drinksNote}`,
+    kids:`Pools: ${r.poolsNote}.`,
+    drinks:r.drinksNote,
     price:`Est. ${money(r.price[0])}–${money(r.price[1])} per night for 2 adults + 2 kids in spring break week. $ ≤ $650, $$ ≤ $950, $$$ ≤ $1,400, $$$$ above.`,
     flight:`${ns}. Flight ~${hm(r.flightMin)} + ~${r.transfer} min transfer = ~${hm(r.travelMin)} door to resort.\n${r.flightNote}`
   };
@@ -793,8 +789,6 @@ function card(x){
   const swimShort = r.swim===true?"swimmable": r.swim===false?"no ocean swimming":"swim varies";
   const quick=[
     ["seaweed","🌊 Beach",`${r.risk===0?"No":RISK_LABEL[r.risk]} seaweed · ${swimShort}`],
-    ["kids","🛝 Kids' fun",`${kidsTier(r.kidsScore)}`],
-    ["drinks","🍹 Drinks",drinksTier(r.drinks)],
     ["price","💵 Price",`${priceTier((r.price[0]+r.price[1])/2)} · ${money(r.price[0])}–${money(r.price[1])}/night`],
     ["flight","✈️ Travel",`${r.nonstop==="none"?"1 stop":"Nonstop"} · ~${hm(r.travelMin)} to resort`]];
   const enc=encodeURIComponent;
@@ -805,7 +799,8 @@ function card(x){
   const swim = r.swim===true?"Swimmable beach": r.swim===false?"Beach not swimmable":"Beach: conditions vary";
   const nonstop = r.nonstop==="daily"?"Nonstop": r.nonstop==="seasonal"?"Seasonal nonstop":"1 stop";
   const flightFact = r.nonstop==="none" ? `~${hm(r.flightMin)} (1 stop)` : `~${hm(r.flightMin)} nonstop${r.flightFallback?` (or ~${hm(r.flightFallback)} w/ 1 stop)`:""}`;
-  const kidChips=Object.keys(KID_LABELS).filter(k=>["waterpark","slides","lazy","bowling","minigolf"].includes(k)||r.k[k]).map(k=>`<span class="kid ${r.k[k]?"yes":""}">${r.k[k]?"✓ ":""}${KID_LABELS[k]}</span>`).join("");
+  const kidChips=Object.keys(KID_LABELS).filter(k=>r.k[k]).map(k=>`<span class="kid yes">✓ ${KID_LABELS[k]}</span>`).join("")||'<span class="kid">Pools and beach only</span>';
+  const drinkChips=Object.keys(DRINK_LABELS).filter(k=>r.d.includes(k)).map(k=>`<span class="kid yes">✓ ${DRINK_LABELS[k]}</span>`).join("");
   const band = r.risk>=5?"hi": r.risk>=3?"mid":"";
   const pin='<svg width="13" height="13" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>';
   return `<article class="card">
@@ -825,7 +820,9 @@ function card(x){
         <span class="tag">${swim}</span>
         <span class="tag" data-tip="${attr("US State Dept advisory. "+r.adv[1])}" tabindex="0">US advisory: L${r.adv[0]}</span>
       </div>
-      <div class="quick">${quick.map(([k,l,v])=>`<div class="qrow" tabindex="0" data-tip="${attr(why[k])}"><span>${l}</span><b>${v}</b></div>`).join("")}</div>
+      <div class="quick">${quick.map(([k,l,v])=>`<div class="qrow" tabindex="0" data-tip="${attr(why[k])}"><span>${l}</span><b>${v}</b></div>`).join("")}
+        <div class="qrow list" tabindex="0" data-tip="${attr(why.kids)}"><span>🛝 Kids' fun</span><div class="kids">${kidChips}</div></div>
+        <div class="qrow list" tabindex="0" data-tip="${attr(why.drinks)}"><span>🍹 Drinks</span><div class="kids">${drinkChips}</div></div></div>
       <div class="cost"><span class="k">Est. trip total · ${c.people} people · ${c.n} nights · flights + resort</span><span class="v">${money(c.lo)}–${money(c.hi)}</span>
         <span class="s">Flights ~$${r.flight[0]}–${r.flight[1]} per person RT · resort ${money(r.price[0])}–${money(r.price[1])}/night (2+2)</span></div>
       <div class="facts">
@@ -834,7 +831,6 @@ function card(x){
         <div class="fact"><div class="k">Restaurants</div><div class="v">${r.restaurants}</div></div>
         <div class="fact"><div class="k">Pools</div><div class="v">${r.poolsNote}</div></div>
       </div>
-      <div class="kids">${kidChips}</div>
     </div>
     <details>
       <summary>View March 14–18 Family Details</summary>
@@ -859,6 +855,9 @@ function card(x){
 }
 
 // ---------- init ----------
+function buildChips(el,labels,attrName,has){ $(el).innerHTML=Object.keys(labels).map(k=>{const n=resorts.filter(r=>has(r,k)).length; return n?`<label class="chipcheck"><input type="checkbox" data-${attrName}="${k}"><span>${labels[k]} <span class="n">(${n})</span></span></label>`:""}).join(""); }
+buildChips("kidFilters",KID_LABELS,"kid",(r,k)=>r.k[k]);
+buildChips("drinkFilters",DRINK_LABELS,"drink",(r,k)=>r.d.includes(k));
 const REGIONS=[...new Set(resorts.map(r=>r.region))];
 REGIONS.forEach(reg=>{const o=document.createElement("option");o.value=reg;o.textContent=reg;$("region").appendChild(o);});
 function drawPills(){ const cur=$("region").value; $("regionPills").innerHTML=["all",...REGIONS].map(v=>`<button class="pill ${v===cur?"on":""}" data-reg="${attr(v)}">${v==="all"?"All Regions":v.replace(" (high seaweed)","")}</button>`).join(""); }
@@ -866,8 +865,8 @@ $("regionPills").addEventListener("click",e=>{const b=e.target.closest(".pill");
 drawPills();
 document.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",render));
 $("reset").addEventListener("click",()=>{
-  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("q").value="";drawPills();$("maxRisk").value="6";$("sort").value="seaweed";$("kidsMin").value="0";$("drinksMin").value="0";$("favOnly").checked=false;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
-  document.querySelectorAll("[data-need]").forEach(c=>c.checked=false); render();
+  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("q").value="";drawPills();$("maxRisk").value="6";$("sort").value="seaweed";$("favOnly").checked=false;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
+  document.querySelectorAll("[data-need],[data-kid],[data-drink]").forEach(c=>c.checked=false); render();
 });
 render();
 </script>
