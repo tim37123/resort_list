@@ -1,770 +1,796 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Luxury Resort & Flight Matrix 2027 (All-Inclusive Priority)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            900: '#14532d',
-                        },
-                        lux: {
-                            50: '#f8fafc',
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Break Resort Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f4ee; --surface:#ffffff; --surface-2:#f1ece2; --ink:#1d2a33; --ink-2:#4a5a66; --ink-3:#7b8893;
+  --line:#e3dccf; --ocean:#0f6e7c; --ocean-2:#e2f1f2; --sun:#e98b2a; --sun-2:#fdf0e1;
+  --good:#2f8a4e; --good-2:#e4f3e8; --warn:#b7791f; --warn-2:#fbf1dc; --bad:#b4442f; --bad-2:#f8e3dd;
+  --radius:16px; --shadow:0 1px 2px rgba(29,42,51,.05),0 6px 20px rgba(29,42,51,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em;margin:0}
+a{color:var(--ocean)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+header.hero{background:linear-gradient(160deg,#0f6e7c 0%,#13505c 60%,#1d3a47 100%);color:#fff;padding:36px 0 30px}
+.hero h1{font-size:clamp(28px,4vw,42px);line-height:1.1}
+.hero p.lede{max-width:760px;color:#d6eaec;margin:10px 0 18px;font-size:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);padding:5px 11px;border-radius:999px;font-size:13px;font-weight:500}
+.updated{font-size:12px;color:#a9cdd2;margin-top:14px}
+section{margin:26px 0}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+.panel h2{font-size:22px;margin-bottom:6px}
+.sub{color:var(--ink-2);margin:0 0 14px}
+.grid-2{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}
+@media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+/* seaweed */
+.zones{display:grid;gap:8px}
+.zone{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:start;padding:9px 10px;border-radius:10px;background:var(--surface-2)}
+.zone b{font-size:13px}
+.zone span{font-size:13.5px;color:var(--ink-2)}
+@media (max-width:520px){.zone{grid-template-columns:1fr;gap:4px}}
+.risk{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap;text-align:center}
+.r0,.r1{background:var(--good-2);color:var(--good)}
+.r2{background:#e9f4e4;color:#4b7f2a}
+.r3{background:var(--warn-2);color:var(--warn)}
+.r4{background:#fbe7d3;color:#b0611c}
+.r5,.r6{background:var(--bad-2);color:var(--bad)}
+.callout{border-left:4px solid var(--sun);background:var(--sun-2);padding:12px 14px;border-radius:8px;font-size:14px;margin-top:12px}
+.callout ul{margin:6px 0 0;padding-left:18px}
+.callout li{margin:3px 0}
+/* controls */
+.controls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}
+@media (max-width:980px){.controls{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.controls{grid-template-columns:1fr}}
+.ctl h3{font-family:Inter,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-bottom:10px}
+.slider{display:grid;grid-template-columns:112px 1fr 30px;align-items:center;gap:8px;margin:6px 0;font-size:14px}
+.slider output{font-variant-numeric:tabular-nums;color:var(--ink-2);text-align:right;font-size:13px}
+input[type=range]{width:100%;accent-color:var(--ocean)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0}
+.num{display:flex;align-items:center;gap:6px;font-size:14px}
+.num input{width:56px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+select{padding:7px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff;color:var(--ink);max-width:100%}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:14px}
+@media (max-width:420px){.checks{grid-template-columns:1fr}}
+.checks label,.toggle{display:flex;gap:7px;align-items:center;cursor:pointer}
+input[type=checkbox]{accent-color:var(--ocean);width:16px;height:16px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;color:var(--ink)}
+.btn:hover{border-color:var(--ocean);color:var(--ocean)}
+.resultbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:22px 0 12px}
+.resultbar .count{font-weight:600}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+@media (max-width:400px){.cards{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
+.card.flag{border-color:#efc9bf}
+.card-top{padding:16px 16px 12px;display:grid;grid-template-columns:1fr auto;gap:10px}
+.rank{font-size:12px;color:var(--ink-3);font-weight:600}
+.card h3{font-size:19px;line-height:1.2;margin:2px 0 3px}
+.loc{font-size:13px;color:var(--ink-2)}
+.score{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:20px;color:var(--ocean);background:conic-gradient(var(--ocean) calc(var(--p)*1%),var(--ocean-2) 0);position:relative}
+.score::before{content:"";position:absolute;inset:6px;background:#fff;border-radius:50%}
+.score span{position:relative}
+.score small{display:block;font-size:9px;color:var(--ink-3);font-weight:600;text-align:center;margin-top:-3px}
+.fav{display:inline-flex;align-items:center;gap:6px;cursor:pointer;font:inherit;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;border:1.5px solid var(--sun);background:#fff;color:#a55f12;white-space:nowrap}
+.fav:hover{background:var(--sun-2)}
+.fav.on{background:var(--sun);color:#fff}
+.favrow{padding:0 16px 12px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px}
+.tag{font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink-2)}
+.tag.ocean{background:var(--ocean-2);color:var(--ocean)}
+.bars{padding:12px 16px 4px;display:grid;gap:5px}
+.bar{display:grid;grid-template-columns:78px 1fr 28px;align-items:center;gap:8px;font-size:12px;color:var(--ink-2)}
+.track{height:7px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.fill{height:100%;border-radius:99px;background:var(--ocean)}
+.bar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:12px 16px}
+.fact{background:var(--surface-2);border-radius:10px;padding:8px 10px}
+.fact .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);font-weight:600}
+.fact .v{font-size:13.5px;font-weight:600}
+.kids{display:flex;flex-wrap:wrap;gap:6px;padding:0 16px 12px}
+.kid{font-size:12px;padding:3px 8px;border-radius:6px;border:1px solid var(--line);color:var(--ink-2)}
+.kid.yes{border-color:#b9dcc4;background:var(--good-2);color:var(--good);font-weight:600}
+.cost{margin:0 16px 12px;padding:10px 12px;border-radius:10px;background:var(--sun-2);display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cost .k{font-size:12px;color:#8a5a1f;font-weight:600}
+.cost .v{font-weight:700;font-size:16px;color:#6b4214}
+.cost .s{font-size:11.5px;color:#8a6a3f;width:100%}
+.card details{border-top:1px solid var(--line);margin-top:auto}
+.card summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:13.5px;color:var(--ocean);list-style:none}
+summary::-webkit-details-marker{display:none}
+.card summary::after{content:" ▾"}
+.card details[open] summary::after{content:" ▴"}
+.collapsible{margin:30px 0}
+.collapsible>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.collapsible>summary::after{content:"Show ▾";margin-left:auto;font-size:13px;font-weight:600;color:var(--ocean)}
+.collapsible[open]>summary::after{content:"Hide ▴"}
+.ctitle{font-family:Fraunces,Georgia,serif;font-size:22px;font-weight:700}
+.chint{color:var(--ink-3);font-size:13.5px}
+.subpanel{background:var(--surface-2);border-radius:12px;padding:16px}
+.subpanel .zone{background:#fff}
+.subh{font-size:18px;margin-bottom:6px}
+.perks{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;margin-top:14px}
+.perk{background:var(--surface-2);border-radius:12px;padding:14px 16px;font-size:14px}
+.perk h4{margin:0 0 6px;font-size:15px}
+.perk ul{margin:0;padding-left:18px}
+.perk li{margin:3px 0;color:var(--ink-2)}
+.perk.alert{background:var(--sun-2);border-left:4px solid var(--sun)}
+.filters{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+@media (max-width:860px){.filters{grid-template-columns:1fr}}
+.rangebox label{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.rangebox output{font-weight:700;color:var(--ocean)}
+.rangebox .muted{font-size:12px;margin-top:4px}
+[data-tip]{position:relative;cursor:help}
+[data-tip]:hover::after,[data-tip]:focus::after{content:attr(data-tip);position:absolute;z-index:20;left:0;right:0;top:calc(100% + 6px);background:#1d2a33;color:#fff;font-size:12.5px;line-height:1.45;font-weight:400;padding:9px 11px;border-radius:9px;box-shadow:0 8px 24px rgba(0,0,0,.18);white-space:pre-line;text-align:left;pointer-events:none}
+.tag[data-tip]:hover::after,.tag[data-tip]:focus::after{right:auto;width:270px}
+.score[data-tip]:hover::after,.score[data-tip]:focus::after{left:auto;right:0;width:280px;top:calc(100% + 8px)}
+.bar:focus,.score:focus{outline:2px solid var(--ocean);outline-offset:2px;border-radius:6px}
+.more{padding:0 16px 16px;font-size:13.5px;color:var(--ink-2)}
+.more h4{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin:12px 0 4px}
+.more ul{margin:0;padding-left:18px}
+.more li{margin:2px 0}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.pc{grid-template-columns:1fr}}
+.links{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.links a{font-size:12.5px;font-weight:600;text-decoration:none;border:1px solid var(--line);padding:6px 10px;border-radius:8px;background:#fff}
+.links a:hover{border-color:var(--ocean)}
+.empty{text-align:center;padding:40px;color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
+.tablewrap{overflow-x:auto}
+footer{padding:26px 0 40px;color:var(--ink-3);font-size:12.5px}
+footer ol{padding-left:18px}
+.muted{color:var(--ink-3)}
+</style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+<body>
 
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-tight text-slate-900">Elite All-Inclusive Resort & Flight Matrix 2027</h1>
-                    <p class="text-xs text-slate-500 font-medium">Prioritized All-Inclusive Sanctuaries with Grounded Pricing & Flight Analytics</p>
-                </div>
-            </div>
-            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
-                <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>All-Inclusive Priority Active</span>
-                <span class="bg-brand-50 text-brand-700 px-3 py-1.5 rounded-full border border-brand-200">2027 Season</span>
-            </div>
-        </div>
-    </header>
-
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        <div class="mb-10 text-center max-w-3xl mx-auto">
-            <span class="inline-block text-xs font-bold uppercase tracking-widest bg-brand-100 text-brand-700 px-3 py-1 rounded-full mb-3">All-Inclusive Priority Curation</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">The Ultimate All-Inclusive Luxury Index</h2>
-            <p class="text-slate-600 text-base leading-relaxed">
-                Reflecting your prioritized requirements, our top-ranked properties feature elite all-inclusive luxury—covering fine gastronomy, premium spirits, wellness rituals, and bespoke excursions, paired with verified 2027 flight routes.
-            </p>
-        </div>
-
-        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8 space-y-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <!-- Search Bar -->
-                <div class="md:col-span-1 relative">
-                    <label for="searchInput" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Search Property or Location</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                        </span>
-                        <input type="text" id="searchInput" placeholder="e.g. Grand Velas, Brando, Maldives..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
-                    </div>
-                </div>
-
-                <!-- Region Filter -->
-                <div>
-                    <label for="regionFilter" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Region</label>
-                    <select id="regionFilter" class="w-full py-2.5 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
-                        <option value="all">All Global Regions (20)</option>
-                        <option value="Caribbean & Mexico">Caribbean & Mexico</option>
-                        <option value="Pacific & Asia">Pacific & Asia</option>
-                        <option value="Maldives">Maldives (Indian Ocean)</option>
-                        <option value="USA & Costa Rica">USA & Costa Rica</option>
-                    </select>
-                </div>
-
-                <!-- Amenity Tag Filter -->
-                <div>
-                    <label for="amenityFilter" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Specialty Feature</label>
-                    <select id="amenityFilter" class="w-full py-2.5 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
-                        <option value="all">All Features</option>
-                        <option value="All-Inclusive" selected>🌟 All-Inclusive (Priority)</option>
-                        <option value="Private Pool">Private Pool</option>
-                        <option value="Eco-Luxury">Eco-Luxury</option>
-                        <option value="Wellness / Spa">Wellness / Spa</option>
-                        <option value="Overwater Villa">Overwater Villa</option>
-                    </select>
-                </div>
-
-                <!-- Sort By -->
-                <div>
-                    <label for="sortBy" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Sort Ranking</label>
-                    <select id="sortBy" class="w-full py-2.5 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
-                        <option value="rank-asc">All-Inclusive Priority (1 to 20)</option>
-                        <option value="price-asc">Price: Low to High</option>
-                        <option value="price-desc">Price: High to Low</option>
-                        <option value="rating-desc">Guest Rating: Highest</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-500 font-medium">
-                <span id="resultsCount">Showing prioritized all-inclusive destinations</span>
-                <button id="resetFilters" class="text-brand-600 hover:text-brand-700 font-semibold underline">Reset Filters</button>
-            </div>
-        </div>
-
-        <div id="resortsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Populated via JS -->
-        </div>
-
-        <div id="emptyState" class="hidden text-center py-20 bg-white rounded-2xl border border-slate-200 mt-6">
-            <svg class="w-16 h-16 mx-auto text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <h3 class="text-lg font-bold text-slate-700">No matching destinations found</h3>
-            <p class="text-sm text-slate-500 mt-1">Try adjusting your search query or filter parameters.</p>
-        </div>
-
-    </main>
-
-    <div id="detailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
-        <div id="modalContent" class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300">
-            <div class="relative h-72 sm:h-80 w-full overflow-hidden">
-                <img id="modalImg" src="" alt="Resort Image" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
-                <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-all">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                </button>
-                <div class="absolute bottom-6 left-6 right-6 text-white">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span id="modalRankBadge" class="bg-brand-500 text-white text-xs font-bold px-2.5 py-1 rounded-md">Rank #1</span>
-                        <span id="modalRegionBadge" class="bg-white/20 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-md">Maldives</span>
-                    </div>
-                    <h3 id="modalTitle" class="text-2xl sm:text-3xl font-extrabold tracking-tight">Resort Name</h3>
-                    <p id="modalLocation" class="text-slate-300 text-sm mt-1 flex items-center">
-                        <svg class="w-4 h-4 mr-1 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        <span>Location</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="p-6 sm:p-8 space-y-6">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                    <div>
-                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Nightly Rate (2027)</span>
-                        <span id="modalPrice" class="text-xl font-bold text-slate-900">$2,400</span> <span class="text-xs text-slate-500">/ night</span>
-                    </div>
-                    <div>
-                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Guest Rating</span>
-                        <div class="flex items-center mt-0.5">
-                            <span id="modalRating" class="text-xl font-bold text-slate-900 mr-1.5">4.9</span>
-                            <span id="modalStars" class="text-amber-400 text-sm">★★★★★</span>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Flight Route Estimate</span>
-                        <span id="modalFlight" class="text-sm font-semibold text-brand-700">JFK to CUN ($420 RT)</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
-                        <svg class="w-4 h-4 text-brand-600 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        All-Inclusive & Ranking Rationale
-                    </h4>
-                    <p id="modalReasoning" class="text-slate-600 text-sm leading-relaxed bg-brand-50/50 p-4 rounded-xl border border-brand-100/50">
-                        Reasoning text...
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">Verified Guest Review Highlights</h4>
-                    <p id="modalReviews" class="text-slate-600 text-sm italic border-l-4 border-brand-500 pl-4 py-1">
-                        "Review summary..."
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="bg-emerald-50/50 border border-emerald-100 p-4 rounded-xl">
-                        <h5 class="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2 flex items-center">
-                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                            Key Advantages (Pros)
-                        </h5>
-                        <ul id="modalPros" class="text-xs text-emerald-900 space-y-1.5 list-disc list-inside"></ul>
-                    </div>
-                    <div class="bg-rose-50/50 border border-rose-100 p-4 rounded-xl">
-                        <h5 class="text-xs font-bold text-rose-800 uppercase tracking-wider mb-2 flex items-center">
-                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-                            Considerations (Cons)
-                        </h5>
-                        <ul id="modalCons" class="text-xs text-rose-900 space-y-1.5 list-disc list-inside"></ul>
-                    </div>
-                </div>
-
-                <div>
-                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">Resort Amenities & Features</h4>
-                    <div id="modalAmenities" class="flex flex-wrap gap-2"></div>
-                </div>
-            </div>
-
-            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-slate-500">All-inclusive pricing based on 2027 verified luxury tiers.</span>
-                <button onclick="closeModal()" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl transition-all">Close</button>
-            </div>
-        </div>
+<header class="hero">
+  <div class="wrap">
+    <h1>Spring Break 2027 Resort Finder</h1>
+    <p class="lede">All-inclusive, beachfront, kid-friendly resorts within a nonstop or one-stop flight of Austin, ranked so the beaches least likely to have seaweed come first.</p>
+    <div class="chips">
+      <span class="chip">📅 Sun Mar 14 – Thu Mar 18, 2027 · 4 nights</span>
+      <span class="chip">✈️ From Austin (AUS) · max 1 stop</span>
+      <span class="chip">🍹 Food + drinks included</span>
+      <span class="chip">🌊 Low-sargassum beaches first</span>
     </div>
+    <div class="updated">Research updated October 11, 2026. All prices are rough planning estimates. Check live rates before booking.</div>
+  </div>
+</header>
 
-    <footer class="bg-white border-t border-slate-200 mt-16 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 space-y-2">
-            <p>© 2027 Elite All-Inclusive Resort & Flight Matrix. Prioritized all-inclusive curation and route estimators.</p>
-            <p>Designed for elite travel planning and destination intelligence.</p>
+<main class="wrap">
+
+
+  <details class="panel collapsible" id="scoresBox" style="margin:26px 0 0">
+    <summary><span class="ctitle">How the scores work</span><span class="chint">What each of the five factors measures</span></summary>
+    <div style="margin-top:12px">
+    <div class="tablewrap">
+    <table>
+      <tr><th>Factor</th><th>What it measures</th></tr>
+      <tr><td><b>Clean beach</b></td><td>Mostly the location's mid-March sargassum exposure, from the seaweed guide at the bottom of the page. Pacific scores 5/5 and Riviera Maya scores 1/5. Points come off when the ocean isn't reliably swimmable: −1.5 for a no-swim beach, −0.6 for "conditions vary".</td></tr>
+      <tr><td><b>Kids' fun</b></td><td>Water park, slides, lazy river, bowling, mini golf, arcade, kids and teen clubs, and pool count. A full water park with a lazy river plus bowling is a 5. A kids club and one pool is a 2.</td></tr>
+      <tr><td><b>Drink quality</b></td><td>What the all-inclusive plan actually pours. A 4–5 means premium or top-shelf spirits are included for every guest (Beaches, Moon Palace, Hard Rock, Hyatt Ziva, Finest, Majestic). A 3 means house and "select international" brands, with premium only in a club-level upgrade (Dreams, Royalton, Palladium). Riu is about a 2.5. These are brand-policy judgments, not reviewer scores.</td></tr>
+      <tr><td><b>Price</b></td><td>The midpoint of the estimated nightly rate for 2 adults and 2 kids during spring break. Under $650 a night scores 5/5. Over $1,700 scores about 1/5.</td></tr>
+      <tr><td><b>Easy travel</b></td><td>Daily nonstop from AUS = 5, seasonal or limited nonstop ≈ 4.3, one stop = 3. Points come off for airport transfers over 60 and 90 minutes.</td></tr>
+    </table>
+    </div>
+    </div>
+  </details>
+  <section class="panel">
+    <h2>Tune the ranking</h2>
+    <p class="sub">Set how much each factor matters and how many people are going. The cards re-rank instantly and the cost estimates update.</p>
+    <div class="controls">
+      <div class="ctl">
+        <h3>What matters most</h3>
+        <div class="slider"><label for="w-seaweed">Clean beach</label><input id="w-seaweed" type="range" min="0" max="10" value="9"><output id="o-seaweed">9</output></div>
+        <div class="slider"><label for="w-kids">Kids' fun</label><input id="w-kids" type="range" min="0" max="10" value="8"><output id="o-kids">8</output></div>
+        <div class="slider"><label for="w-drinks">Drink quality</label><input id="w-drinks" type="range" min="0" max="10" value="5"><output id="o-drinks">5</output></div>
+        <div class="slider"><label for="w-price">Price</label><input id="w-price" type="range" min="0" max="10" value="6"><output id="o-price">6</output></div>
+        <div class="slider"><label for="w-flight">Easy travel</label><input id="w-flight" type="range" min="0" max="10" value="5"><output id="o-flight">5</output></div>
+      </div>
+      <div class="ctl">
+        <h3>Your group</h3>
+        <div class="row">
+          <label class="num">Adults <input id="adults" type="number" min="1" max="8" value="2"></label>
+          <label class="num">Kids <input id="kids" type="number" min="0" max="8" value="2"></label>
+          <label class="num">Nights <input id="nights" type="number" min="1" max="14" value="4"></label>
         </div>
-    </footer>
+        <p class="muted" style="font-size:12.5px;margin:8px 0 14px">Nightly rates are estimated for one room with 2 adults and 2 kids. Other group sizes are scaled roughly, with kids counted at about half an adult.</p>
+        <h3>Region & sort</h3>
+        <div class="row">
+          <select id="region" aria-label="Region">
+            <option value="all">All regions</option>
+          </select>
+          <select id="maxRisk" aria-label="Maximum seaweed risk">
+            <option value="6">Any seaweed risk</option>
+            <option value="3">Low–moderate or better</option>
+            <option value="2">Low or better</option>
+            <option value="0">Pacific only (none)</option>
+          </select>
+          <select id="sort" aria-label="Sort">
+            <option value="score">Sort: best match</option>
+            <option value="cost">Sort: lowest est. cost</option>
+            <option value="seaweed">Sort: least seaweed</option>
+            <option value="kids">Sort: most kid fun</option>
+            <option value="drinks">Sort: best drinks</option>
+            <option value="travel">Sort: shortest travel</option>
+          </select>
+        </div>
+      </div>
+      <div class="ctl">
+        <h3>Must have</h3>
+        <div class="checks">
+          <label><input type="checkbox" data-need="slides"> Water slides</label>
+          <label><input type="checkbox" data-need="waterpark"> Real water park</label>
+          <label><input type="checkbox" data-need="lazy"> Lazy river</label>
+          <label><input type="checkbox" data-need="bowlgolf"> Bowling / mini golf</label>
+          <label><input type="checkbox" data-need="swim"> Swimmable beach</label>
+          <label><input type="checkbox" data-need="drinks4"> Top-shelf drinks</label>
+          <label><input type="checkbox" data-need="pools4"> 4+ pools</label>
+        </div>
+        <div class="row" style="margin-top:12px">
+          <label class="toggle"><input type="checkbox" id="favOnly"> <span>★ Show favorites only (<span id="favCount">0</span>)</span></label>
+          <button class="btn" id="reset">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="filters">
+      <div class="rangebox">
+        <label for="stops"><span>Flight stops</span></label>
+        <select id="stops" style="width:100%">
+          <option value="any">Nonstop or 1 stop</option>
+          <option value="nonstop">Nonstop available (incl. seasonal)</option>
+          <option value="daily">Daily nonstop only</option>
+        </select>
+      </div>
+      <div class="rangebox">
+        <label for="maxTravel"><span>Max travel time, Austin → resort</span><output id="o-travel"></output></label>
+        <input id="maxTravel" type="range" min="180" max="510" step="15" value="510">
+        <div class="muted">Flight time + airport transfer. Excludes check-in and layover waits beyond a typical connection.</div>
+      </div>
+      <div class="rangebox">
+        <label for="maxCost"><span>Max est. trip total</span><output id="o-cost"></output></label>
+        <input id="maxCost" type="range" min="0" max="100" step="250" value="100">
+        <div class="muted">Uses the midpoint of each resort's estimate for your group, nights and flights.</div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Prioritized All-Inclusive & Luxury Resorts Dataset (Ranks 1-10 are All-Inclusive / Inclusive Privilege)
-        const resortsData = [
-            {
-                id: 1,
-                name: "Grand Velas Riviera Maya",
-                region: "Caribbean & Mexico",
-                location: "Riviera Maya, Mexico",
-                price: 1350,
-                rating: 4.9,
-                reviewsCount: 3100,
-                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "MIA to CUN",
-                flightPrice: "$380 RT",
-                tags: ["All-Inclusive", "Private Pool", "Wellness / Spa", "Family Friendly"],
-                rankingReason: "Ranked #1 for establishing the gold standard of ultra-luxury all-inclusive hospitality, featuring AAA Five Diamond dining, master sommelier wine pairings, and stunning oceanfront suites.",
-                reviewSummary: "Guests consistently praise the incredible multi-course gourmet restaurants, personal concierges, and pristine Caribbean beach frontage.",
-                pros: ["All-inclusive plan includes multiple AAA Five Diamond gourmet restaurants", "Spacious suites with private terraces and immersion Jacuzzis", "World-class hydrotherapy spa circuit included in signature stays"],
-                cons: ["High demand during winter and spring break seasons", "Property is divided into distinct jungle and beach zones requiring quick shuttle rides"]
-            },
-            {
-                id: 2,
-                name: "The Brando",
-                region: "Pacific & Asia",
-                location: "Tetiaroa Atoll, French Polynesia",
-                price: 3800,
-                rating: 4.9,
-                reviewsCount: 410,
-                image: "https://images.unsplash.com/photo-1589522851496-d8f99e69335c?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "SFO to PPT",
-                flightPrice: "$1,280 RT",
-                tags: ["All-Inclusive", "Eco-Luxury", "Private Pool", "Wellness / Spa"],
-                rankingReason: "Ranked #2 for its comprehensive all-inclusive philosophy covering organic dining, daily spa treatments, and private excursions on Marlon Brando's pristine private atoll.",
-                reviewSummary: "Celebrated for absolute seclusion, pristine bird sanctuary ecosystems, and farm-to-table Polynesian gastronomy by Guy Martin.",
-                pros: ["All-inclusive tariff covers daily spa treatments and curated excursions", "Complete privacy on an undisturbed Polynesian private atoll", "Deep Seawater Air Conditioning (SWAC) pioneer"],
-                cons: ["Very high barrier to entry price point", "Access exclusively via private air charter from Papeete"]
-            },
-            {
-                id: 3,
-                name: "Samabe Bali Suites & Villas",
-                region: "Pacific & Asia",
-                location: "Nusa Dua, Bali, Indonesia",
-                price: 680,
-                rating: 4.8,
-                reviewsCount: 1340,
-                image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "LAX to DPS via ICN",
-                flightPrice: "$1,390 RT",
-                tags: ["All-Inclusive", "Private Pool", "Adults Only"],
-                rankingReason: "Ranked #3 for offering exceptional cliffside luxury with 24-hour butler service and lavish unlimited all-inclusive privileges overlooking the Indian Ocean.",
-                reviewSummary: "Praised for true 24-hour butler attention, pristine Nusa Dua white sands, and fantastic beachfront dining value.",
-                pros: ["Unlimited all-inclusive privileges including 24-hour butler service", "Stunning cliffside location with panoramic Indian Ocean views", "Complimentary spa treatments included in signature packages"],
-                cons: ["Nusa Dua enclave is gated and feels less culturally immersive than Ubud", "Ocean tides can affect swimming conditions directly in front of cliffs"]
-            },
-            {
-                id: 4,
-                name: "Hilton Tulum Riviera Maya All-Inclusive",
-                region: "Caribbean & Mexico",
-                location: "Tulum, Quintana Roo, Mexico",
-                price: 650,
-                rating: 4.6,
-                reviewsCount: 3400,
-                image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "LAX to CUN",
-                flightPrice: "$420 RT",
-                tags: ["All-Inclusive", "Family Friendly", "Private Pool"],
-                rankingReason: "Ranked #4 as the premier large-scale luxury all-inclusive offering in Riviera Maya, featuring 9 diverse pools, vibrant culinary variety, and secluded cove access.",
-                reviewSummary: "Praised for incredible value in an all-inclusive luxury format, spacious modern rooms, and lively evening entertainment.",
-                pros: ["All-inclusive pricing covers 13 distinct dining experiences", "Nine swimming pools including family splash zones and adult-only retreats", "Direct access to secluded Mayan Riviera coves"],
-                cons: ["Resort scale is large and bustling compared to boutique villas", "Beach areas feature rocky coves rather than long uninterrupted powder sands"]
-            },
-            {
-                id: 5,
-                name: "Seven Stars Resort & Spa",
-                region: "Caribbean & Mexico",
-                location: "Grace Bay, Turks & Caicos",
-                price: 950,
-                rating: 4.7,
-                reviewsCount: 1900,
-                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "JFK to PLS",
-                flightPrice: "$520 RT",
-                tags: ["All-Inclusive", "Family Friendly", "Wellness / Spa"],
-                rankingReason: "Ranked #5 for its peerless location directly on the powder-white sands of Grace Bay, featuring inclusive resort privileges, saltwater pools, and refined island suites.",
-                reviewSummary: "Guests praise the central Grace Bay location, complimentary non-motorized watersports, and exceptional beachfront dining.",
-                pros: ["Situated right on award-winning Grace Bay Beach", "Spacious suites with full kitchens and expansive private balconies", "Heated saltwater swimming pool wrapping around lush gardens"],
-                cons: ["Property architecture is slightly more conventional resort style", "Dining reservations in Grace Bay can require advance booking"]
-            },
-            {
-                id: 6,
-                name: "Sandals Royal Curaçao",
-                region: "Caribbean & Mexico",
-                location: "Curaçao",
-                price: 780,
-                rating: 4.7,
-                reviewsCount: 1650,
-                image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "MIA to CUR",
-                flightPrice: "$460 RT",
-                tags: ["All-Inclusive", "Adults Only", "Private Pool", "Overwater Villa"],
-                rankingReason: "Ranked #6 for redefining couples-only all-inclusive luxury with two-story overwater bungalows, infinity pools overlooking Spanish Water, and complimentary MINI Coopers for exploring the island.",
-                reviewSummary: "Couples love the stunning double-decker infinity pool, 8 specialty restaurants, and unique convertible car perk.",
-                pros: ["Couples-only adults-only all-inclusive with 8 diverse dining venues", "Complimentary MINI Cooper use for exploring Curaçao", "Stunning overwater private pool bungalows"],
-                cons: ["Secluded property means venturing off-site requires driving", "Popular resort that books out well ahead for peak dates"]
-            },
-            {
-                id: 7,
-                name: "Couples Swept Away",
-                region: "Caribbean & Mexico",
-                location: "Negril, Jamaica",
-                price: 620,
-                rating: 4.7,
-                reviewsCount: 2800,
-                image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "MIA to MBJ",
-                flightPrice: "$390 RT",
-                tags: ["All-Inclusive", "Adults Only", "Wellness / Spa"],
-                rankingReason: "Ranked #7 for its legendary Seven Mile Beach beachfront setting, unrivaled fitness and sports complex, and authentic Jamaican all-inclusive hospitality.",
-                reviewSummary: "Guests rave about the tennis courts, scuba diving trips, catamaran cruises, and tranquil romantic ambiance.",
-                pros: ["Comprehensive all-inclusive covers scuba diving, catamaran cruises, and spa access", "Set directly on Negril's famous powdery Seven Mile Beach", "Adults-only romantic couples sanctuary"],
-                cons: ["Traditional low-rise resort architecture lacks ultra-modern flash", "Nightlife is relaxed and intimate rather than high-energy clubbing"]
-            },
-            {
-                id: 8,
-                name: "Jade Mountain",
-                region: "Caribbean & Mexico",
-                location: "Soufrière, St. Lucia",
-                price: 1650,
-                rating: 4.8,
-                reviewsCount: 2100,
-                image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "MIA to UVF",
-                flightPrice: "$550 RT",
-                tags: ["Private Pool", "Wellness / Spa", "All-Inclusive"],
-                rankingReason: "Ranked #8 for its optional elite all-inclusive package covering organic estate gastronomy and open-air sanctuaries framing the Pitons.",
-                reviewSummary: "Reviewers are mesmerized by the missing fourth wall, private infinity pools in every suite, and organic chocolate estate tours.",
-                pros: ["Optional all-inclusive package with award-winning James Beard-pedigree cuisine", "Unmatched, unobstructed views of the Pitons directly from your bed/pool", "Adults-only peaceful environment focused on romance"],
-                cons: ["No TVs, radios, or children allowed (deliberate digital detox)", "Hilly hillside terrain requires walking or buggy assistance"]
-            },
-            {
-                id: 9,
-                name: "Amanyara",
-                region: "Caribbean & Mexico",
-                location: "Providenciales, Turks & Caicos",
-                price: 2200,
-                rating: 4.8,
-                reviewsCount: 750,
-                image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "JFK to PLS",
-                flightPrice: "$480 RT",
-                tags: ["Eco-Luxury", "Wellness / Spa", "Private Pool", "All-Inclusive"],
-                rankingReason: "Ranked #9 for its bespoke all-inclusive wellness and diving privilege packages nestled against Northwest Point National Park.",
-                reviewSummary: "Acclaimed for absolute tranquility, exceptional scuba diving directly off the shore, and hallmark Aman serene pacing.",
-                pros: ["Direct access to untouched Northwest Point Marine National Park", "Exceptional holistic wellness and yoga pavilion programs", "Remarkable timber pavilion architecture with natural reflection ponds"],
-                cons: ["Remote location means dining options are mostly on-property", "Minimalist aesthetic may feel stark to travelers preferring ornate luxury"]
-            },
-            {
-                id: 10,
-                name: "Rosewood Mayakoba",
-                region: "Caribbean & Mexico",
-                location: "Riviera Maya, Mexico",
-                price: 1250,
-                rating: 4.8,
-                reviewsCount: 1650,
-                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "MIA to CUN",
-                flightPrice: "$380 RT",
-                tags: ["Eco-Luxury", "Private Pool", "Wellness / Spa", "All-Inclusive"],
-                rankingReason: "Ranked #10 for its signature ultra-luxury all-inclusive culinary extensions across its lagoon and beachfront dining pavilions.",
-                reviewSummary: "Guests love the over-water lagoons, bicycles provided with every suite, and Sense spa situated on its own private island.",
-                pros: ["Charming boat transit and private bicycles for navigating resort", "El Pueblito town square recreation and authentic Mexican cooking classes", "Pristine white-sand Caribbean beach frontage"],
-                cons: ["Can experience high humidity during summer/fall months", "Large property footprint requires golf cart or boat transportation"]
-            },
-            {
-                id: 11,
-                name: "The St. Regis Maldives Vommuli Resort",
-                region: "Maldives",
-                location: "Dhaalu Atoll, Maldives",
-                price: 2400,
-                rating: 4.9,
-                reviewsCount: 1420,
-                image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "JFK to MLE via DOH",
-                flightPrice: "$1,850 RT",
-                tags: ["Overwater Villa", "Private Pool", "Wellness / Spa"],
-                rankingReason: "Ranked #11 for its flawless convergence of striking contemporary architecture, personalized butler service, and pristine lagoon seclusion.",
-                reviewSummary: "Guests consistently rave about the legendary St. Regis butler service, the whale-shaped Iridium Spa, and phenomenal gastronomy.",
-                pros: ["Dedicated 24/7 butler service for every villa", "World-class underwater reef snorkeling & yacht charters", "Breathtaking multi-level overwater architecture"],
-                cons: ["Seaplane transfer required ($850+ per person)", "Dining and beverage pricing is exceptionally high"]
-            },
-            {
-                id: 12,
-                name: "Soneva Jani",
-                region: "Maldives",
-                location: "Noonu Atoll, Maldives",
-                price: 3200,
-                rating: 4.9,
-                reviewsCount: 980,
-                image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "LAX to MLE via DXB",
-                flightPrice: "$2,100 RT",
-                tags: ["Overwater Villa", "Eco-Luxury", "Private Pool"],
-                rankingReason: "Ranked #12 as the pioneer of barefoot luxury, featuring iconic overwater slides, retractable roofs for stargazing, and uncompromising eco-stewardship.",
-                reviewSummary: "Reviewers emphasize the magical castaway ambiance, silent outdoor cinema, and unmatched overwater villa proportions.",
-                pros: ["Two-story villas with private water slides directly into lagoon", "Retractable bedroom roofs for master stargazing", "Strict sustainability & zero-waste eco-policies"],
-                cons: ["Extremely high demand requires booking 9-12 months in advance", "Remote atoll requires private seaplane transfer"]
-            },
-            {
-                id: 13,
-                name: "Waldorf Astoria Maldives Ithaafushi",
-                region: "Maldives",
-                location: "South Malé Atoll, Maldives",
-                price: 2800,
-                rating: 4.8,
-                reviewsCount: 1150,
-                image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "SFO to MLE via SIN",
-                flightPrice: "$1,950 RT",
-                tags: ["Overwater Villa", "Private Pool", "Wellness / Spa"],
-                rankingReason: "Ranked #13 for its sprawling three-island grandeur, delivering absolute privacy and an unmatched breadth of 11 specialty dining venues.",
-                reviewSummary: "Praised for gargantuan villa sizes, personal concierges, and Terra—the private treetop bamboo dining pods.",
-                pros: ["All 119 villas feature expansive private pools and ocean views", "Exceptional culinary diversity including Michelin-pedigree venues", "Only 30 minutes from Malé via luxury yacht transfer"],
-                cons: ["Less of a rustic castaway feel due to opulent resort scale", "Peak season rates exceed $4,000 per night"]
-            },
-            {
-                id: 14,
-                name: "Four Seasons Resort Bora Bora",
-                region: "Pacific & Asia",
-                location: "Bora Bora, French Polynesia",
-                price: 2100,
-                rating: 4.9,
-                reviewsCount: 1890,
-                image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "LAX to BOB via PPT",
-                flightPrice: "$1,350 RT",
-                tags: ["Overwater Villa", "Wellness / Spa", "Private Pool"],
-                rankingReason: "Ranked #14 for framing the world's most dramatic mountain backdrop (Mount Otemanu) alongside peerless Polynesian hospitality.",
-                reviewSummary: "Guests highlight the crystal-clear inner lagoon sanctuary, friendly outrigger canoe breakfasts, and unmatched sunset vistas.",
-                pros: ["Majestic views of Mount Otemanu from every overwater bungalow", "On-site marine biologist sanctuary and coral grafting program", "Exceptional children's programs and family amenities"],
-                cons: ["Requires international flight to Tahiti plus inter-island Air Tahiti hop", "Overwater bungalows popular for honeymoons book out quickly"]
-            },
-            {
-                id: 15,
-                name: "Montage Kapalua Bay",
-                region: "USA & Costa Rica",
-                location: "Maui, Hawaii, USA",
-                price: 1450,
-                rating: 4.8,
-                reviewsCount: 1220,
-                image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "LAX to OGG",
-                flightPrice: "$490 RT",
-                tags: ["Family Friendly", "Wellness / Spa", "Private Pool"],
-                rankingReason: "Ranked #15 for offering exceptionally spacious multi-bedroom residential suites overlooking Maui's dramatic golden coast and Namalu Bay.",
-                reviewSummary: "Reviewers highlight the residential luxury feel, exceptional cliffside pool deck, and proximity to championship golf courses.",
-                pros: ["Expansive 1 to 4-bedroom residential suites with gourmet kitchens", "Overlooks pristine Namalu Bay, ideal for snorkeling and sea turtles", "Outstanding Paintbox children's program and family activities"],
-                cons: ["Higher price point for multi-room residences during peak winter holidays", "Resort shares beach access with public coastal trails"]
-            },
-            {
-                id: 16,
-                name: "Amangiri",
-                region: "USA & Costa Rica",
-                location: "Canyon Point, Utah, USA",
-                price: 3100,
-                rating: 4.9,
-                reviewsCount: 880,
-                image: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "PHX to PGA",
-                flightPrice: "$320 RT",
-                tags: ["Eco-Luxury", "Wellness / Spa", "Private Pool"],
-                rankingReason: "Ranked #16 for its jaw-dropping architectural integration into the stark, dramatic desert mesas of the American Southwest.",
-                reviewSummary: "Hailed as an otherworldly sanctuary of silence, featuring the world-renowned Aman Spa and private guided canyon excursions.",
-                pros: ["Architectural masterpiece blending seamlessly into protected desert canyons", "Aman Spa featuring Navajo-inspired holistic treatments", "Private hot air balloon and slot canyon helicopter tours"],
-                cons: ["Exceedingly high nightly tariffs", "Desert climate brings extreme temperature swings between summer and winter"]
-            },
-            {
-                id: 17,
-                name: "Nayara Springs",
-                region: "USA & Costa Rica",
-                location: "Arenal Volcano, Costa Rica",
-                price: 850,
-                rating: 4.9,
-                reviewsCount: 2150,
-                image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "MIA to SJO",
-                flightPrice: "$410 RT",
-                tags: ["Adults Only", "Private Pool", "Eco-Luxury", "Wellness / Spa"],
-                rankingReason: "Ranked #17 as Central America's top adults-only rainforest luxury retreat, featuring private villas fed by mineral hot springs with Arenal Volcano views.",
-                reviewSummary: "Reviewers adore spotting wild sloths and toucans from private plunge pools filled with natural volcanic thermal waters.",
-                pros: ["Adults-only exclusivity ensuring absolute romance and peace", "Every villa features a private thermal plunge pool fed by natural hot springs", "Immersed in lush rainforest teeming with exotic wildlife"],
-                cons: ["Requires a 2.5-hour private transfer from San José international airport", "Cloud forest climate can bring sudden tropical rain showers"]
-            },
-            {
-                id: 18,
-                name: "COMO Shambhala Estate",
-                region: "Pacific & Asia",
-                location: "Bali, Indonesia",
-                price: 920,
-                rating: 4.8,
-                reviewsCount: 950,
-                image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "SFO to DPS via TPE",
-                flightPrice: "$1,450 RT",
-                tags: ["Wellness / Spa", "Eco-Luxury"],
-                rankingReason: "Ranked #18 for its world-renowned holistic wellness immersion nestled deep in the sacred Ayung River valley of Bali.",
-                reviewSummary: "Guests describe profound rejuvenation through bespoke wellness programs, expert resident Ayurvedic specialists, and nutritious cuisine.",
-                pros: ["Immersive holistic health, yoga, and wellness programs tailored to individuals", "Stunning jungle ravine setting along the rushing Ayung River", "Spring-fed vitality pools and organic wellness dining"],
-                cons: ["Not designed for travelers seeking a conventional beach resort", "Strict wellness focus includes low alcohol and health-centric menus"]
-            },
-            {
-                id: 19,
-                name: "Secret Bay",
-                region: "Caribbean & Mexico",
-                location: "Dominica",
-                price: 1200,
-                rating: 4.9,
-                reviewsCount: 510,
-                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "MIA to DOM",
-                flightPrice: "$590 RT",
-                tags: ["Eco-Luxury", "Private Pool", "Wellness / Spa"],
-                rankingReason: "Ranked #19 for its architecturally stunning cliffside treehouse villas immersed in Dominica's lush 'Nature Island' rainforest.",
-                reviewSummary: "Celebrated for ultimate seclusion, dedicated villa hosts, private plunge pools, and raw unspoiled Caribbean eco-adventure.",
-                pros: ["Architectural treehouse villas crafted sustainably from local hardwoods", "Secluded cliffside plunge pools with dramatic sunset ocean views", "Immersed in Dominica's boiling lakes, waterfalls, and diving reefs"],
-                cons: ["Dominica's rugged terrain means fewer conventional white-sand beaches", "Smaller boutique scale with limited large resort nightlife"]
-            },
-            {
-                id: 20,
-                name: "Terranea Resort",
-                region: "USA & Costa Rica",
-                location: "Rancho Palos Verdes, California, USA",
-                price: 520,
-                rating: 4.6,
-                reviewsCount: 4100,
-                image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80",
-                flightRoute: "LAX Local / SFO to LAX",
-                flightPrice: "$180 RT",
-                tags: ["Family Friendly", "Wellness / Spa", "Private Pool"],
-                rankingReason: "Ranked #20 as Southern California's premier oceanfront coastal sanctuary, offering dramatic seaside bluffs, championship golf, and easy accessibility.",
-                reviewSummary: "Guests love the dramatic Pacific Ocean cliff views, tide pooling, coastal hiking trails, and exceptional spa facilities.",
-                pros: ["Stunning 102-acre coastal peninsula setting in Southern California", "Championship 9-hole golf course and award-winning oceanfront spa", "Convenient drive-to destination for West Coast travelers"],
-                cons: ["Can be busy with weekend conferences and local staycations", "Ocean water temperatures in Palos Verdes are brisk year-round"]
-            }
-        ];
+  <div class="resultbar">
+    <div class="count" id="count"></div>
+    <div class="muted" style="font-size:13px">Hover (or tap) any score or bar to see why it scored that way.</div>
+  </div>
+  <div class="cards" id="cards"></div>
+  <div class="empty panel" id="empty" hidden>No resorts match. Loosen a filter, or if "favorites only" is on, add favorites with the ☆ button on each card first.</div>
 
-        let filteredResorts = [...resortsData];
 
-        const resortsGrid = document.getElementById('resortsGrid');
-        const searchInput = document.getElementById('searchInput');
-        const regionFilter = document.getElementById('regionFilter');
-        const amenityFilter = document.getElementById('amenityFilter');
-        const sortBy = document.getElementById('sortBy');
-        const resultsCount = document.getElementById('resultsCount');
-        const emptyState = document.getElementById('emptyState');
-        const detailModal = document.getElementById('detailModal');
-        const modalContent = document.getElementById('modalContent');
 
-        function renderResorts() {
-            resortsGrid.innerHTML = '';
-            
-            if (filteredResorts.length === 0) {
-                emptyState.classList.remove('hidden');
-                resultsCount.textContent = 'Showing 0 matching destinations';
-                return;
-            }
+  <details class="panel collapsible" id="perksBox">
+    <summary><span class="ctitle">Perks worth comparing &amp; practical checks</span><span class="chint">Amenities that set resorts apart, plus timing, passports and safety</span></summary>
+    <div class="perks">
+      <div class="perk alert"><h4>⚠️ Your week is UT's spring break</h4><ul>
+        <li>UT Austin's spring break is <b>Mar 15–20, 2027</b>, the same week as your trip, so expect Texas college crowds.</li>
+        <li>The party zones are the Cancún hotel zone strip and Cabo's Médano Beach (Riu Palace Cabo San Lucas). Costa / Playa Mujeres, Nayarit, Turks & Caicos and Negril skew family.</li>
+        <li>Austin nonstops to Cancún and Cabo sell out early for that week. Book flights soon, or pick a fare you can cancel.</li></ul></div>
+      <div class="perk alert"><h4>🌀 Jamaica after Hurricane Melissa</h4><ul>
+        <li>A Category 5 storm hit western Jamaica in Oct 2025. Hilton Rose Hall (now <b>Dreams Rose Hall</b>) and Hyatt Ziva/Zilara Rose Hall are <b>still closed into 2027</b>. Hilton Rose Hall was removed from this list.</li>
+        <li>Open now: Beaches Negril (since Dec 2025), Moon Palace Jamaica, Grand Palladium Jamaica, and Royalton Blue Waters (reopened Sept 15, 2026).</li>
+        <li>Check the <a href="https://www.visitjamaica.com/travel-alerts/hotel-reopenings/" target="_blank" rel="noopener">Visit Jamaica reopening list</a> before booking. Jamaica also requires an online C5 entry form.</li></ul></div>
+      <div class="perk"><h4>🛂 Passports: check expiration dates now</h4><ul>
+        <li>Routine processing is 4–6 weeks, plus up to 2 weeks each way in the mail. Expedited is 2–3 weeks for an extra $60.</li>
+        <li>Kids under 16 get 5-year passports and must apply in person with both parents (or a notarized consent form).</li>
+        <li>Make sure every passport is valid well past Mar 18. Some islands want 6 months of validity, so confirm the rule for your pick.</li></ul></div>
+      <div class="perk"><h4>🎟️ Club-level upgrades</h4><ul>
+        <li>At Dreams (Preferred Club), Royalton (Diamond Club), Grand Palladium (Family Selection) and Majestic (Elegance Club), the upgrade adds the premium spirits, a private pool or beach area, and a lounge.</li>
+        <li>If drink quality matters, price the upgrade too. It can close the gap with the Hard Rock, Hyatt Ziva and Beaches tier.</li></ul></div>
+      <div class="perk"><h4>🏨 Sister-resort access</h4><ul>
+        <li>Moon Palace Cancún: guests at The Grand can use 25+ restaurants and the pools across the whole complex.</li>
+        <li>Majestic Elegance: the water park is at sister resort Majestic Mirage next door.</li>
+        <li>Riu Guanacaste: free Splash Water World shared with Riu Palace Costa Rica.</li>
+        <li>Grand Palladium complexes share restaurants across their hotels.</li></ul></div>
+      <div class="perk"><h4>💳 Credits & "kids free" offers</h4><ul>
+        <li>Palace Resorts (Moon Palace) runs "kids 17 and under stay free" promos plus $250–$750 resort credits.</li>
+        <li>Those credits carry a 16% fee, can't be cashed out, and the dinner perks are usually for 2 adults only. Value them at about half of face.</li>
+        <li>Beaches includes airport transfers, tips and taxes, so its sticker price looks higher than it really is next to the others.</li></ul></div>
+      <div class="perk"><h4>🤿 Included activities that vary a lot</h4><ul>
+        <li><b>Beaches:</b> daily scuba included for certified divers, kids' Bubblemaker / Seal Team programs, an Xbox teen lounge, a teen nightclub and Sesame Street shows. The character breakfast and tuck-in cost extra.</li>
+        <li><b>Hard Rock:</b> Roxity kids club, bowling (Punta Cana, Los Cabos), mini golf (Punta Cana).</li>
+        <li><b>Moon Palace / Planet Hollywood:</b> FlowRider surf simulator. It's included at Moon Palace and extra at Planet Hollywood.</li>
+        <li><b>Royalton Splash Riviera Cancún:</b> trampoline park and laser tag.</li></ul></div>
+      <div class="perk"><h4>🐋 Great March add-ons nearby</h4><ul>
+        <li><b>Vallarta / Nayarit:</b> humpback whale season in Banderas Bay runs through March. A whale-watching boat is a top kid memory.</li>
+        <li><b>Los Cabos:</b> whale season too, plus the glass-bottom boat to the Arch.</li>
+        <li><b>Guanacaste:</b> ziplines, plus hot springs and mud baths at Rincón de la Vieja.</li>
+        <li><b>Cancún:</b> cenote swims and the Isla Mujeres ferry (Playa Norte is calm and shallow).</li></ul></div>
+      <div class="perk"><h4>🧒 Fine print for kids</h4><ul>
+        <li>Swim-up suites are often 18+ (Hyatt Ziva Puerto Vallarta) or 13+ (Hyatt Ziva Los Cabos and Cancún).</li>
+        <li>Big slides have height minimums, e.g. about 4 ft at Hyatt Ziva Cap Cana.</li>
+        <li>The Pacific is cooler in March (Cabo about 70–72°F), so heated pools help: Dreams Bahia Mita, and 4 heated pools at Finest.</li>
+        <li>Ask about connecting rooms or 2-bedroom family suites. One room for 4 fills fast in spring break week.</li></ul></div>
+    </div>
+  </details>
 
-            emptyState.classList.add('hidden');
-            resultsCount.textContent = `Showing ${filteredResorts.length} of ${resortsData.length} luxury destinations`;
+  <details class="panel collapsible" id="otherBox">
+    <summary><span class="ctitle">Other places we looked at</span><span class="chint">Researched but not added, and why</span></summary>
+    <div class="tablewrap" style="margin-top:12px"><table>
+      <tr><th>Option</th><th>Why it's interesting</th><th>Why it's not on the list</th></tr>
+      <tr><td><b>Club Med Ixtapa Pacific</b> (Ixtapa, Mexico)</td><td>Pacific coast, so no seaweed. Kids clubs for every age, flying trapeze and circus school, sailing, and drinks included.</td><td>Guerrero is a US State Dept <b>Level 4 "Do Not Travel"</b> state, and the advisory names Ixtapa and Zihuatanejo specifically.</td></tr>
+      <tr><td><b>Riu Emerald Bay</b> (Mazatlán, Mexico)</td><td>Pacific, on-site water park, safe swimming beach.</td><td>Sinaloa is Level 4. The Mazatlán carve-out limits US government staff to the tourist zone, arriving by air only. 1-stop flights, Riu-level drinks.</td></tr>
+      <tr><td><b>Dreams Playa Bonita</b> (Panama)</td><td>Pacific beach, and Austin has nonstops to Panama City.</td><td>The beach is the weak spot: low tide exposes hundreds of yards of mud flat, the water is murky, and there are biting no-see-ums. About 3/5 on Tripadvisor.</td></tr>
+      <tr><td><b>Sunscape Curaçao</b></td><td>Below the seaweed belt, with a calm jetty-protected beach.</td><td>Man-made beach, crowded main pool, 5 restaurants with long lines, no slides, Wi-Fi fees.</td></tr>
+      <tr><td><b>Cozumel west coast</b> (Iberostar Waves, Meliá)</td><td>The west coast is sheltered from sargassum.</td><td>Family options are thin (Iberostar has 1 pool and no slides), and getting there takes a 1-stop flight or a Cancún flight plus ferry.</td></tr>
+      <tr><td><b>Club Med Cancún</b> (Punta Nizuc)</td><td>Partly sheltered point, kids clubs, drinks included.</td><td>Small main pool, dated and dark rooms, Wi-Fi fees.</td></tr>
+      <tr><td><b>Bahamas, Puerto Rico, USVI</b></td><td>Short flights. The Bahamas sit north of the main seaweed belt.</td><td>Almost no true family all-inclusives (Atlantis isn't all-inclusive), and researchers rank PR/USVI among the highest-risk areas for severe sargassum.</td></tr>
+      <tr><td><b>Hyatt Ziva Rose Hall, Dreams (ex-Hilton) Rose Hall</b> (Jamaica)</td><td>Montego Bay family resorts. Hilton Rose Hall had a water park and lazy river.</td><td>Closed since Hurricane Melissa, with reopening pushed into 2027.</td></tr>
+    </table></div>
+  </details>
 
-            filteredResorts.forEach((resort) => {
-                const card = document.createElement('div');
-                card.className = 'bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group';
-                
-                const tagsHTML = resort.tags.map(tag => `<span class="${tag === 'All-Inclusive' ? 'bg-brand-100 text-brand-800 font-bold' : 'bg-slate-100 text-slate-700 font-semibold'} text-[10px] px-2.5 py-1 rounded-md">${tag}</span>`).join('');
+  <details class="panel collapsible" id="seaweedBox">
+    <summary><span class="ctitle">🌊 Seaweed (sargassum) guide &amp; March 2027 outlook</span><span class="chint">Which beaches are at risk, and how to protect the trip</span></summary>
+  <div class="grid-2" style="margin-top:14px">
+    <div class="subpanel">
+      <h3 class="subh">The seaweed question</h3>
+      <p class="sub">Sargassum is an Atlantic and Caribbean problem. It drifts in on east- and south-facing Caribbean shores. The Pacific coast doesn't get it at all. This is how much risk each area carries in mid-March, before the summer peak:</p>
+      <div class="zones">
+        <div class="zone"><b><span class="risk r0">None</span></b><span><b>Pacific coast:</b> Puerto Vallarta / Riviera Nayarit, Los Cabos, Guanacaste (Costa Rica). Sargassum doesn't reach these beaches. The trade-off is cooler water (around 70–73°F in Cabo, 75°F in Vallarta) and some Cabo beaches too rough to swim.</span></div>
+        <div class="zone"><b><span class="risk r1">Very low</span></b><span><b>Aruba:</b> sits south of the seaweed belt. Historically the most reliable Caribbean pick.</span></div>
+        <div class="zone"><b><span class="risk r2">Low</span></b><span><b>Jamaica north & west coasts</b> (Montego Bay, Falmouth, Lucea, Ocho Rios, Negril) and <b>Grace Bay, Turks & Caicos</b>. March is historically clear in both.</span></div>
+        <div class="zone"><b><span class="risk r3">Low–moderate</span></b><span><b>North-facing Cancún</b> (Punta Cancún) and <b>Playa / Costa Mujeres</b>. These shores are angled away from the main current and resorts clean them daily, but heavy years still reach them.</span></div>
+        <div class="zone"><b><span class="risk r4">Moderate</span></b><span><b>Cap Cana, Dominican Republic:</b> reef-protected, but Punta Cana overall has been hit hard in recent record years.</span></div>
+        <div class="zone"><b><span class="risk r5">Mod–high</span></b><span><b>Bávaro south end / Arena Gorda / Macao</b> (Punta Cana). More exposed and rougher surf.</span></div>
+        <div class="zone"><b><span class="risk r6">High</span></b><span><b>Riviera Maya</b> (Puerto Morelos, Playa del Carmen, Akumal, Tulum) and the east-facing Cancún hotel zone. This is the same exposure you ran into last March.</span></div>
+      </div>
+    </div>
+    <div class="subpanel">
+      <h3 class="subh">What we know for March 2027</h3>
+      <p class="sub">There's no official forecast yet. The University of South Florida usually publishes its first read on the next season around December or January.</p>
+      <div class="callout">
+        <b>Where things stand:</b> 2025 set a record, and 2026 matched or beat it. The September 2026 USF bulletin shows amounts falling in most regions through November, but still above historical norms. Seasons have been starting earlier, which is why March has gone from "usually clear" to "a gamble" on the Mexican Caribbean.
+      </div>
+      <div class="callout" style="border-color:var(--ocean);background:var(--ocean-2)">
+        <b>How to protect the trip:</b>
+        <ul>
+          <li>Favor Pacific, Aruba, Jamaica or Turks & Caicos picks. If Cancún, stick to Punta Cancún or Costa / Playa Mujeres.</li>
+          <li>Book a refundable or pay-later rate and look again in January and February.</li>
+          <li>Check the <a href="https://optics.marine.usf.edu/projects/SaWS.html" target="_blank" rel="noopener">USF monthly outlook</a> and a live map such as <a href="https://www.howisthesargassum.com/forecast" target="_blank" rel="noopener">howisthesargassum.com</a> 2–3 weeks before you leave.</li>
+          <li>Ask the resort whether it has an offshore seaweed barrier and a daily beach crew.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </details>
 
-                card.innerHTML = `
-                    <div class="relative h-56 overflow-hidden bg-slate-100">
-                        <img src="${resort.image}" alt="${resort.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Luxury+Resort'">
-                        <div class="absolute top-3 left-3 flex space-x-2">
-                            <span class="bg-slate-900/80 backdrop-blur-md text-white text-xs font-extrabold px-2.5 py-1 rounded-lg shadow-md">Rank #${resort.id}</span>
-                            <span class="bg-white/90 backdrop-blur-md text-slate-800 text-xs font-bold px-2.5 py-1 rounded-lg shadow-md">${resort.region}</span>
-                        </div>
-                        <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md text-slate-900 px-3 py-1.5 rounded-xl font-extrabold text-sm shadow-md">
-                            $${resort.price.toLocaleString()} <span class="text-[10px] text-slate-500 font-normal">/ night</span>
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
-                        <div>
-                            <div class="flex items-center justify-between mb-1.5">
-                                <span class="text-xs text-slate-500 font-medium flex items-center">
-                                    <svg class="w-3.5 h-3.5 text-brand-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                    ${resort.location}
-                                </span>
-                                <div class="flex items-center text-amber-500 font-bold text-xs">
-                                    <span>★</span>
-                                    <span class="ml-1 text-slate-800">${resort.rating}</span>
-                                    <span class="text-slate-400 font-normal ml-0.5">(${resort.reviewsCount})</span>
-                                </div>
-                            </div>
-                            <h3 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">${resort.name}</h3>
-                            <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">${resort.rankingReason}</p>
-                        </div>
+</main>
 
-                        <div class="space-y-3 pt-3 border-t border-slate-100">
-                            <div class="flex flex-wrap gap-1.5">
-                                ${tagsHTML}
-                            </div>
-                            <div class="flex items-center justify-between text-xs pt-1">
-                                <span class="text-slate-500 font-medium">Flight: <strong class="text-slate-700">${resort.flightRoute}</strong></span>
-                                <span class="text-brand-700 font-bold bg-brand-50 px-2 py-1 rounded-md">${resort.flightPrice}</span>
-                            </div>
-                            <button onclick="openModal(${resort.id})" class="w-full mt-2 py-2.5 bg-slate-900 hover:bg-brand-600 text-white text-xs font-bold rounded-xl transition-colors shadow-sm flex items-center justify-center space-x-1.5">
-                                <span>Explore All-Inclusive Intelligence</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                resortsGrid.appendChild(card);
-            });
-        }
+<footer class="wrap">
+  <p><b>Sources used for this update</b></p>
+  <ol>
+    <li><a href="https://optics.marine.usf.edu/projects/SaWS.html" target="_blank" rel="noopener">USF Optical Oceanography Lab: Sargassum Watch outlook bulletins (Sept 2026)</a></li>
+    <li><a href="https://voyagesaquaterra.com/en/articles/travel/sun/sargassum-caribbean-mexico" target="_blank" rel="noopener">Voyages AquaTerra: month-by-month sargassum by destination</a></li>
+    <li><a href="https://www.howisthesargassum.com/blog/sargassum-cancun-hotel-zone" target="_blank" rel="noopener">How Is The Sargassum: Cancún hotel zone</a> and <a href="https://www.howisthesargassum.com/playa-mujeres" target="_blank" rel="noopener">Playa Mujeres</a> notes</li>
+    <li><a href="https://www.traveloffpath.com/the-top-10-caribbean-beaches-to-avoid-sargassum-seaweed-from-mexico-to-aruba/" target="_blank" rel="noopener">Travel Off Path: Caribbean beaches that avoid sargassum</a></li>
+    <li><a href="https://www.flightconnections.com/flights-from-austin-aus" target="_blank" rel="noopener">FlightConnections: AUS nonstops</a>, <a href="https://www.flightsfrom.com/AUS-CUN" target="_blank" rel="noopener">AUS–CUN</a>, <a href="https://www.flightsfrom.com/AUS-SJD" target="_blank" rel="noopener">AUS–SJD</a>, <a href="https://www.flightsfrom.com/AUS-PVR" target="_blank" rel="noopener">AUS–PVR</a></li>
+    <li><a href="https://aviationweek.com/air-transport/airports-networks/southwest-airlines-adds-new-international-routes-austin" target="_blank" rel="noopener">Aviation Week: Southwest's 2027 Austin international routes</a></li>
+    <li>Resort facts: official resort sites (<a href="https://www.beaches.com/resorts/negril/" target="_blank" rel="noopener">Beaches Negril</a>, <a href="https://www.beaches.com/resorts/turks-caicos/" target="_blank" rel="noopener">Beaches T&amp;C</a>), Costco Travel, Oyster, The Points Guy, Sunwing, Air Canada Vacations, TravelPulse, Carib Journal, all-inclusive-guide.com</li>
+    <li><a href="https://www.travelpulse.com/news/hotels-and-resorts/beaches-ocho-rios-to-close-in-may" target="_blank" rel="noopener">TravelPulse: Beaches Ocho Rios closure</a></li>
+    <li><a href="https://www.visitjamaica.com/travel-alerts/hotel-reopenings/" target="_blank" rel="noopener">Visit Jamaica: hotel reopenings</a>, <a href="https://www.caribjournal.com/2026/04/12/jamaica-hyatt-all-inclusive-resorts-delays/" target="_blank" rel="noopener">Carib Journal: Hyatt Jamaica delays</a>, <a href="https://www.paxnews.com/news/hotel/royalton-adjusts-jamaica-resort-reopening-dates-following-hurricane-melissa" target="_blank" rel="noopener">PAX: Royalton Jamaica dates</a>, <a href="https://www.travelmarketreport.com/hotels-resorts/articles/rewards-reservations-canceled-amid-transition-of-playa-hotels-to-hyatt" target="_blank" rel="noopener">TMR: Hilton Rose Hall → Dreams</a></li>
+    <li>US State Dept advisories: <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/mexico-travel-advisory.html" target="_blank" rel="noopener">Mexico</a>, <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/jamaica-travel-advisory.html" target="_blank" rel="noopener">Jamaica</a>, <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/costa-rica-travel-advisory.html" target="_blank" rel="noopener">Costa Rica</a>, <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/aruba-travel-advisory.html" target="_blank" rel="noopener">Aruba</a>, <a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories/dominican-republic-travel-advisory.html" target="_blank" rel="noopener">Dominican Republic</a>; <a href="https://travel.state.gov/content/travel/en/passports/how-apply/processing-times.html" target="_blank" rel="noopener">passport processing times</a></li>
+    <li><a href="https://acadcalendar.com/ut-austin-academic-calendar/" target="_blank" rel="noopener">UT Austin 2026–27 calendar (spring break)</a>, <a href="https://www.endlesstravelplans.com/destinations/cancun/moon-palace-cancun-families" target="_blank" rel="noopener">Moon Palace family costs & credits</a>, <a href="https://familyvacationist.com/10-standout-perks-for-kids-at-beaches-resorts/" target="_blank" rel="noopener">Beaches kids' perks</a></li>
+    <li>Other options: <a href="https://globetotting.com/all-inclusive-family-hotel-club-med-ixtapa" target="_blank" rel="noopener">Club Med Ixtapa</a>, <a href="https://all-inclusive-guide.com/resorts/dreams-playa-bonita-panama/" target="_blank" rel="noopener">Dreams Playa Bonita</a>, <a href="https://familydestinationsguide.com/best-all-inclusive-resorts-in-mazatlan/" target="_blank" rel="noopener">Mazatlán</a>, <a href="https://www.howisthesargassum.com/blog/best-hotels-cozumel-2026" target="_blank" rel="noopener">Cozumel</a></li>
+  </ol>
+  <p>Estimates are for planning only. Resort amenities change, so confirm anything that's a dealbreaker (slides, lazy river, kids club hours) directly with the resort.</p>
+</footer>
 
-        function applyFilters() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const selectedRegion = regionFilter.value;
-            const selectedAmenity = amenityFilter.value;
-            const sortVal = sortBy.value;
+<script>
+// seaweed: 0 None, 1 Very low, 2 Low, 3 Low–moderate, 4 Moderate, 5 Moderate–high, 6 High
+const RISK_LABEL=["None","Very low","Low","Low–moderate","Moderate","Mod–high","High"];
+const RISK_SCORE=[5,4.7,4.2,3.4,2.5,1.7,1];
+const RISK_WHY=["Pacific coast: sargassum doesn't reach these beaches.","Aruba sits south of the sargassum belt; historically almost always clear.","Historically clear in March (Jamaica north/west coast, Grace Bay).","North-facing / sheltered Cancún shore with daily cleanup, but heavy years still reach it.","Cap Cana is reef-protected, but Punta Cana has been hit hard in recent record years.","Exposed Atlantic-facing Punta Cana stretch; rougher surf and more seaweed.","Riviera Maya / Puerto Morelos: the most-hit coast in Mexico (same zone as last year's trip)."];
+// typical AUS flight times in minutes: ns = nonstop, one = typical 1-stop itinerary incl. connection
+const FLIGHT={CUN:{ns:160,one:330},SJD:{ns:170,one:360},PVR:{ns:140,one:330},LIR:{one:360},AUA:{one:420},PLS:{one:360},MBJ:{one:330},PUJ:{one:360}};
+const hm=m=>`${Math.floor(m/60)}h${String(m%60).padStart(2,"0")}`;
 
-            filteredResorts = resortsData.filter(resort => {
-                const matchesSearch = resort.name.toLowerCase().includes(searchTerm) || 
-                                      resort.location.toLowerCase().includes(searchTerm) || 
-                                      resort.rankingReason.toLowerCase().includes(searchTerm);
-                const matchesRegion = selectedRegion === 'all' || resort.region === selectedRegion;
-                const matchesAmenity = selectedAmenity === 'all' || resort.tags.includes(selectedAmenity);
+// k = kids amenities: slides, waterpark, lazy, bowling, minigolf, arcade, flowrider, kidsclub, teens
+// nonstop: "daily" | "seasonal" | "none"
+const resorts=[
+{ id:"hzpv", name:"Hyatt Ziva Puerto Vallarta", area:"Conchas Chinas, Puerto Vallarta", region:"Pacific Mexico",
+  airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (~2h20, limited days; check it lines up with Mar 14/18), otherwise 1 stop via DFW/IAH", flight:[450,700], transfer:20,
+  risk:0, swim:true, beach:"Long sandy cove between rocky points. Fairly calm, with a small shore break. Free kayaks and boogie boards.",
+  restaurants:"5 + food carts", pools:5, poolsNote:"5 pools (2 adults-only) + kids' pool",
+  k:{kidsclub:true,teens:true}, kidsScore:2.5, drinks:3.5, drinksNote:"Hyatt Ziva includes top-shelf spirits. Some guests report weak pours, and the tequila bar is the standout.",
+  price:[800,1150],
+  pros:["Zero sargassum risk (Pacific)","Banderas Bay whale season runs into March, a great kid excursion","Short ride from the airport and Old Town"],
+  cons:["No water slides or water park","Older property. Swim-up suites are 18+","Only 5 restaurants"] },
 
-                return matchesSearch && matchesRegion && matchesAmenity;
-            });
+{ id:"hrv", name:"Hard Rock Hotel Vallarta", area:"Nuevo Vallarta, Riviera Nayarit", region:"Pacific Mexico",
+  airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (limited days), otherwise 1 stop", flight:[450,700], transfer:15,
+  risk:0, swim:true, beach:"Wide, swimmable Nuevo Vallarta beach on Banderas Bay.",
+  restaurants:"6", pools:3, poolsNote:"2 large free-form pools (one with a water slide) + kids' pool",
+  k:{slides:true,kidsclub:true}, kidsScore:3, drinks:3.5, drinksNote:"Domestic plus select international brands included. Hard Rock pours better than the budget brands.",
+  price:[650,950],
+  pros:["No seaweed, swimmable beach","15 minutes from PVR","Good value for a Hard Rock"],
+  cons:["Only one pool slide, no real water park","Fewer pools than the Caribbean mega-resorts"] },
 
-            if (sortVal === 'rank-asc') {
-                filteredResorts.sort((a, b) => a.id - b.id);
-            } else if (sortVal === 'price-asc') {
-                filteredResorts.sort((a, b) => a.price - b.price);
-            } else if (sortVal === 'price-desc') {
-                filteredResorts.sort((a, b) => b.price - a.price);
-            } else if (sortVal === 'rating-desc') {
-                filteredResorts.sort((a, b) => b.rating - a.rating);
-            }
+{ id:"dbm", name:"Dreams Bahia Mita Surf & Spa", area:"Bahía de Mita / Punta de Mita, Riviera Nayarit", region:"Pacific Mexico",
+  airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (limited days), otherwise 1 stop", flight:[450,700], transfer:40,
+  risk:0, swim:true, beach:"Bay beach listed as swimmable. The surf theme means some days have waves.",
+  restaurants:"7 + cafés", pools:6, poolsNote:"5–6 pools incl. heated water-park pool + kids' pool",
+  k:{slides:true,waterpark:true,kidsclub:true,teens:true}, kidsScore:3.5, drinks:3, drinksNote:"Domestic plus select international brands. Premium spirits only with the Preferred Club upgrade.",
+  price:[650,950],
+  pros:["New 18,600 sq ft kids' water park with pirate ship and 3 slides","Explorer's Club (3–12) and Core Zone teens club","No seaweed"],
+  cons:["Roughly 40-minute transfer","Mixed food reviews","Top-shelf requires Preferred Club"] },
 
-            renderResorts();
-        }
+{ id:"gpv", name:"Grand Palladium Vallarta (Family Selection)", area:"Litibú / Punta de Mita, Riviera Nayarit", region:"Pacific Mexico",
+  airport:"PVR", nonstop:"seasonal", flightNote:"Southwest seasonal nonstop (limited days), otherwise 1 stop", flight:[450,700], transfer:40,
+  risk:0, swim:"partial", beach:"Beachfront on the open Pacific north of Punta de Mita. Reviewers like the beach, but check surf conditions.",
+  restaurants:"5 + snack bar", pools:3, poolsNote:"2 pools + kids' pool",
+  k:{slides:true,waterpark:true,arcade:true,kidsclub:true}, kidsScore:3, drinks:3, drinksNote:"International brands. The Family Selection upgrade adds premium drinks and perks.",
+  price:[600,900],
+  pros:["Free kids' water park with slide, plus playground and arcade","No seaweed, and cheaper than most Vallarta options"],
+  cons:["Only 5 restaurants and reports of long waits for reservations","About 40-minute transfer","Fewer pools than the Caribbean Palladiums"] },
 
-        searchInput.addEventListener('input', applyFilters);
-        regionFilter.addEventListener('change', applyFilters);
-        amenityFilter.addEventListener('change', applyFilters);
-        sortBy.addEventListener('change', applyFilters);
+{ id:"rpcsl", name:"Riu Palace Cabo San Lucas", area:"El Médano Beach, Cabo San Lucas", region:"Pacific Mexico",
+  airport:"SJD", nonstop:"daily", flightNote:"Daily Southwest nonstop (~2h50). American and Delta add seasonal nonstops this winter.", flight:[450,700], transfer:45,
+  risk:0, swim:true, beach:"Médano Beach, widely called the most swimmable beach in Los Cabos.",
+  restaurants:"7", pools:5, poolsNote:"5 pools (2 swim-up bars, adults only)",
+  k:{slides:true,waterpark:true,kidsclub:true}, kidsScore:4, drinks:2.5, drinksNote:"Riu standard: domestic plus select international, house wine. Mid-tier.",
+  price:[550,850],
+  pros:["On-site Splash Water World (5 slides)","Swimmable beach, which is rare in Cabo","Nonstop flight and the best price in the Pacific group"],
+  cons:["Médano is a college spring-break party zone from February into early April","Riu drinks and food are mid-tier","Cabo water is cool in March (about 70–72°F)"] },
 
-        document.getElementById('resetFilters').addEventListener('click', () => {
-            searchInput.value = '';
-            regionFilter.value = 'all';
-            amenityFilter.value = 'All-Inclusive';
-            sortBy.value = 'rank-asc';
-            applyFilters();
-        });
+{ id:"hzlc", name:"Hyatt Ziva Los Cabos", area:"San José del Cabo", region:"Pacific Mexico",
+  airport:"SJD", nonstop:"daily", flightNote:"Daily Southwest nonstop (~2h50). American and Delta add seasonal nonstops.", flight:[450,700], transfer:20,
+  risk:0, swim:"partial", beach:"Protected cove. Swimmable in calm conditions, but swells can bring red-flag days.",
+  restaurants:"7 (17 restaurants + bars)", pools:5, poolsNote:"4–5 pools incl. infinity + adults-only",
+  k:{slides:true,kidsclub:true,teens:true}, kidsScore:3.5, drinks:4, drinksNote:"Top-shelf spirits included, plus tequila and mezcal tastings.",
+  price:[850,1250],
+  pros:["20 minutes from SJD, nonstop from Austin","Mini water park with slides, kids club and teen lounge","Calmer, more family feel than Médano"],
+  cons:["Beach swimming depends on conditions","Cool Pacific water in March"] },
 
-        function openModal(id) {
-            const resort = resortsData.find(r => r.id === id);
-            if (!resort) return;
+{ id:"hrlc", name:"Hard Rock Hotel Los Cabos", area:"Diamante, Pacific side of Cabo San Lucas", region:"Pacific Mexico",
+  airport:"SJD", nonstop:"daily", flightNote:"Daily Southwest nonstop (~2h50)", flight:[450,700], transfer:50,
+  risk:0, swim:false, beach:"Pacific-facing and NOT swimmable (red-flag surf). For walking and sunsets only.",
+  restaurants:"8 à la carte", pools:6, poolsNote:"5–6 pools incl. family pool with flume slides",
+  k:{slides:true,bowling:true,kidsclub:true,teens:true}, kidsScore:4, drinks:4, drinksNote:"Premium spirits included in Hard Rock's plan. The Rock Royalty upgrade adds more.",
+  price:[1000,1450],
+  pros:["4-lane bowling alley, slides, kids club and teen lounge","Big pool complex","No seaweed"],
+  cons:["You can't swim in the ocean","About 50-minute transfer","Pricier"] },
 
-            document.getElementById('modalImg').src = resort.image;
-            document.getElementById('modalRankBadge').textContent = `Rank #${resort.id}`;
-            document.getElementById('modalRegionBadge').textContent = resort.region;
-            document.getElementById('modalTitle').textContent = resort.name;
-            document.getElementById('modalLocation').querySelector('span:last-child').textContent = resort.location;
-            document.getElementById('modalPrice').textContent = `$${resort.price.toLocaleString()}`;
-            document.getElementById('modalRating').textContent = resort.rating;
-            document.getElementById('modalFlight').textContent = `${resort.flightRoute} (${resort.flightPrice})`;
-            document.getElementById('modalReasoning').textContent = resort.rankingReason;
-            document.getElementById('modalReviews').textContent = `"${resort.reviewSummary}"`;
+{ id:"riugc", name:"Riu Guanacaste", area:"Matapalo Beach, Guanacaste, Costa Rica", region:"Costa Rica",
+  airport:"LIR", nonstop:"none", flightNote:"1 stop (Southwest's AUS–LIR nonstop is summer-only in 2027)", flight:[550,850], transfer:30,
+  risk:0, swim:true, beach:"Matapalo Beach on the Pacific. Swimmable, with warm water (about 80°F).",
+  restaurants:"6+ (plus taco & grill stations)", pools:6, poolsNote:"6 pools, 3 with swim-up bars",
+  k:{slides:true,waterpark:true,kidsclub:true}, kidsScore:4, drinks:2.5, drinksNote:"Riu standard: domestic plus select international.",
+  price:[450,700],
+  pros:["Free Splash Water World next door (5 slides incl. 4-lane racer)","Fully renovated and reopened in 2026","Lowest price on the list, warm Pacific water, dry season"],
+  cons:["Sister Riu Palace Costa Rica is closed for renovation until spring 2027, so expect possible construction nearby","Riu-level drinks","1-stop flight"] },
 
-            const prosList = document.getElementById('modalPros');
-            prosList.innerHTML = resort.pros.map(pro => `<li>${pro}</li>`).join('');
+{ id:"barua", name:"Barceló Aruba", area:"Palm Beach, Aruba", region:"Aruba",
+  airport:"AUA", nonstop:"none", flightNote:"1 stop (via MIA, IAH or CLT)", flight:[600,900], transfer:20,
+  risk:1, swim:true, beach:"Palm Beach: calm, clear and very swimmable.",
+  restaurants:"7", pools:1, poolsNote:"1 large pool",
+  k:{kidsclub:true}, kidsScore:2, drinks:3, drinksNote:"Standard international brands.",
+  price:[800,1150],
+  pros:["Aruba is the safest Caribbean seaweed bet","Calm, kid-safe water"],
+  cons:["Only one pool and no slides, so weak on kid fun","Aruba is pricey for what you get"] },
 
-            const consList = document.getElementById('modalCons');
-            consList.innerHTML = resort.cons.map(con => `<li>${con}</li>`).join('');
+{ id:"btc", name:"Beaches Turks & Caicos", area:"Grace Bay, Providenciales", region:"Turks & Caicos",
+  airport:"PLS", nonstop:"none", flightNote:"1 stop (via MIA, CLT or DFW)", flight:[650,950], transfer:15,
+  risk:2, swim:true, beach:"Grace Bay, often voted the world's best beach. A barrier reef keeps it calm.",
+  restaurants:"20+", pools:10, poolsNote:"10 pools + water park",
+  k:{slides:true,waterpark:true,lazy:true,kidsclub:true,teens:true}, kidsScore:5, drinks:4.5, drinksNote:"Premium liquors and Robert Mondavi wines included. Stocked in-room bar.",
+  price:[2000,3000],
+  pros:["Best kids' setup on the list: 45,000 sq ft Pirates Island water park with lazy river, Sesame Street","20+ restaurants, 14 bars","Transfers, tips and taxes included"],
+  cons:["By far the most expensive: family suites run about $1,900+/night even off-peak","1-stop flight"] },
 
-            const amenitiesContainer = document.getElementById('modalAmenities');
-            amenitiesContainer.innerHTML = resort.tags.map(tag => `<span class="${tag === 'All-Inclusive' ? 'bg-brand-100 text-brand-800 font-bold border-brand-300' : 'bg-brand-50 text-brand-700 border-brand-200'} text-xs font-semibold px-3 py-1 rounded-lg border">${tag}</span>`).join('');
+{ id:"bneg", name:"Beaches Negril", area:"Seven Mile Beach, Negril, Jamaica", region:"Jamaica",
+  airport:"MBJ", nonstop:"none", flightNote:"1 stop (via DFW, IAH, ATL or MIA)", flight:[550,800], transfer:80,
+  risk:2, swim:true, beach:"The widest part of Seven Mile Beach. Calm and west-facing.",
+  restaurants:"13", pools:4, poolsNote:"3 pools + water park pools",
+  k:{slides:true,waterpark:true,lazy:true,kidsclub:true,teens:true}, kidsScore:4.5, drinks:4.5, drinksNote:"Premium liquors and Robert Mondavi wines included.",
+  price:[1300,1900],
+  pros:["Pirates Island water park with big slides and lazy river","13 restaurants, premium drinks, transfers and tips included","Negril is historically clear in March"],
+  cons:["About 75–90-minute transfer from Montego Bay","Premium price","Western Jamaica is still rebuilding after Hurricane Melissa (Oct 2025). The resort reopened Dec 2025, but some off-site tours and roads may be limited"] },
 
-            detailModal.classList.remove('hidden');
-            setTimeout(() => {
-                detailModal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        }
+{ id:"mpj", name:"Moon Palace Jamaica", area:"Ocho Rios, Jamaica", region:"Jamaica",
+  airport:"MBJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:105,
+  risk:2, swim:true, beach:"White sand, calm water.",
+  restaurants:"8", pools:4, poolsNote:"4 pools (one with a slide) + kids' pool",
+  k:{slides:true,flowrider:true,arcade:true,kidsclub:true,teens:true}, kidsScore:3.5, drinks:3.5, drinksNote:"Domestic plus international brands included, with top-shelf at the nightclub. Palace resorts generally pour well.",
+  price:[700,1050],
+  pros:["FlowRider double surf simulator and Wired Lounge arcade","Calm, swimmable beach","Palace 'kids stay free' offers and resort credits often apply"],
+  cons:["About 1h45 transfer from Montego Bay","No real water park"] },
 
-        function closeModal() {
-            detailModal.classList.add('opacity-0');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                detailModal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 300);
-        }
+{ id:"rbw", name:"Royalton Blue Waters", area:"Falmouth (Trelawny), Jamaica", region:"Jamaica",
+  airport:"MBJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:35,
+  risk:2, swim:true, beach:"Listed as swimmable.",
+  restaurants:"~7", pools:4, poolsNote:"Several pools + kids' pool + swim-up bars",
+  k:{slides:true,kidsclub:true,teens:true}, kidsScore:3, drinks:3, drinksNote:"Domestic plus select international. Premium with the Diamond Club upgrade.",
+  price:[600,900],
+  pros:["Kids club (4–12) plus a teens club","Reasonable price, good food variety"],
+  cons:["Just a water slide, no water park","Best drinks require Diamond Club","Reopened Sept 15, 2026 after Hurricane Melissa repairs, so recent reviews are thin"] },
 
-        detailModal.addEventListener('click', (e) => {
-            if (e.target === detailModal) {
-                closeModal();
-            }
-        });
+{ id:"gpj", name:"Grand Palladium Jamaica", area:"Lucea (Hanover), Jamaica", region:"Jamaica",
+  airport:"MBJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:40,
+  risk:2, swim:true, beach:"On the northwest coast. Rocky in places, with a sandy swimming area.",
+  restaurants:"10", pools:3, poolsNote:"Huge main pool + kids' water play park (shared complex)",
+  k:{waterpark:true,kidsclub:true,teens:true}, kidsScore:3, drinks:3, drinksNote:"Local plus international brands included. Better with Family Selection.",
+  price:[500,800],
+  pros:["10 restaurants and 17 bars","Baby, mini and teen clubs","Budget-friendly"],
+  cons:["Water play area is aimed at little kids","The beach is the weakest of the Jamaica picks","Hanover took a direct hit from Hurricane Melissa. The resort is open, but check recent reviews for repair status"] },
 
-        window.onload = function() {
-            // Apply default All-Inclusive priority filter on initial load
-            amenityFilter.value = 'All-Inclusive';
-            applyFilters();
-        };
-    </script>
+{ id:"hzc", name:"Hyatt Ziva Cancún", area:"Punta Cancún (north tip of Hotel Zone)", region:"Cancún (protected)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops on Southwest and American (~2h40). Delta adds one this winter.", flight:[400,650], transfer:20,
+  risk:3, swim:true, beach:"Two beaches on the tip of the peninsula, including a calm, north-facing side that's good for little swimmers.",
+  restaurants:"7 + food carts", pools:4, poolsNote:"3 infinity pools + kids' pool",
+  k:{slides:true,kidsclub:true,teens:true}, kidsScore:3, drinks:4, drinksNote:"Top-shelf liquor included, plus an on-site microbrewery.",
+  price:[900,1300],
+  pros:["Best Cancún spot for avoiding seaweed","Nonstop and only 20 minutes from the airport","Walkable to Hotel Zone attractions"],
+  cons:["Kids' water area with slides is small","Mixed food reviews","Under-13s not allowed in swim-up rooms"] },
+
+{ id:"dpm", name:"Dreams Playa Mujeres", area:"Playa Mujeres, north of Cancún", region:"Cancún (protected)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
+  risk:3, swim:true, beach:"Wide, less crowded beach. Swimmable.",
+  restaurants:"10", pools:5, poolsNote:"65,000 sq ft of pools on 3 levels",
+  k:{slides:true,kidsclub:true,teens:true}, kidsScore:3.5, drinks:3, drinksNote:"Domestic plus select international. Premium with the Preferred Club upgrade.",
+  price:[750,1100],
+  pros:["Huge pool area with 2 slides and a mini water park in the kids club","10 restaurants, 13 bars","Explorer's Club and Core Zone teens club"],
+  cons:["Food consistency varies","Far from Hotel Zone nightlife (fine for families)"] },
+
+{ id:"gpcm", name:"Grand Palladium Costa Mujeres (Family Selection)", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
+  risk:3, swim:true, beach:"Private beach area on Costa Mujeres.",
+  restaurants:"10", pools:5, poolsNote:"Multiple pools incl. family pool",
+  k:{slides:true,waterpark:true,kidsclub:true,teens:true}, kidsScore:3.5, drinks:3, drinksNote:"International brands. Family Selection adds premium drinks and perks.",
+  price:[650,1000],
+  pros:["Children's aquatic park with slides","Baby, mini and junior clubs","Best value in the protected Cancún zone"],
+  cons:["Very large resort with lots of walking","Popular restaurants need app reservations"] },
+
+{ id:"mecm", name:"Majestic Elegance Costa Mujeres", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
+  risk:3, swim:true, beach:"White sand. Lounge chairs and palapas provided.",
+  restaurants:"8", pools:12, poolsNote:"12 pools (7 reserved for Elegance Club) + kids' pool",
+  k:{waterpark:true,kidsclub:true,teens:true}, kidsScore:3.5, drinks:4, drinksNote:"Premium drinks included across bars and restaurants.",
+  price:[800,1150],
+  pros:["Premium drinks included","12 pools, 13 bars","Access to the water park at sister Majestic Mirage"],
+  cons:["Water park is at the sister resort","Best pools reserved for the club level"] },
+
+{ id:"fpm", name:"Finest Playa Mujeres", area:"Playa Mujeres, north of Cancún", region:"Cancún (protected)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
+  risk:3, swim:true, beach:"Swimmable beach with a beach bar.",
+  restaurants:"12", pools:10, poolsNote:"10 pools (4 heated) + kids' pool with slides",
+  k:{slides:true,arcade:true,kidsclub:true,teens:true}, kidsScore:3.5, drinks:4, drinksNote:"Premium liquor included (Excellence Group standard).",
+  price:[1000,1500],
+  pros:["12 restaurants, 16 bars, 10 pools","Premium drinks","Kids' clubs by age, game room, kids' theater"],
+  cons:["Some reviewers complain about the food","Dress code at some restaurants","Pricey"] },
+
+{ id:"phc", name:"Planet Hollywood Cancún", area:"Costa Mujeres, north of Cancún", region:"Cancún (protected)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:30,
+  risk:3, swim:true, beach:"Listed as swimmable.",
+  restaurants:"~10", pools:5, poolsNote:"4 pools + lazy river + 2 splash parks",
+  k:{slides:true,waterpark:true,lazy:true,flowrider:true,kidsclub:true}, kidsScore:4, drinks:3, drinksNote:"Domestic plus select international (Royalton-run).",
+  price:[800,1150],
+  pros:["Lazy river and two splash parks (Shipwreck Cove slides, Jurassic Splash)","Stars Kids Club, lots of dining variety"],
+  cons:["Planet Play indoor park and FlowRider cost extra","Average drinks unless you upgrade"] },
+
+{ id:"hrpc", name:"Hard Rock Hotel & Casino Punta Cana", area:"Macao / Arena Gorda, Punta Cana, DR", region:"Dominican Republic",
+  airport:"PUJ", nonstop:"none", flightNote:"1 stop (Southwest's PUJ nonstop is summer-only in 2027)", flight:[550,800], transfer:25,
+  risk:5, swim:true, beach:"Long Atlantic-facing beach. Rougher surf and more seaweed exposure than Bávaro.",
+  restaurants:"17", pools:13, poolsNote:"13 pools incl. 3 kids' pools",
+  k:{slides:true,waterpark:true,lazy:true,bowling:true,minigolf:true,kidsclub:true,teens:true}, kidsScore:5, drinks:4, drinksNote:"Premium brands included at 23 bars.",
+  price:[700,1050],
+  pros:["Checks every kid box: water park, lazy river, bowling, mini golf","17 restaurants, 13 pools","Premium drinks"],
+  cons:["Macao / Arena Gorda is one of Punta Cana's more seaweed-exposed stretches","Lively, party-leaning crowd in places"] },
+
+{ id:"rspc", name:"Royalton Splash Punta Cana", area:"Bávaro / Arena Gorda, Punta Cana, DR", region:"Dominican Republic",
+  airport:"PUJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:25,
+  risk:5, swim:true, beach:"Bávaro area beach. Exposure is moderate to high in recent years.",
+  restaurants:"~8", pools:5, poolsNote:"Several pools + wave pool",
+  k:{slides:true,waterpark:true,arcade:true,kidsclub:true}, kidsScore:4.5, drinks:3, drinksNote:"Domestic plus select international. Premium with Diamond Club.",
+  price:[650,950],
+  pros:["One of the Caribbean's biggest resort water parks: 7 big slides incl. roller-coaster slide, wave pool","Arcade, kids club"],
+  cons:["Punta Cana seaweed risk","Best drinks require Diamond Club"] },
+
+{ id:"hzcc", name:"Hyatt Ziva Cap Cana", area:"Juanillo Beach, Cap Cana, DR", region:"Dominican Republic",
+  airport:"PUJ", nonstop:"none", flightNote:"1 stop", flight:[550,800], transfer:15,
+  risk:4, swim:true, beach:"Juanillo Beach in gated Cap Cana. Reef-protected and calm.",
+  restaurants:"6 + food truck", pools:4, poolsNote:"Infinity pools + water park",
+  k:{slides:true,waterpark:true,lazy:true,kidsclub:true,teens:true}, kidsScore:4, drinks:3.5, drinksNote:"Hyatt Ziva normally includes top-shelf. Some listings reserve premium for Club Level, so confirm.",
+  price:[900,1300],
+  pros:["Water park with 5 slides and a lazy river","Calmest beach of the DR picks","15 minutes from PUJ"],
+  cons:["Punta Cana-area seaweed risk (moderate)","Only 6 restaurants","Slides need about a 4-ft height"] },
+
+{ id:"mpc", name:"Moon Palace The Grand – Cancún", area:"South of Cancún (Riviera Cancún)", region:"Riviera Maya (high seaweed)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:15,
+  risk:6, swim:"partial", beach:"East-facing and rougher. Reviewers rate it about 3/5 and say it's badly hit in seaweed years.",
+  restaurants:"11 (25+ across complex)", pools:9, poolsNote:"9 pools at The Grand + access to the rest of the complex",
+  k:{slides:true,waterpark:true,lazy:true,bowling:true,flowrider:true,arcade:true,kidsclub:true,teens:true}, kidsScore:5, drinks:4.5, drinksNote:"Top-shelf everywhere plus an in-room liquor dispenser.",
+  price:[850,1250],
+  pros:["Huge water park, wave pool, lazy river, FlowRider and 6-lane bowling","Best drinks among the big family resorts","Palace often runs 'kids 17 and under stay free' offers plus resort credits (16% fee applies)"],
+  cons:["HIGH seaweed exposure, the same coast that hit you last year","Beach is the weak spot"] },
+
+{ id:"rsrc", name:"Royalton Splash Riviera Cancún", area:"Puerto Morelos", region:"Riviera Maya (high seaweed)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:25,
+  risk:6, swim:"partial", beach:"Puerto Morelos coast. High seaweed exposure.",
+  restaurants:"12 dining venues", pools:6, poolsNote:"Water park + several pools",
+  k:{slides:true,waterpark:true,lazy:true,bowling:true,arcade:true,kidsclub:true,teens:true}, kidsScore:5, drinks:3, drinksNote:"Domestic plus select international. Premium with Diamond Club.",
+  price:[800,1200],
+  pros:["14 slides, 2 lazy rivers, bowling, trampoline park, laser tag"],
+  cons:["HIGH seaweed exposure in Riviera Maya","Average drinks without the upgrade"] },
+
+{ id:"nrm", name:"Nickelodeon Hotels & Resorts Riviera Maya", area:"Puerto Morelos", region:"Riviera Maya (high seaweed)",
+  airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:25,
+  risk:6, swim:"partial", beach:"Oceanfront in Puerto Morelos. High seaweed exposure.",
+  restaurants:"6–8", pools:5, poolsNote:"Water park + pools. Many suites have plunge pools",
+  k:{slides:true,waterpark:true,lazy:true,kidsclub:true}, kidsScore:5, drinks:3.5, drinksNote:"Domestic plus select international (Karisma 'Gourmet Inclusive').",
+  price:[1300,2000],
+  pros:["6-acre Aqua Nick water park with lazy river, Nick characters, slime"],
+  cons:["HIGH seaweed exposure","Expensive","Very character-focused"] }
+];
+
+
+const ADVISORY={"Pacific Mexico":null,"Costa Rica":[2,"Costa Rica: Level 2, exercise increased caution (crime)"],"Aruba":[1,"Aruba: Level 1, normal precautions"],"Turks & Caicos":[2,"Turks & Caicos: Level 2, exercise increased caution"],"Jamaica":[2,"Jamaica: Level 2, exercise increased caution (lowered June 2026). Some neighborhoods are 'reconsider travel'"],"Cancún (protected)":[2,"Quintana Roo: Level 2, increased caution, especially after dark in Cancún"],"Riviera Maya (high seaweed)":[2,"Quintana Roo: Level 2, increased caution, especially after dark"],"Dominican Republic":[2,"Dominican Republic: Level 2, exercise increased caution (crime)"]};
+const ADV_BY_ID={hzpv:[3,"Jalisco: Level 3 'reconsider travel' statewide. Puerto Vallarta itself has no US-government travel restrictions"],hrv:[2,"Nayarit: Level 2, exercise increased caution"],dbm:[2,"Nayarit: Level 2, exercise increased caution"],gpv:[2,"Nayarit: Level 2, exercise increased caution"],rpcsl:[2,"Baja California Sur: Level 2, exercise increased caution"],hzlc:[2,"Baja California Sur: Level 2, exercise increased caution"],hrlc:[2,"Baja California Sur: Level 2, exercise increased caution"]};
+resorts.forEach(r=>{r.adv=ADV_BY_ID[r.id]||ADVISORY[r.region];});
+resorts.forEach(r=>{const f=FLIGHT[r.airport]; r.flightMin = r.nonstop!=="none"&&f.ns ? f.ns : f.one; r.flightFallback = r.nonstop==="seasonal"? f.one : null; r.travelMin=r.flightMin+r.transfer;});
+// ---------- scoring ----------
+function priceScore(mid){ if(mid<=650)return 5; if(mid<=850)return 4.3; if(mid<=1050)return 3.6; if(mid<=1300)return 2.8; if(mid<=1700)return 2; return 1.2; }
+function flightScore(r){ let s = r.nonstop==="daily"?5 : r.nonstop==="seasonal"?4.3 : 3; if(r.transfer>90)s-=1; else if(r.transfer>60)s-=.5; return Math.max(1,s); }
+function factorScores(r){ const beach=Math.max(1,RISK_SCORE[r.risk]-(r.swim===false?1.5:r.swim==="partial"?0.6:0)); return { seaweed:beach, kids:r.kidsScore, drinks:r.drinks, price:priceScore((r.price[0]+r.price[1])/2), flight:flightScore(r) }; }
+
+const W=["seaweed","kids","drinks","price","flight"];
+const LABELS={seaweed:"Beach",kids:"Kids' fun",drinks:"Drinks",price:"Price",flight:"Travel"};
+const KID_LABELS={waterpark:"Water park",slides:"Slides",lazy:"Lazy river",bowling:"Bowling",minigolf:"Mini golf",arcade:"Arcade",flowrider:"FlowRider",kidsclub:"Kids club",teens:"Teen club"};
+
+const $=id=>document.getElementById(id);
+const store={ get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}} };
+let favs=new Set(store.get("sb27-favs",[]));
+
+function weights(){ const w={}; W.forEach(k=>{w[k]=+$("w-"+k).value; $("o-"+k).textContent=w[k];}); return w; }
+function overall(fs,w){ let tot=0,sum=0; W.forEach(k=>{tot+=w[k]; sum+=w[k]*fs[k];}); return tot? Math.round(sum/tot/5*100) : 0; }
+
+function costRange(r){
+  const a=Math.max(1,+$("adults").value||2), k=Math.max(0,+$("kids").value||0), n=Math.max(1,+$("nights").value||4);
+  const people=a+k, factor=(a+0.5*k)/3; // baseline 2A+2K = 3 "adult-equivalents"
+  const lo=Math.round(r.price[0]*factor*n + r.flight[0]*people), hi=Math.round(r.price[1]*factor*n + r.flight[1]*people);
+  return {lo,hi,n,people};
+}
+const money=v=>"$"+(Math.round(v/50)*50).toLocaleString();
+
+function passes(r){
+  const reg=$("region").value; if(reg!=="all" && r.region!==reg) return false;
+  if(r.risk>+$("maxRisk").value) return false;
+  const st=$("stops").value; if(st==="nonstop"&&r.nonstop==="none")return false; if(st==="daily"&&r.nonstop!=="daily")return false;
+  if(r.travelMin>+$("maxTravel").value) return false;
+  if($("favOnly").checked && !favs.has(r.id)) return false;
+  for(const cb of document.querySelectorAll("[data-need]:checked")){
+    const n=cb.dataset.need;
+    if(n==="slides"&&!r.k.slides)return false;
+    if(n==="waterpark"&&!r.k.waterpark)return false;
+    if(n==="lazy"&&!r.k.lazy)return false;
+    if(n==="bowlgolf"&&!(r.k.bowling||r.k.minigolf))return false;
+    if(n==="swim"&&r.swim!==true)return false;
+    if(n==="drinks4"&&r.drinks<4)return false;
+    if(n==="pools4"&&r.pools<4)return false;
+  }
+  return true;
+}
+
+function render(){
+  const w=weights();
+  let list=resorts.map(r=>{const fs=factorScores(r);const cost=costRange(r);return {r,fs,score:overall(fs,w),cost,mid:(cost.lo+cost.hi)/2,w};});
+  // cost slider bounds follow group size / nights
+  const cs=$("maxCost"), mids=list.map(x=>x.mid), cmin=Math.floor(Math.min(...mids)/250)*250, cmax=Math.ceil(Math.max(...mids)/250)*250;
+  const atMax = !cs.dataset.ready || +cs.value>=+cs.max; cs.dataset.ready="1"; cs.min=cmin; cs.max=cmax; if(atMax||+cs.value>cmax) cs.value=cmax; if(+cs.value<cmin) cs.value=cmin;
+  $("o-cost").textContent = +cs.value>=cmax ? "Any" : "≤ "+money(+cs.value);
+  const tv=$("maxTravel"); $("o-travel").textContent = +tv.value>=+tv.max ? "Any" : "≤ "+hm(+tv.value);
+  const s=$("sort").value;
+  const by={score:(a,b)=>b.score-a.score, cost:(a,b)=>(a.cost.lo+a.cost.hi)-(b.cost.lo+b.cost.hi), seaweed:(a,b)=>a.r.risk-b.r.risk||b.score-a.score, kids:(a,b)=>b.r.kidsScore-a.r.kidsScore||b.score-a.score, drinks:(a,b)=>b.r.drinks-a.r.drinks||b.score-a.score, travel:(a,b)=>a.r.travelMin-b.r.travelMin||b.score-a.score}[s];
+  // rank always reflects best-match order
+  const ranked=[...list].sort((a,b)=>b.score-a.score); ranked.forEach((x,i)=>x.rank=i+1);
+  list=list.filter(x=>passes(x.r) && x.mid<=+cs.value).sort(by);
+  $("count").textContent=`${list.length} of ${resorts.length} resorts`;
+  $("favCount").textContent=favs.size;
+  $("empty").hidden=list.length>0;
+  $("cards").innerHTML=list.map(card).join("");
+  document.querySelectorAll(".fav").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.id; favs.has(id)?favs.delete(id):favs.add(id); store.set("sb27-favs",[...favs]); render();}));
+}
+
+const attr=t=>String(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
+function reasons(r,fs,score,w){
+  const kidsHave=Object.keys(KID_LABELS).filter(k=>r.k[k]).map(k=>KID_LABELS[k]);
+  const swimPen = r.swim===false?" −1.5 because the ocean isn't swimmable.": r.swim==="partial"?" −0.6 because swimming depends on conditions.":"";
+  const mid=(r.price[0]+r.price[1])/2;
+  const flightTxt = r.nonstop==="daily"?"Daily nonstop = 5": r.nonstop==="seasonal"?"Seasonal / limited-day nonstop = 4.3":"1-stop flight = 3";
+  const xferPen = r.transfer>90?" −1 for a transfer over 90 min.": r.transfer>60?" −0.5 for a transfer over 60 min.":"";
+  const tot=W.reduce((a,k)=>a+w[k],0)||1;
+  return {
+    seaweed:`Beach ${fs.seaweed.toFixed(1)}/5 — Seaweed risk: ${RISK_LABEL[r.risk]}. ${RISK_WHY[r.risk]}${swimPen}\n${r.beach}`,
+    kids:`Kids' fun ${fs.kids.toFixed(1)}/5 — Has: ${kidsHave.join(", ")||"basic pools only"}. Pools: ${r.poolsNote}.`,
+    drinks:`Drinks ${fs.drinks.toFixed(1)}/5 — ${r.drinksNote}`,
+    price:`Price ${fs.price.toFixed(1)}/5 — Est. ${money(r.price[0])}–${money(r.price[1])}/night for 2 adults + 2 kids (midpoint ${money(mid)}). Scale: ≤$650 = 5, ≤$850 = 4.3, ≤$1,050 = 3.6, ≤$1,300 = 2.8, ≤$1,700 = 2.`,
+    flight:`Travel ${fs.flight.toFixed(1)}/5 — ${flightTxt}.${xferPen} Flight ~${hm(r.flightMin)} + ~${r.transfer} min transfer = ~${hm(r.travelMin)} door to resort.`,
+    overall:`Overall ${score}/100 — weighted by your sliders:\n`+W.map(k=>`${LABELS[k]} ${fs[k].toFixed(1)}/5 × weight ${w[k]} (${Math.round(w[k]/tot*100)}%)`).join("\n")
+  };
+}
+function card(x){
+  const r=x.r, fs=x.fs, c=x.cost, why=reasons(r,fs,x.score,x.w);
+  const enc=encodeURIComponent;
+  const gf=`https://www.google.com/travel/flights?q=${enc(`Flights from AUS to ${r.airport} on 2027-03-14 through 2027-03-18`)}`;
+  const gh=`https://www.google.com/travel/search?q=${enc(r.name)}`;
+  const ta=`https://www.tripadvisor.com/Search?q=${enc(r.name)}`;
+  const off=`https://www.google.com/search?q=${enc(r.name+" official site")}`;
+  const swim = r.swim===true?"Swimmable beach": r.swim===false?"Beach not swimmable":"Beach: conditions vary";
+  const nonstop = r.nonstop==="daily"?"Nonstop": r.nonstop==="seasonal"?"Seasonal nonstop":"1 stop";
+  const flightFact = r.nonstop==="none" ? `~${hm(r.flightMin)} (1 stop)` : `~${hm(r.flightMin)} nonstop${r.flightFallback?` (or ~${hm(r.flightFallback)} w/ 1 stop)`:""}`;
+  const kidChips=Object.keys(KID_LABELS).filter(k=>["waterpark","slides","lazy","bowling","minigolf"].includes(k)||r.k[k]).map(k=>`<span class="kid ${r.k[k]?"yes":""}">${r.k[k]?"✓ ":""}${KID_LABELS[k]}</span>`).join("");
+  return `<article class="card ${r.risk>=5?"flag":""}">
+    <div class="card-top">
+      <div>
+        <div class="rank">#${x.rank} best match · ${r.region}</div>
+        <h3>${r.name}</h3>
+        <div class="loc">${r.area}</div>
+      </div>
+      <div class="score" tabindex="0" style="--p:${x.score}" data-tip="${attr(why.overall)}"><span>${x.score}<small>score</small></span></div>
+    </div>
+    <div class="favrow"><button class="fav ${favs.has(r.id)?"on":""}" data-id="${r.id}" aria-pressed="${favs.has(r.id)}">${favs.has(r.id)?"★ Favorited (tap to remove)":"☆ Add to favorites"}</button></div>
+    <div class="badges">
+      <span class="risk r${r.risk}">Seaweed: ${RISK_LABEL[r.risk]}</span>
+      <span class="tag ocean">${nonstop} · ${r.airport}</span>
+      <span class="tag">${swim}</span>
+      <span class="tag" data-tip="${attr("US State Dept advisory. "+r.adv[1])}" tabindex="0">US advisory: L${r.adv[0]}</span>
+    </div>
+    <div class="bars">${W.map(k=>`<div class="bar" tabindex="0" data-tip="${attr(why[k])}"><span>${LABELS[k]} ⓘ</span><div class="track"><div class="fill" style="width:${fs[k]/5*100}%;background:${k==="seaweed"?(fs[k]>=4?"#2f8a4e":fs[k]>=3?"#b7791f":"#b4442f"):"var(--ocean)"}"></div></div><em>${fs[k].toFixed(1)}</em></div>`).join("")}</div>
+    <div class="cost" style="margin-top:10px"><span class="k">Est. trip total (${c.people} people, ${c.n} nights, flights + resort)</span><span class="v">${money(c.lo)}–${money(c.hi)}</span>
+      <span class="s">Flights ~$${r.flight[0]}–${r.flight[1]} per person RT · resort ${money(r.price[0])}–${money(r.price[1])}/night (2+2)</span></div>
+    <div class="facts" style="padding-top:0">
+      <div class="fact"><div class="k">Flight from AUS</div><div class="v">${flightFact}</div></div>
+      <div class="fact"><div class="k">Door to resort</div><div class="v">~${hm(r.travelMin)} <span class="muted" style="font-weight:500">(+${r.transfer} min transfer)</span></div></div>
+      <div class="fact"><div class="k">Restaurants</div><div class="v">${r.restaurants}</div></div>
+      <div class="fact"><div class="k">Pools</div><div class="v">${r.poolsNote}</div></div>
+    </div>
+    <div class="kids">${kidChips}</div>
+    <details>
+      <summary>Details & links</summary>
+      <div class="more">
+        <div class="pc">
+          <div><h4>Why it fits</h4><ul>${r.pros.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+          <div><h4>Watch-outs</h4><ul>${r.cons.map(p=>`<li>${p}</li>`).join("")}</ul></div>
+        </div>
+        <h4>Beach</h4><div>${r.beach}</div>
+        <h4>Drinks</h4><div>${r.drinksNote}</div>
+        <h4>Flights from Austin</h4><div>${r.flightNote}</div>
+        <h4>US travel advisory</h4><div>${r.adv[1]} (<a href="https://travel.state.gov/content/travel/en/traveladvisories/traveladvisories.html" target="_blank" rel="noopener">State Dept</a>)</div>
+        <div class="links">
+          <a href="${gf}" target="_blank" rel="noopener">✈️ Google Flights (Mar 14–18)</a>
+          <a href="${gh}" target="_blank" rel="noopener">🏨 Live rates</a>
+          <a href="${ta}" target="_blank" rel="noopener">⭐ Tripadvisor reviews & photos</a>
+          <a href="${off}" target="_blank" rel="noopener">🌐 Official site</a>
+        </div>
+      </div>
+    </details>
+  </article>`;
+}
+
+// ---------- init ----------
+[...new Set(resorts.map(r=>r.region))].forEach(reg=>{const o=document.createElement("option");o.value=reg;o.textContent=reg;$("region").appendChild(o);});
+document.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",render));
+$("reset").addEventListener("click",()=>{
+  const d={seaweed:9,kids:8,drinks:5,price:6,flight:5}; W.forEach(k=>$("w-"+k).value=d[k]);
+  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("maxRisk").value="6";$("sort").value="score";$("favOnly").checked=false;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
+  document.querySelectorAll("[data-need]").forEach(c=>c.checked=false); render();
+});
+render();
+</script>
 </body>
 </html>
