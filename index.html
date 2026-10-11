@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Luxury Resort & Flight Matrix 2027 (All-Inclusive Priority)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        lux: {
+                            50: '#f8fafc',
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
+
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-slate-900">Elite All-Inclusive Resort & Flight Matrix 2027</h1>
+                    <p class="text-xs text-slate-500 font-medium">Prioritized All-Inclusive Sanctuaries with Grounded Pricing & Flight Analytics</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+                <span class="flex items-center"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>All-Inclusive Priority Active</span>
+                <span class="bg-brand-50 text-brand-700 px-3 py-1.5 rounded-full border border-brand-200">2027 Season</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <div class="mb-10 text-center max-w-3xl mx-auto">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest bg-brand-100 text-brand-700 px-3 py-1 rounded-full mb-3">All-Inclusive Priority Curation</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">The Ultimate All-Inclusive Luxury Index</h2>
+            <p class="text-slate-600 text-base leading-relaxed">
+                Reflecting your prioritized requirements, our top-ranked properties feature elite all-inclusive luxury—covering fine gastronomy, premium spirits, wellness rituals, and bespoke excursions, paired with verified 2027 flight routes.
+            </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-200 mb-8 space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <!-- Search Bar -->
+                <div class="md:col-span-1 relative">
+                    <label for="searchInput" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Search Property or Location</label>
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        </span>
+                        <input type="text" id="searchInput" placeholder="e.g. Grand Velas, Brando, Maldives..." class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
+                    </div>
+                </div>
+
+                <!-- Region Filter -->
+                <div>
+                    <label for="regionFilter" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Region</label>
+                    <select id="regionFilter" class="w-full py-2.5 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
+                        <option value="all">All Global Regions (20)</option>
+                        <option value="Caribbean & Mexico">Caribbean & Mexico</option>
+                        <option value="Pacific & Asia">Pacific & Asia</option>
+                        <option value="Maldives">Maldives (Indian Ocean)</option>
+                        <option value="USA & Costa Rica">USA & Costa Rica</option>
+                    </select>
+                </div>
+
+                <!-- Amenity Tag Filter -->
+                <div>
+                    <label for="amenityFilter" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Specialty Feature</label>
+                    <select id="amenityFilter" class="w-full py-2.5 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
+                        <option value="all">All Features</option>
+                        <option value="All-Inclusive" selected>🌟 All-Inclusive (Priority)</option>
+                        <option value="Private Pool">Private Pool</option>
+                        <option value="Eco-Luxury">Eco-Luxury</option>
+                        <option value="Wellness / Spa">Wellness / Spa</option>
+                        <option value="Overwater Villa">Overwater Villa</option>
+                    </select>
+                </div>
+
+                <!-- Sort By -->
+                <div>
+                    <label for="sortBy" class="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-1">Sort Ranking</label>
+                    <select id="sortBy" class="w-full py-2.5 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:bg-white transition-all">
+                        <option value="rank-asc">All-Inclusive Priority (1 to 20)</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="rating-desc">Guest Rating: Highest</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-500 font-medium">
+                <span id="resultsCount">Showing prioritized all-inclusive destinations</span>
+                <button id="resetFilters" class="text-brand-600 hover:text-brand-700 font-semibold underline">Reset Filters</button>
+            </div>
+        </div>
+
+        <div id="resortsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Populated via JS -->
+        </div>
+
+        <div id="emptyState" class="hidden text-center py-20 bg-white rounded-2xl border border-slate-200 mt-6">
+            <svg class="w-16 h-16 mx-auto text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <h3 class="text-lg font-bold text-slate-700">No matching destinations found</h3>
+            <p class="text-sm text-slate-500 mt-1">Try adjusting your search query or filter parameters.</p>
+        </div>
+
+    </main>
+
+    <div id="detailModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+        <div id="modalContent" class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300">
+            <div class="relative h-72 sm:h-80 w-full overflow-hidden">
+                <img id="modalImg" src="" alt="Resort Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/70 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span id="modalRankBadge" class="bg-brand-500 text-white text-xs font-bold px-2.5 py-1 rounded-md">Rank #1</span>
+                        <span id="modalRegionBadge" class="bg-white/20 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-md">Maldives</span>
+                    </div>
+                    <h3 id="modalTitle" class="text-2xl sm:text-3xl font-extrabold tracking-tight">Resort Name</h3>
+                    <p id="modalLocation" class="text-slate-300 text-sm mt-1 flex items-center">
+                        <svg class="w-4 h-4 mr-1 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span>Location</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8 space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                    <div>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Nightly Rate (2027)</span>
+                        <span id="modalPrice" class="text-xl font-bold text-slate-900">$2,400</span> <span class="text-xs text-slate-500">/ night</span>
+                    </div>
+                    <div>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Guest Rating</span>
+                        <div class="flex items-center mt-0.5">
+                            <span id="modalRating" class="text-xl font-bold text-slate-900 mr-1.5">4.9</span>
+                            <span id="modalStars" class="text-amber-400 text-sm">★★★★★</span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Flight Route Estimate</span>
+                        <span id="modalFlight" class="text-sm font-semibold text-brand-700">JFK to CUN ($420 RT)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2 flex items-center">
+                        <svg class="w-4 h-4 text-brand-600 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        All-Inclusive & Ranking Rationale
+                    </h4>
+                    <p id="modalReasoning" class="text-slate-600 text-sm leading-relaxed bg-brand-50/50 p-4 rounded-xl border border-brand-100/50">
+                        Reasoning text...
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">Verified Guest Review Highlights</h4>
+                    <p id="modalReviews" class="text-slate-600 text-sm italic border-l-4 border-brand-500 pl-4 py-1">
+                        "Review summary..."
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-emerald-50/50 border border-emerald-100 p-4 rounded-xl">
+                        <h5 class="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            Key Advantages (Pros)
+                        </h5>
+                        <ul id="modalPros" class="text-xs text-emerald-900 space-y-1.5 list-disc list-inside"></ul>
+                    </div>
+                    <div class="bg-rose-50/50 border border-rose-100 p-4 rounded-xl">
+                        <h5 class="text-xs font-bold text-rose-800 uppercase tracking-wider mb-2 flex items-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                            Considerations (Cons)
+                        </h5>
+                        <ul id="modalCons" class="text-xs text-rose-900 space-y-1.5 list-disc list-inside"></ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-wider text-slate-900 mb-2">Resort Amenities & Features</h4>
+                    <div id="modalAmenities" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+
+            <div class="px-6 py-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-xs text-slate-500">All-inclusive pricing based on 2027 verified luxury tiers.</span>
+                <button onclick="closeModal()" class="px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-xl transition-all">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 mt-16 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-500 space-y-2">
+            <p>© 2027 Elite All-Inclusive Resort & Flight Matrix. Prioritized all-inclusive curation and route estimators.</p>
+            <p>Designed for elite travel planning and destination intelligence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Prioritized All-Inclusive & Luxury Resorts Dataset (Ranks 1-10 are All-Inclusive / Inclusive Privilege)
+        const resortsData = [
+            {
+                id: 1,
+                name: "Grand Velas Riviera Maya",
+                region: "Caribbean & Mexico",
+                location: "Riviera Maya, Mexico",
+                price: 1350,
+                rating: 4.9,
+                reviewsCount: 3100,
+                image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "MIA to CUN",
+                flightPrice: "$380 RT",
+                tags: ["All-Inclusive", "Private Pool", "Wellness / Spa", "Family Friendly"],
+                rankingReason: "Ranked #1 for establishing the gold standard of ultra-luxury all-inclusive hospitality, featuring AAA Five Diamond dining, master sommelier wine pairings, and stunning oceanfront suites.",
+                reviewSummary: "Guests consistently praise the incredible multi-course gourmet restaurants, personal concierges, and pristine Caribbean beach frontage.",
+                pros: ["All-inclusive plan includes multiple AAA Five Diamond gourmet restaurants", "Spacious suites with private terraces and immersion Jacuzzis", "World-class hydrotherapy spa circuit included in signature stays"],
+                cons: ["High demand during winter and spring break seasons", "Property is divided into distinct jungle and beach zones requiring quick shuttle rides"]
+            },
+            {
+                id: 2,
+                name: "The Brando",
+                region: "Pacific & Asia",
+                location: "Tetiaroa Atoll, French Polynesia",
+                price: 3800,
+                rating: 4.9,
+                reviewsCount: 410,
+                image: "https://images.unsplash.com/photo-1589522851496-d8f99e69335c?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "SFO to PPT",
+                flightPrice: "$1,280 RT",
+                tags: ["All-Inclusive", "Eco-Luxury", "Private Pool", "Wellness / Spa"],
+                rankingReason: "Ranked #2 for its comprehensive all-inclusive philosophy covering organic dining, daily spa treatments, and private excursions on Marlon Brando's pristine private atoll.",
+                reviewSummary: "Celebrated for absolute seclusion, pristine bird sanctuary ecosystems, and farm-to-table Polynesian gastronomy by Guy Martin.",
+                pros: ["All-inclusive tariff covers daily spa treatments and curated excursions", "Complete privacy on an undisturbed Polynesian private atoll", "Deep Seawater Air Conditioning (SWAC) pioneer"],
+                cons: ["Very high barrier to entry price point", "Access exclusively via private air charter from Papeete"]
+            },
+            {
+                id: 3,
+                name: "Samabe Bali Suites & Villas",
+                region: "Pacific & Asia",
+                location: "Nusa Dua, Bali, Indonesia",
+                price: 680,
+                rating: 4.8,
+                reviewsCount: 1340,
+                image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "LAX to DPS via ICN",
+                flightPrice: "$1,390 RT",
+                tags: ["All-Inclusive", "Private Pool", "Adults Only"],
+                rankingReason: "Ranked #3 for offering exceptional cliffside luxury with 24-hour butler service and lavish unlimited all-inclusive privileges overlooking the Indian Ocean.",
+                reviewSummary: "Praised for true 24-hour butler attention, pristine Nusa Dua white sands, and fantastic beachfront dining value.",
+                pros: ["Unlimited all-inclusive privileges including 24-hour butler service", "Stunning cliffside location with panoramic Indian Ocean views", "Complimentary spa treatments included in signature packages"],
+                cons: ["Nusa Dua enclave is gated and feels less culturally immersive than Ubud", "Ocean tides can affect swimming conditions directly in front of cliffs"]
+            },
+            {
+                id: 4,
+                name: "Hilton Tulum Riviera Maya All-Inclusive",
+                region: "Caribbean & Mexico",
+                location: "Tulum, Quintana Roo, Mexico",
+                price: 650,
+                rating: 4.6,
+                reviewsCount: 3400,
+                image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "LAX to CUN",
+                flightPrice: "$420 RT",
+                tags: ["All-Inclusive", "Family Friendly", "Private Pool"],
+                rankingReason: "Ranked #4 as the premier large-scale luxury all-inclusive offering in Riviera Maya, featuring 9 diverse pools, vibrant culinary variety, and secluded cove access.",
+                reviewSummary: "Praised for incredible value in an all-inclusive luxury format, spacious modern rooms, and lively evening entertainment.",
+                pros: ["All-inclusive pricing covers 13 distinct dining experiences", "Nine swimming pools including family splash zones and adult-only retreats", "Direct access to secluded Mayan Riviera coves"],
+                cons: ["Resort scale is large and bustling compared to boutique villas", "Beach areas feature rocky coves rather than long uninterrupted powder sands"]
+            },
+            {
+                id: 5,
+                name: "Seven Stars Resort & Spa",
+                region: "Caribbean & Mexico",
+                location: "Grace Bay, Turks & Caicos",
+                price: 950,
+                rating: 4.7,
+                reviewsCount: 1900,
+                image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "JFK to PLS",
+                flightPrice: "$520 RT",
+                tags: ["All-Inclusive", "Family Friendly", "Wellness / Spa"],
+                rankingReason: "Ranked #5 for its peerless location directly on the powder-white sands of Grace Bay, featuring inclusive resort privileges, saltwater pools, and refined island suites.",
+                reviewSummary: "Guests praise the central Grace Bay location, complimentary non-motorized watersports, and exceptional beachfront dining.",
+                pros: ["Situated right on award-winning Grace Bay Beach", "Spacious suites with full kitchens and expansive private balconies", "Heated saltwater swimming pool wrapping around lush gardens"],
+                cons: ["Property architecture is slightly more conventional resort style", "Dining reservations in Grace Bay can require advance booking"]
+            },
+            {
+                id: 6,
+                name: "Sandals Royal Curaçao",
+                region: "Caribbean & Mexico",
+                location: "Curaçao",
+                price: 780,
+                rating: 4.7,
+                reviewsCount: 1650,
+                image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "MIA to CUR",
+                flightPrice: "$460 RT",
+                tags: ["All-Inclusive", "Adults Only", "Private Pool", "Overwater Villa"],
+                rankingReason: "Ranked #6 for redefining couples-only all-inclusive luxury with two-story overwater bungalows, infinity pools overlooking Spanish Water, and complimentary MINI Coopers for exploring the island.",
+                reviewSummary: "Couples love the stunning double-decker infinity pool, 8 specialty restaurants, and unique convertible car perk.",
+                pros: ["Couples-only adults-only all-inclusive with 8 diverse dining venues", "Complimentary MINI Cooper use for exploring Curaçao", "Stunning overwater private pool bungalows"],
+                cons: ["Secluded property means venturing off-site requires driving", "Popular resort that books out well ahead for peak dates"]
+            },
+            {
+                id: 7,
+                name: "Couples Swept Away",
+                region: "Caribbean & Mexico",
+                location: "Negril, Jamaica",
+                price: 620,
+                rating: 4.7,
+                reviewsCount: 2800,
+                image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "MIA to MBJ",
+                flightPrice: "$390 RT",
+                tags: ["All-Inclusive", "Adults Only", "Wellness / Spa"],
+                rankingReason: "Ranked #7 for its legendary Seven Mile Beach beachfront setting, unrivaled fitness and sports complex, and authentic Jamaican all-inclusive hospitality.",
+                reviewSummary: "Guests rave about the tennis courts, scuba diving trips, catamaran cruises, and tranquil romantic ambiance.",
+                pros: ["Comprehensive all-inclusive covers scuba diving, catamaran cruises, and spa access", "Set directly on Negril's famous powdery Seven Mile Beach", "Adults-only romantic couples sanctuary"],
+                cons: ["Traditional low-rise resort architecture lacks ultra-modern flash", "Nightlife is relaxed and intimate rather than high-energy clubbing"]
+            },
+            {
+                id: 8,
+                name: "Jade Mountain",
+                region: "Caribbean & Mexico",
+                location: "Soufrière, St. Lucia",
+                price: 1650,
+                rating: 4.8,
+                reviewsCount: 2100,
+                image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "MIA to UVF",
+                flightPrice: "$550 RT",
+                tags: ["Private Pool", "Wellness / Spa", "All-Inclusive"],
+                rankingReason: "Ranked #8 for its optional elite all-inclusive package covering organic estate gastronomy and open-air sanctuaries framing the Pitons.",
+                reviewSummary: "Reviewers are mesmerized by the missing fourth wall, private infinity pools in every suite, and organic chocolate estate tours.",
+                pros: ["Optional all-inclusive package with award-winning James Beard-pedigree cuisine", "Unmatched, unobstructed views of the Pitons directly from your bed/pool", "Adults-only peaceful environment focused on romance"],
+                cons: ["No TVs, radios, or children allowed (deliberate digital detox)", "Hilly hillside terrain requires walking or buggy assistance"]
+            },
+            {
+                id: 9,
+                name: "Amanyara",
+                region: "Caribbean & Mexico",
+                location: "Providenciales, Turks & Caicos",
+                price: 2200,
+                rating: 4.8,
+                reviewsCount: 750,
+                image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "JFK to PLS",
+                flightPrice: "$480 RT",
+                tags: ["Eco-Luxury", "Wellness / Spa", "Private Pool", "All-Inclusive"],
+                rankingReason: "Ranked #9 for its bespoke all-inclusive wellness and diving privilege packages nestled against Northwest Point National Park.",
+                reviewSummary: "Acclaimed for absolute tranquility, exceptional scuba diving directly off the shore, and hallmark Aman serene pacing.",
+                pros: ["Direct access to untouched Northwest Point Marine National Park", "Exceptional holistic wellness and yoga pavilion programs", "Remarkable timber pavilion architecture with natural reflection ponds"],
+                cons: ["Remote location means dining options are mostly on-property", "Minimalist aesthetic may feel stark to travelers preferring ornate luxury"]
+            },
+            {
+                id: 10,
+                name: "Rosewood Mayakoba",
+                region: "Caribbean & Mexico",
+                location: "Riviera Maya, Mexico",
+                price: 1250,
+                rating: 4.8,
+                reviewsCount: 1650,
+                image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "MIA to CUN",
+                flightPrice: "$380 RT",
+                tags: ["Eco-Luxury", "Private Pool", "Wellness / Spa", "All-Inclusive"],
+                rankingReason: "Ranked #10 for its signature ultra-luxury all-inclusive culinary extensions across its lagoon and beachfront dining pavilions.",
+                reviewSummary: "Guests love the over-water lagoons, bicycles provided with every suite, and Sense spa situated on its own private island.",
+                pros: ["Charming boat transit and private bicycles for navigating resort", "El Pueblito town square recreation and authentic Mexican cooking classes", "Pristine white-sand Caribbean beach frontage"],
+                cons: ["Can experience high humidity during summer/fall months", "Large property footprint requires golf cart or boat transportation"]
+            },
+            {
+                id: 11,
+                name: "The St. Regis Maldives Vommuli Resort",
+                region: "Maldives",
+                location: "Dhaalu Atoll, Maldives",
+                price: 2400,
+                rating: 4.9,
+                reviewsCount: 1420,
+                image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "JFK to MLE via DOH",
+                flightPrice: "$1,850 RT",
+                tags: ["Overwater Villa", "Private Pool", "Wellness / Spa"],
+                rankingReason: "Ranked #11 for its flawless convergence of striking contemporary architecture, personalized butler service, and pristine lagoon seclusion.",
+                reviewSummary: "Guests consistently rave about the legendary St. Regis butler service, the whale-shaped Iridium Spa, and phenomenal gastronomy.",
+                pros: ["Dedicated 24/7 butler service for every villa", "World-class underwater reef snorkeling & yacht charters", "Breathtaking multi-level overwater architecture"],
+                cons: ["Seaplane transfer required ($850+ per person)", "Dining and beverage pricing is exceptionally high"]
+            },
+            {
+                id: 12,
+                name: "Soneva Jani",
+                region: "Maldives",
+                location: "Noonu Atoll, Maldives",
+                price: 3200,
+                rating: 4.9,
+                reviewsCount: 980,
+                image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "LAX to MLE via DXB",
+                flightPrice: "$2,100 RT",
+                tags: ["Overwater Villa", "Eco-Luxury", "Private Pool"],
+                rankingReason: "Ranked #12 as the pioneer of barefoot luxury, featuring iconic overwater slides, retractable roofs for stargazing, and uncompromising eco-stewardship.",
+                reviewSummary: "Reviewers emphasize the magical castaway ambiance, silent outdoor cinema, and unmatched overwater villa proportions.",
+                pros: ["Two-story villas with private water slides directly into lagoon", "Retractable bedroom roofs for master stargazing", "Strict sustainability & zero-waste eco-policies"],
+                cons: ["Extremely high demand requires booking 9-12 months in advance", "Remote atoll requires private seaplane transfer"]
+            },
+            {
+                id: 13,
+                name: "Waldorf Astoria Maldives Ithaafushi",
+                region: "Maldives",
+                location: "South Malé Atoll, Maldives",
+                price: 2800,
+                rating: 4.8,
+                reviewsCount: 1150,
+                image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "SFO to MLE via SIN",
+                flightPrice: "$1,950 RT",
+                tags: ["Overwater Villa", "Private Pool", "Wellness / Spa"],
+                rankingReason: "Ranked #13 for its sprawling three-island grandeur, delivering absolute privacy and an unmatched breadth of 11 specialty dining venues.",
+                reviewSummary: "Praised for gargantuan villa sizes, personal concierges, and Terra—the private treetop bamboo dining pods.",
+                pros: ["All 119 villas feature expansive private pools and ocean views", "Exceptional culinary diversity including Michelin-pedigree venues", "Only 30 minutes from Malé via luxury yacht transfer"],
+                cons: ["Less of a rustic castaway feel due to opulent resort scale", "Peak season rates exceed $4,000 per night"]
+            },
+            {
+                id: 14,
+                name: "Four Seasons Resort Bora Bora",
+                region: "Pacific & Asia",
+                location: "Bora Bora, French Polynesia",
+                price: 2100,
+                rating: 4.9,
+                reviewsCount: 1890,
+                image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "LAX to BOB via PPT",
+                flightPrice: "$1,350 RT",
+                tags: ["Overwater Villa", "Wellness / Spa", "Private Pool"],
+                rankingReason: "Ranked #14 for framing the world's most dramatic mountain backdrop (Mount Otemanu) alongside peerless Polynesian hospitality.",
+                reviewSummary: "Guests highlight the crystal-clear inner lagoon sanctuary, friendly outrigger canoe breakfasts, and unmatched sunset vistas.",
+                pros: ["Majestic views of Mount Otemanu from every overwater bungalow", "On-site marine biologist sanctuary and coral grafting program", "Exceptional children's programs and family amenities"],
+                cons: ["Requires international flight to Tahiti plus inter-island Air Tahiti hop", "Overwater bungalows popular for honeymoons book out quickly"]
+            },
+            {
+                id: 15,
+                name: "Montage Kapalua Bay",
+                region: "USA & Costa Rica",
+                location: "Maui, Hawaii, USA",
+                price: 1450,
+                rating: 4.8,
+                reviewsCount: 1220,
+                image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "LAX to OGG",
+                flightPrice: "$490 RT",
+                tags: ["Family Friendly", "Wellness / Spa", "Private Pool"],
+                rankingReason: "Ranked #15 for offering exceptionally spacious multi-bedroom residential suites overlooking Maui's dramatic golden coast and Namalu Bay.",
+                reviewSummary: "Reviewers highlight the residential luxury feel, exceptional cliffside pool deck, and proximity to championship golf courses.",
+                pros: ["Expansive 1 to 4-bedroom residential suites with gourmet kitchens", "Overlooks pristine Namalu Bay, ideal for snorkeling and sea turtles", "Outstanding Paintbox children's program and family activities"],
+                cons: ["Higher price point for multi-room residences during peak winter holidays", "Resort shares beach access with public coastal trails"]
+            },
+            {
+                id: 16,
+                name: "Amangiri",
+                region: "USA & Costa Rica",
+                location: "Canyon Point, Utah, USA",
+                price: 3100,
+                rating: 4.9,
+                reviewsCount: 880,
+                image: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "PHX to PGA",
+                flightPrice: "$320 RT",
+                tags: ["Eco-Luxury", "Wellness / Spa", "Private Pool"],
+                rankingReason: "Ranked #16 for its jaw-dropping architectural integration into the stark, dramatic desert mesas of the American Southwest.",
+                reviewSummary: "Hailed as an otherworldly sanctuary of silence, featuring the world-renowned Aman Spa and private guided canyon excursions.",
+                pros: ["Architectural masterpiece blending seamlessly into protected desert canyons", "Aman Spa featuring Navajo-inspired holistic treatments", "Private hot air balloon and slot canyon helicopter tours"],
+                cons: ["Exceedingly high nightly tariffs", "Desert climate brings extreme temperature swings between summer and winter"]
+            },
+            {
+                id: 17,
+                name: "Nayara Springs",
+                region: "USA & Costa Rica",
+                location: "Arenal Volcano, Costa Rica",
+                price: 850,
+                rating: 4.9,
+                reviewsCount: 2150,
+                image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "MIA to SJO",
+                flightPrice: "$410 RT",
+                tags: ["Adults Only", "Private Pool", "Eco-Luxury", "Wellness / Spa"],
+                rankingReason: "Ranked #17 as Central America's top adults-only rainforest luxury retreat, featuring private villas fed by mineral hot springs with Arenal Volcano views.",
+                reviewSummary: "Reviewers adore spotting wild sloths and toucans from private plunge pools filled with natural volcanic thermal waters.",
+                pros: ["Adults-only exclusivity ensuring absolute romance and peace", "Every villa features a private thermal plunge pool fed by natural hot springs", "Immersed in lush rainforest teeming with exotic wildlife"],
+                cons: ["Requires a 2.5-hour private transfer from San José international airport", "Cloud forest climate can bring sudden tropical rain showers"]
+            },
+            {
+                id: 18,
+                name: "COMO Shambhala Estate",
+                region: "Pacific & Asia",
+                location: "Bali, Indonesia",
+                price: 920,
+                rating: 4.8,
+                reviewsCount: 950,
+                image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "SFO to DPS via TPE",
+                flightPrice: "$1,450 RT",
+                tags: ["Wellness / Spa", "Eco-Luxury"],
+                rankingReason: "Ranked #18 for its world-renowned holistic wellness immersion nestled deep in the sacred Ayung River valley of Bali.",
+                reviewSummary: "Guests describe profound rejuvenation through bespoke wellness programs, expert resident Ayurvedic specialists, and nutritious cuisine.",
+                pros: ["Immersive holistic health, yoga, and wellness programs tailored to individuals", "Stunning jungle ravine setting along the rushing Ayung River", "Spring-fed vitality pools and organic wellness dining"],
+                cons: ["Not designed for travelers seeking a conventional beach resort", "Strict wellness focus includes low alcohol and health-centric menus"]
+            },
+            {
+                id: 19,
+                name: "Secret Bay",
+                region: "Caribbean & Mexico",
+                location: "Dominica",
+                price: 1200,
+                rating: 4.9,
+                reviewsCount: 510,
+                image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "MIA to DOM",
+                flightPrice: "$590 RT",
+                tags: ["Eco-Luxury", "Private Pool", "Wellness / Spa"],
+                rankingReason: "Ranked #19 for its architecturally stunning cliffside treehouse villas immersed in Dominica's lush 'Nature Island' rainforest.",
+                reviewSummary: "Celebrated for ultimate seclusion, dedicated villa hosts, private plunge pools, and raw unspoiled Caribbean eco-adventure.",
+                pros: ["Architectural treehouse villas crafted sustainably from local hardwoods", "Secluded cliffside plunge pools with dramatic sunset ocean views", "Immersed in Dominica's boiling lakes, waterfalls, and diving reefs"],
+                cons: ["Dominica's rugged terrain means fewer conventional white-sand beaches", "Smaller boutique scale with limited large resort nightlife"]
+            },
+            {
+                id: 20,
+                name: "Terranea Resort",
+                region: "USA & Costa Rica",
+                location: "Rancho Palos Verdes, California, USA",
+                price: 520,
+                rating: 4.6,
+                reviewsCount: 4100,
+                image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80",
+                flightRoute: "LAX Local / SFO to LAX",
+                flightPrice: "$180 RT",
+                tags: ["Family Friendly", "Wellness / Spa", "Private Pool"],
+                rankingReason: "Ranked #20 as Southern California's premier oceanfront coastal sanctuary, offering dramatic seaside bluffs, championship golf, and easy accessibility.",
+                reviewSummary: "Guests love the dramatic Pacific Ocean cliff views, tide pooling, coastal hiking trails, and exceptional spa facilities.",
+                pros: ["Stunning 102-acre coastal peninsula setting in Southern California", "Championship 9-hole golf course and award-winning oceanfront spa", "Convenient drive-to destination for West Coast travelers"],
+                cons: ["Can be busy with weekend conferences and local staycations", "Ocean water temperatures in Palos Verdes are brisk year-round"]
+            }
+        ];
+
+        let filteredResorts = [...resortsData];
+
+        const resortsGrid = document.getElementById('resortsGrid');
+        const searchInput = document.getElementById('searchInput');
+        const regionFilter = document.getElementById('regionFilter');
+        const amenityFilter = document.getElementById('amenityFilter');
+        const sortBy = document.getElementById('sortBy');
+        const resultsCount = document.getElementById('resultsCount');
+        const emptyState = document.getElementById('emptyState');
+        const detailModal = document.getElementById('detailModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function renderResorts() {
+            resortsGrid.innerHTML = '';
+            
+            if (filteredResorts.length === 0) {
+                emptyState.classList.remove('hidden');
+                resultsCount.textContent = 'Showing 0 matching destinations';
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            resultsCount.textContent = `Showing ${filteredResorts.length} of ${resortsData.length} luxury destinations`;
+
+            filteredResorts.forEach((resort) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group';
+                
+                const tagsHTML = resort.tags.map(tag => `<span class="${tag === 'All-Inclusive' ? 'bg-brand-100 text-brand-800 font-bold' : 'bg-slate-100 text-slate-700 font-semibold'} text-[10px] px-2.5 py-1 rounded-md">${tag}</span>`).join('');
+
+                card.innerHTML = `
+                    <div class="relative h-56 overflow-hidden bg-slate-100">
+                        <img src="${resort.image}" alt="${resort.name}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/e2e8f0/64748b?text=Luxury+Resort'">
+                        <div class="absolute top-3 left-3 flex space-x-2">
+                            <span class="bg-slate-900/80 backdrop-blur-md text-white text-xs font-extrabold px-2.5 py-1 rounded-lg shadow-md">Rank #${resort.id}</span>
+                            <span class="bg-white/90 backdrop-blur-md text-slate-800 text-xs font-bold px-2.5 py-1 rounded-lg shadow-md">${resort.region}</span>
+                        </div>
+                        <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md text-slate-900 px-3 py-1.5 rounded-xl font-extrabold text-sm shadow-md">
+                            $${resort.price.toLocaleString()} <span class="text-[10px] text-slate-500 font-normal">/ night</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs text-slate-500 font-medium flex items-center">
+                                    <svg class="w-3.5 h-3.5 text-brand-500 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                                    ${resort.location}
+                                </span>
+                                <div class="flex items-center text-amber-500 font-bold text-xs">
+                                    <span>★</span>
+                                    <span class="ml-1 text-slate-800">${resort.rating}</span>
+                                    <span class="text-slate-400 font-normal ml-0.5">(${resort.reviewsCount})</span>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-slate-900 group-hover:text-brand-600 transition-colors">${resort.name}</h3>
+                            <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">${resort.rankingReason}</p>
+                        </div>
+
+                        <div class="space-y-3 pt-3 border-t border-slate-100">
+                            <div class="flex flex-wrap gap-1.5">
+                                ${tagsHTML}
+                            </div>
+                            <div class="flex items-center justify-between text-xs pt-1">
+                                <span class="text-slate-500 font-medium">Flight: <strong class="text-slate-700">${resort.flightRoute}</strong></span>
+                                <span class="text-brand-700 font-bold bg-brand-50 px-2 py-1 rounded-md">${resort.flightPrice}</span>
+                            </div>
+                            <button onclick="openModal(${resort.id})" class="w-full mt-2 py-2.5 bg-slate-900 hover:bg-brand-600 text-white text-xs font-bold rounded-xl transition-colors shadow-sm flex items-center justify-center space-x-1.5">
+                                <span>Explore All-Inclusive Intelligence</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                resortsGrid.appendChild(card);
+            });
+        }
+
+        function applyFilters() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            const selectedRegion = regionFilter.value;
+            const selectedAmenity = amenityFilter.value;
+            const sortVal = sortBy.value;
+
+            filteredResorts = resortsData.filter(resort => {
+                const matchesSearch = resort.name.toLowerCase().includes(searchTerm) || 
+                                      resort.location.toLowerCase().includes(searchTerm) || 
+                                      resort.rankingReason.toLowerCase().includes(searchTerm);
+                const matchesRegion = selectedRegion === 'all' || resort.region === selectedRegion;
+                const matchesAmenity = selectedAmenity === 'all' || resort.tags.includes(selectedAmenity);
+
+                return matchesSearch && matchesRegion && matchesAmenity;
+            });
+
+            if (sortVal === 'rank-asc') {
+                filteredResorts.sort((a, b) => a.id - b.id);
+            } else if (sortVal === 'price-asc') {
+                filteredResorts.sort((a, b) => a.price - b.price);
+            } else if (sortVal === 'price-desc') {
+                filteredResorts.sort((a, b) => b.price - a.price);
+            } else if (sortVal === 'rating-desc') {
+                filteredResorts.sort((a, b) => b.rating - a.rating);
+            }
+
+            renderResorts();
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        regionFilter.addEventListener('change', applyFilters);
+        amenityFilter.addEventListener('change', applyFilters);
+        sortBy.addEventListener('change', applyFilters);
+
+        document.getElementById('resetFilters').addEventListener('click', () => {
+            searchInput.value = '';
+            regionFilter.value = 'all';
+            amenityFilter.value = 'All-Inclusive';
+            sortBy.value = 'rank-asc';
+            applyFilters();
+        });
+
+        function openModal(id) {
+            const resort = resortsData.find(r => r.id === id);
+            if (!resort) return;
+
+            document.getElementById('modalImg').src = resort.image;
+            document.getElementById('modalRankBadge').textContent = `Rank #${resort.id}`;
+            document.getElementById('modalRegionBadge').textContent = resort.region;
+            document.getElementById('modalTitle').textContent = resort.name;
+            document.getElementById('modalLocation').querySelector('span:last-child').textContent = resort.location;
+            document.getElementById('modalPrice').textContent = `$${resort.price.toLocaleString()}`;
+            document.getElementById('modalRating').textContent = resort.rating;
+            document.getElementById('modalFlight').textContent = `${resort.flightRoute} (${resort.flightPrice})`;
+            document.getElementById('modalReasoning').textContent = resort.rankingReason;
+            document.getElementById('modalReviews').textContent = `"${resort.reviewSummary}"`;
+
+            const prosList = document.getElementById('modalPros');
+            prosList.innerHTML = resort.pros.map(pro => `<li>${pro}</li>`).join('');
+
+            const consList = document.getElementById('modalCons');
+            consList.innerHTML = resort.cons.map(con => `<li>${con}</li>`).join('');
+
+            const amenitiesContainer = document.getElementById('modalAmenities');
+            amenitiesContainer.innerHTML = resort.tags.map(tag => `<span class="${tag === 'All-Inclusive' ? 'bg-brand-100 text-brand-800 font-bold border-brand-300' : 'bg-brand-50 text-brand-700 border-brand-200'} text-xs font-semibold px-3 py-1 rounded-lg border">${tag}</span>`).join('');
+
+            detailModal.classList.remove('hidden');
+            setTimeout(() => {
+                detailModal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            detailModal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                detailModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        detailModal.addEventListener('click', (e) => {
+            if (e.target === detailModal) {
+                closeModal();
+            }
+        });
+
+        window.onload = function() {
+            // Apply default All-Inclusive priority filter on initial load
+            amenityFilter.value = 'All-Inclusive';
+            applyFilters();
+        };
+    </script>
+</body>
+</html>
