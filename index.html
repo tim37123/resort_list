@@ -144,6 +144,8 @@ input[type=checkbox]{accent-color:var(--brand)}
 .fav.on{background:var(--sun-2);border-color:var(--sun);color:var(--sun-ink)}
 .badges{display:flex;flex-wrap:wrap;gap:6px}
 .tag{font-size:10.5px;font-weight:600;padding:4px 9px;border-radius:8px;background:var(--surface-3);color:#334155}
+.tag.ai{background:var(--brand);color:#fff}
+.tag.noai{background:#fef3c7;color:#92400e}
 .tag.ocean{background:var(--brand-50);color:var(--brand-7)}
 .quick{display:grid;background:var(--surface-2);border:1px solid var(--line-2);border-radius:14px;padding:4px 12px}
 .qrow{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:6px 0;border-bottom:1px dashed var(--line);font-size:12.5px;color:var(--ink-3)}
@@ -256,6 +258,7 @@ footer .center{text-align:center;color:var(--ink-4)}
     </div>
     <div class="tagrow">
       <span class="lbl">Must have:</span>
+      <label class="chipcheck"><input type="checkbox" id="aiOnly" checked><span>✓ All-inclusive only</span></label>
       <label class="chipcheck"><input type="checkbox" data-need="swim">Swimmable beach</label>
       <label class="chipcheck"><input type="checkbox" data-need="pools4">4+ pools</label>
       <label class="chipcheck"><input type="checkbox" id="favOnly"><span>★ Favorites (<span id="favCount">0</span>)</span></label>
@@ -392,12 +395,12 @@ footer .center{text-align:center;color:var(--ink-4)}
       <tr><td><b>Sunscape Curaçao</b></td><td>Below the seaweed belt, with a calm jetty-protected beach.</td><td>Man-made beach, crowded main pool, 5 restaurants with long lines, no slides, Wi-Fi fees.</td></tr>
       <tr><td><b>Cozumel west coast</b> (Iberostar Waves, Meliá)</td><td>The west coast is sheltered from sargassum.</td><td>Family options are thin (Iberostar has 1 pool and no slides), and getting there takes a 1-stop flight or a Cancún flight plus ferry.</td></tr>
       <tr><td><b>Club Med Cancún</b> (Punta Nizuc)</td><td>Partly sheltered point, kids clubs, drinks included.</td><td>Small main pool, dated and dark rooms, Wi-Fi fees.</td></tr>
-      <tr><td><b>Bahamas</b></td><td>Short flights, and it sits north of the main seaweed belt.</td><td>Almost no true family all-inclusives. Atlantis isn't all-inclusive.</td></tr>
+      <tr><td><b>Bahamas</b></td><td>Short flights, and it sits north of the main seaweed belt.</td><td>Almost no true family all-inclusives. <b>Now on the list as non-all-inclusive picks:</b> Atlantis and Grand Hyatt Baha Mar. Uncheck "All-inclusive only" to see them.</td></tr>
       <tr><td colspan="3" style="background:var(--surface-3);font-weight:700;color:var(--ink-strong)">🇺🇸 Domestic / US-territory options (no passport needed)</td></tr>
       <tr><td><b>Bolongo Bay Beach Resort</b> (St. Thomas, USVI)</td><td>The only true beachfront all-inclusive on US soil. Calm 1,000-ft cove beach, unlimited house drinks, free kayaks, paddleboards and snorkel gear. No passports needed.</td><td>Too small for your list: 1 small pool, 2 casual restaurants, no kids club, and top-shelf drinks cost extra. 1-stop flight. Researchers rank the USVI among the areas most at risk of severe sargassum.</td></tr>
       <tr><td><b>voco Sandpiper All-Inclusive</b> (Port St. Lucie, FL; former Club Med)</td><td>A US all-inclusive (IHG) with pools and water sports, reached via Palm Beach (PBI).</td><td>It's on the St. Lucie River, not the ocean (the nearest beach is a 15–20 min drive). It reopened in Jan 2026 half-finished, with only the buffet open. The kids club and other restaurants aren't due until late 2026 or early 2027.</td></tr>
       <tr><td><b>El Conquistador</b> (Fajardo, Puerto Rico)</td><td>Coquí water park with a lazy river and slides, 5 pools, many restaurants.</td><td>The resort's own FAQ says it is <b>not all-inclusive</b> (some packagers sell bundles). The water park and kids club cost extra, the beach is on Palomino Island by ferry, and northeast Puerto Rico is high-risk for seaweed.</td></tr>
-      <tr><td><b>Florida, Texas Gulf, Hawaii, Myrtle Beach, etc.</b></td><td>Easy domestic travel, and lots of family beach hotels.</td><td>There are no true family all-inclusives (food <i>and</i> drinks) that are beachfront. "All-inclusive" US lists mostly mean meal plans, lake or ranch resorts, or Disney. Hawaii is also 8+ hours from Austin.</td></tr>
+      <tr><td><b>Florida, Texas Gulf, Hawaii, Myrtle Beach, etc.</b></td><td>Easy domestic travel, and lots of family beach hotels.</td><td>There are no true family all-inclusives (food <i>and</i> drinks) that are beachfront. "All-inclusive" US lists mostly mean meal plans, lake or ranch resorts, or Disney. Hawaii is also 8+ hours from Austin. <b>Now on the list as non-all-inclusive picks:</b> South Seas (Captiva) and Margaritaville Hollywood Beach.</td></tr>
       <tr><td><b>Hyatt Ziva Rose Hall, Dreams (ex-Hilton) Rose Hall</b> (Jamaica)</td><td>Montego Bay family resorts. Hilton Rose Hall had a water park and lazy river.</td><td>Closed since Hurricane Melissa, with reopening pushed into 2027.</td></tr>
     </table></div>
   </details>
@@ -411,9 +414,9 @@ footer .center{text-align:center;color:var(--ink-4)}
       <div class="zones">
         <div class="zone"><b><span class="risk r0">None</span></b><span><b>Pacific coast:</b> Puerto Vallarta / Riviera Nayarit, Los Cabos, Guanacaste (Costa Rica). Sargassum doesn't reach these beaches. The trade-off is cooler water (around 70–73°F in Cabo, 75°F in Vallarta) and some Cabo beaches too rough to swim.</span></div>
         <div class="zone"><b><span class="risk r1">Very low</span></b><span><b>Aruba:</b> sits south of the seaweed belt. Historically the most reliable Caribbean pick.</span></div>
-        <div class="zone"><b><span class="risk r2">Low</span></b><span><b>Jamaica north & west coasts</b> (Montego Bay, Falmouth, Lucea, Ocho Rios, Negril) and <b>Grace Bay, Turks & Caicos</b>. March is historically clear in both.</span></div>
+        <div class="zone"><b><span class="risk r2">Low</span></b><span><b>Jamaica north & west coasts</b> (Montego Bay, Falmouth, Lucea, Ocho Rios, Negril) <b>Grace Bay, Turks & Caicos</b>, <b>Nassau, Bahamas</b> (north of the main belt) and <b>Florida's Gulf Coast</b>. March is historically clear in all of these.</span></div>
         <div class="zone"><b><span class="risk r3">Low–moderate</span></b><span><b>North-facing Cancún</b> (Punta Cancún) and <b>Playa / Costa Mujeres</b>. These shores are angled away from the main current and resorts clean them daily, but heavy years still reach them.</span></div>
-        <div class="zone"><b><span class="risk r4">Moderate</span></b><span><b>Cap Cana, Dominican Republic:</b> reef-protected, but Punta Cana overall has been hit hard in recent record years.</span></div>
+        <div class="zone"><b><span class="risk r4">Moderate</span></b><span><b>Cap Cana, Dominican Republic:</b> reef-protected, but Punta Cana overall has been hit hard in recent record years. <b>Southeast Florida</b> (Fort Lauderdale / Miami beaches) sees moderate beaching in record years.</span></div>
         <div class="zone"><b><span class="risk r5">Mod–high</span></b><span><b>Bávaro south end / Arena Gorda / Macao</b> (Punta Cana). More exposed and rougher surf.</span></div>
         <div class="zone"><b><span class="risk r6">High</span></b><span><b>Riviera Maya</b> (Puerto Morelos, Playa del Carmen, Akumal, Tulum) and the east-facing Cancún hotel zone. This is the same exposure you ran into last March.</span></div>
       </div>
@@ -467,7 +470,7 @@ const RISK_LABEL=["None","Very low","Low","Low–moderate","Moderate","Mod–hig
 const RISK_SCORE=[5,4.7,4.2,3.4,2.5,1.7,1];
 const RISK_WHY=["Pacific coast: sargassum doesn't reach these beaches.","Aruba sits south of the sargassum belt; historically almost always clear.","Historically clear in March (Jamaica north/west coast, Grace Bay).","North-facing / sheltered Cancún shore with daily cleanup, but heavy years still reach it.","Cap Cana is reef-protected, but Punta Cana has been hit hard in recent record years.","Exposed Atlantic-facing Punta Cana stretch; rougher surf and more seaweed.","Riviera Maya / Puerto Morelos: the most-hit coast in Mexico (same zone as last year's trip)."];
 // typical AUS flight times in minutes: ns = nonstop, one = typical 1-stop itinerary incl. connection
-const FLIGHT={CUN:{ns:160,one:330},SJD:{ns:170,one:360},PVR:{ns:140,one:330},LIR:{one:360},AUA:{one:420},PLS:{one:360},MBJ:{one:330},PUJ:{one:360}};
+const FLIGHT={NAS:{one:330},RSW:{ns:150,one:330},FLL:{ns:165,one:330},CUN:{ns:160,one:330},SJD:{ns:170,one:360},PVR:{ns:140,one:330},LIR:{one:360},AUA:{one:420},PLS:{one:360},MBJ:{one:330},PUJ:{one:360}};
 const hm=m=>`${Math.floor(m/60)}h${String(m%60).padStart(2,"0")}`;
 
 // k = kids amenities: slides, waterpark, lazy, bowling, minigolf, arcade, flowrider, kidsclub, teens
@@ -680,6 +683,42 @@ const resorts=[
   pros:["Water park with 5 slides and a lazy river","Calmest beach of the DR picks","15 minutes from PUJ"],
   cons:["Punta Cana-area seaweed risk (moderate)","Only 6 restaurants","Slides need about a 4-ft height"] },
 
+{ id:"atl", ai:"no", url:"https://www.atlantisbahamas.com/", name:"Atlantis Paradise Island", area:"Paradise Island, Nassau, Bahamas", region:"Bahamas",
+  airport:"NAS", nonstop:"none", flightNote:"1 stop (Southwest's AUS–NAS nonstop doesn't start until June 2027)", flight:[550,850], transfer:25,
+  risk:2, swim:true, beach:"Six beaches. The sheltered Paradise Lagoon is the calmest for little swimmers. The Bahamas sit north of the main sargassum belt.",
+  restaurants:"Dozens (pay per meal)", pools:20, poolsNote:"Aquaventure: 20 swimming areas, 11 slides, mile-long river",
+  k:{waterpark:true,slides:true,lazy:true,marine:true,kidsclub:true,teens:true}, kidsScore:5, drinks:1.5, drinksNote:"Not included. Food and drinks are pay-as-you-go (dining plans were retired), and Bahamas prices are high.",
+  price:[650,1000], food:[300,450],
+  pros:["141-acre Aquaventure water park included via the resort fee: 11 slides, a mile-long river with rapids, 20 pools","Marine habitat and aquarium, plus a teen club (CRUSH)","Low seaweed risk"],
+  cons:["Not all-inclusive: budget roughly $300–450/day for food and drinks for 4","21% taxes/fees on rooms plus a daily resort fee","Kids club costs extra","1-stop flight"] },
+
+{ id:"bmgh", ai:"no", url:"https://www.hyatt.com/grand-hyatt/en-US/nasgh-grand-hyatt-baha-mar", name:"Grand Hyatt Baha Mar", area:"Cable Beach, Nassau, Bahamas", region:"Bahamas",
+  airport:"NAS", nonstop:"none", flightNote:"1 stop (Southwest's AUS–NAS nonstop doesn't start until June 2027)", flight:[550,850], transfer:15,
+  risk:2, swim:true, beach:"Cable Beach: long, calm and clear, good for younger kids.",
+  restaurants:"45 dining outlets (pay per meal)", pools:8, poolsNote:"8 pools + Baha Bay water park",
+  k:{waterpark:true,slides:true,lazy:true,wavepool:true,flowrider:true,kidsclub:true}, kidsScore:5, drinks:1.5, drinksNote:"Not included. Pay-as-you-go across 45 dining outlets.",
+  price:[600,950], food:[300,450],
+  pros:["Free Baha Bay water park for all Baha Mar guests: 30+ attractions incl. lazy river, wave pool, surf simulator and slides","8 pools and 45 places to eat","15 minutes from the airport"],
+  cons:["Not all-inclusive: budget roughly $300–450/day for food and drinks for 4","$76/night resort fee","Explorers Kids Club costs extra","1-stop flight"] },
+
+{ id:"ssc", ai:"no", url:"https://www.southseas.com/", name:"South Seas Resort", area:"Captiva Island, Florida (Gulf Coast)", region:"Florida (USA)",
+  airport:"RSW", nonstop:"seasonal", flightNote:"Delta nonstop from Nov 21, 2026. Southwest's seasonal nonstop starts Mar 13, 2027 (~2h30).", flight:[300,500], transfer:60,
+  risk:2, swim:true, beach:"2.5 miles of Gulf of Mexico shoreline. Gulf water is cooler in March (about 70°F).",
+  restaurants:"4+ (Beach House, Harborside, Scoops & Slices, Flippers)", pools:3, poolsNote:"Captiva Landing water park pools + select resort pools (heated)",
+  k:{waterpark:true,slides:true,lazy:true,arcade:true,heated:true,kidsclub:true}, kidsScore:4, drinks:1.5, drinksNote:"Not included. Pay-as-you-go, at US restaurant prices.",
+  price:[450,850], food:[180,300],
+  pros:["Captiva Landing ($26M, opened Dec 2025): waterslides, Gulfstream lazy river, splash zone, arcade, kids club","No passports needed","Gulf beaches rarely get sargassum"],
+  cons:["Captiva Landing closed 'for enhancements' starting Oct 12, 2026, with no reopening date posted, so confirm it's open for March","Still in a phased post-hurricane reopening with construction on site","About 1-hour drive from Fort Myers (RSW)","Not all-inclusive"] },
+
+{ id:"mhb", ai:"no", url:"https://www.margaritavillehollywoodbeachresort.com/", name:"Margaritaville Hollywood Beach Resort", area:"Hollywood Beach, Florida (Atlantic)", region:"Florida (USA)",
+  airport:"FLL", nonstop:"daily", flightNote:"Daily nonstops on JetBlue and Southwest to Fort Lauderdale (~2h40). Miami (MIA) also has many nonstops.", flight:[250,450], transfer:15,
+  risk:4, swim:true, beach:"Right on the Hollywood Beach Broadwalk. Southeast Florida can see moderate sargassum in record years.",
+  restaurants:"Several (beach bar to steakhouse)", pools:3, poolsNote:"3 pools: family pool with water slide, tiki-bar pool, adults-only rooftop",
+  k:{slides:true,flowrider:true,kidsclub:true}, kidsScore:3, drinks:1.5, drinksNote:"Not included. Pay-as-you-go, with plenty of bars.",
+  price:[450,750], food:[180,300],
+  pros:["FlowRider wave simulator and family pool with slide","Parakeets Kids Club","Cheapest, shortest trip on the list: daily nonstops and no passports"],
+  cons:["Not all-inclusive","FlowRider costs extra (about $30–45 per session)","No real water park","Southeast Florida seaweed risk is moderate"] },
+
 { id:"mpc", url:"https://thegrand.moonpalace.com/", name:"Moon Palace The Grand – Cancún", area:"South of Cancún (Riviera Cancún)", region:"Riviera Maya (high seaweed)",
   airport:"CUN", nonstop:"daily", flightNote:"Daily nonstops (Southwest, American)", flight:[400,650], transfer:15,
   risk:6, swim:"partial", beach:"East-facing and rougher. Reviewers rate it about 3/5 and say it's badly hit in seaweed years.",
@@ -709,18 +748,18 @@ const resorts=[
 ];
 
 
-const ADVISORY={"Pacific Mexico":null,"Costa Rica":[2,"Costa Rica: Level 2, exercise increased caution (crime)"],"Aruba":[1,"Aruba: Level 1, normal precautions"],"Turks & Caicos":[2,"Turks & Caicos: Level 2, exercise increased caution"],"Jamaica":[2,"Jamaica: Level 2, exercise increased caution (lowered June 2026). Some neighborhoods are 'reconsider travel'"],"Cancún (protected)":[2,"Quintana Roo: Level 2, increased caution, especially after dark in Cancún"],"Riviera Maya (high seaweed)":[2,"Quintana Roo: Level 2, increased caution, especially after dark"],"Dominican Republic":[2,"Dominican Republic: Level 2, exercise increased caution (crime)"]};
+const ADVISORY={"Pacific Mexico":null,"Costa Rica":[2,"Costa Rica: Level 2, exercise increased caution (crime)"],"Aruba":[1,"Aruba: Level 1, normal precautions"],"Turks & Caicos":[2,"Turks & Caicos: Level 2, exercise increased caution"],"Jamaica":[2,"Jamaica: Level 2, exercise increased caution (lowered June 2026). Some neighborhoods are 'reconsider travel'"],"Cancún (protected)":[2,"Quintana Roo: Level 2, increased caution, especially after dark in Cancún"],"Riviera Maya (high seaweed)":[2,"Quintana Roo: Level 2, increased caution, especially after dark"],"Dominican Republic":[2,"Dominican Republic: Level 2, exercise increased caution (crime)"],"Bahamas":[2,"Bahamas: Level 2, exercise increased caution"],"Florida (USA)":[0,"United States: no travel advisory, and no passport needed"]};
 const ADV_BY_ID={hzpv:[3,"Jalisco: Level 3 'reconsider travel' statewide. Puerto Vallarta itself has no US-government travel restrictions"],hrv:[2,"Nayarit: Level 2, exercise increased caution"],dbm:[2,"Nayarit: Level 2, exercise increased caution"],gpv:[2,"Nayarit: Level 2, exercise increased caution"],rpcsl:[2,"Baja California Sur: Level 2, exercise increased caution"],hzlc:[2,"Baja California Sur: Level 2, exercise increased caution"],hrlc:[2,"Baja California Sur: Level 2, exercise increased caution"]};
-resorts.forEach(r=>{r.adv=ADV_BY_ID[r.id]||ADVISORY[r.region];});
+resorts.forEach(r=>{r.ai=r.ai||"yes"; r.food=r.food||[0,0]; r.adv=ADV_BY_ID[r.id]||ADVISORY[r.region];});
 resorts.forEach(r=>{const f=FLIGHT[r.airport]; r.flightMin = r.nonstop!=="none"&&f.ns ? f.ns : f.one; r.flightFallback = r.nonstop==="seasonal"? f.one : null; r.travelMin=r.flightMin+r.transfer;});
 const KID_EXTRA={rspc:["wavepool"],mpc:["wavepool"],btc:["characters","scuba"],bneg:["characters","scuba"],nrm:["characters"],rsrc:["trampoline"],dbm:["heated"],fpm:["heated"]};
-const DRINKS={hzpv:["topshelf","swimup","tasting"],hrv:["intl","swimup"],dbm:["intl","upgrade"],gpv:["intl","upgrade","swimup"],rpcsl:["intl","swimup","bar24"],hzlc:["topshelf","swimup","tasting"],hrlc:["topshelf","swimup"],riugc:["intl","swimup","bar24"],barua:["intl"],btc:["topshelf","wine","inroom","swimup"],bneg:["topshelf","wine","inroom","swimup"],mpj:["intl","swimup"],rbw:["intl","upgrade","swimup"],gpj:["intl","upgrade","inroom"],hzc:["topshelf","swimup","tasting","brewery"],dpm:["intl","upgrade","swimup"],gpcm:["intl","upgrade","inroom"],mecm:["topshelf"],fpm:["topshelf","swimup"],phc:["intl","upgrade"],hrpc:["topshelf","swimup"],rspc:["intl","upgrade"],hzcc:["intl","upgrade","swimup"],mpc:["topshelf","dispenser"],rsrc:["intl","upgrade"],nrm:["intl"]};
-const DRINK_LABELS={topshelf:"Top-shelf spirits for everyone",intl:"House + select international brands",upgrade:"Premium spirits with club upgrade",wine:"Premium wine (Mondavi)",swimup:"Swim-up bar",inroom:"Stocked in-room bar / minibar",dispenser:"In-room liquor dispenser",tasting:"Tequila / mezcal tastings",brewery:"On-site microbrewery",bar24:"24-hour bar"};
+const DRINKS={atl:["paygo"],bmgh:["paygo"],ssc:["paygo"],mhb:["paygo"],hzpv:["topshelf","swimup","tasting"],hrv:["intl","swimup"],dbm:["intl","upgrade"],gpv:["intl","upgrade","swimup"],rpcsl:["intl","swimup","bar24"],hzlc:["topshelf","swimup","tasting"],hrlc:["topshelf","swimup"],riugc:["intl","swimup","bar24"],barua:["intl"],btc:["topshelf","wine","inroom","swimup"],bneg:["topshelf","wine","inroom","swimup"],mpj:["intl","swimup"],rbw:["intl","upgrade","swimup"],gpj:["intl","upgrade","inroom"],hzc:["topshelf","swimup","tasting","brewery"],dpm:["intl","upgrade","swimup"],gpcm:["intl","upgrade","inroom"],mecm:["topshelf"],fpm:["topshelf","swimup"],phc:["intl","upgrade"],hrpc:["topshelf","swimup"],rspc:["intl","upgrade"],hzcc:["intl","upgrade","swimup"],mpc:["topshelf","dispenser"],rsrc:["intl","upgrade"],nrm:["intl"]};
+const DRINK_LABELS={paygo:"Not included (pay as you go)",topshelf:"Top-shelf spirits for everyone",intl:"House + select international brands",upgrade:"Premium spirits with club upgrade",wine:"Premium wine (Mondavi)",swimup:"Swim-up bar",inroom:"Stocked in-room bar / minibar",dispenser:"In-room liquor dispenser",tasting:"Tequila / mezcal tastings",brewery:"On-site microbrewery",bar24:"24-hour bar"};
 resorts.forEach(r=>{(KID_EXTRA[r.id]||[]).forEach(k=>r.k[k]=true); r.d=DRINKS[r.id]||[];});
 // ---------- category labels ----------
 const kidCount=r=>Object.keys(KID_LABELS).filter(k=>r.k[k]).length;
 const priceTier=mid=> mid<=650?"$": mid<=950?"$$": mid<=1400?"$$$":"$$$$";
-const KID_LABELS={waterpark:"Water park",slides:"Water slides",lazy:"Lazy river",wavepool:"Wave pool",bowling:"Bowling",minigolf:"Mini golf",arcade:"Arcade",flowrider:"FlowRider surf",trampoline:"Trampoline park & laser tag",characters:"Character experiences",scuba:"Kids' scuba program",heated:"Heated pools",kidsclub:"Kids club",teens:"Teen club"};
+const KID_LABELS={waterpark:"Water park",slides:"Water slides",lazy:"Lazy river",wavepool:"Wave pool",bowling:"Bowling",minigolf:"Mini golf",arcade:"Arcade",flowrider:"FlowRider surf",trampoline:"Trampoline park & laser tag",characters:"Character experiences",marine:"Marine habitat / aquarium",scuba:"Kids' scuba program",heated:"Heated pools",kidsclub:"Kids club",teens:"Teen club"};
 
 const $=id=>document.getElementById(id);
 const store={ get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}} };
@@ -730,7 +769,7 @@ let favs=new Set(store.get("sb27-favs",[]));
 function costRange(r){
   const a=Math.max(1,+$("adults").value||2), k=Math.max(0,+$("kids").value||0), n=Math.max(1,+$("nights").value||4);
   const people=a+k, factor=(a+0.5*k)/3; // baseline 2A+2K = 3 "adult-equivalents"
-  const lo=Math.round(r.price[0]*factor*n + r.flight[0]*people), hi=Math.round(r.price[1]*factor*n + r.flight[1]*people);
+  const lo=Math.round((r.price[0]+r.food[0])*factor*n + r.flight[0]*people), hi=Math.round((r.price[1]+r.food[1])*factor*n + r.flight[1]*people);
   return {lo,hi,n,people};
 }
 const money=v=>"$"+(Math.round(v/50)*50).toLocaleString();
@@ -745,6 +784,7 @@ function passes(r){
   const st=$("stops").value; if(st==="nonstop"&&r.nonstop==="none")return false; if(st==="daily"&&r.nonstop!=="daily")return false;
   if(r.travelMin>+$("maxTravel").value) return false;
   if($("favOnly").checked && !favs.has(r.id)) return false;
+  if($("aiOnly").checked && r.ai!=="yes") return false;
   for(const cb of document.querySelectorAll("[data-need]:checked")){
     const n=cb.dataset.need;
     if(n==="swim"&&r.swim!==true)return false;
@@ -764,7 +804,8 @@ function render(){
   const swimRank=r=>r.swim===true?0:r.swim==="partial"?1:2;
   const by={cost:(a,b)=>a.mid-b.mid, seaweed:(a,b)=>a.r.risk-b.r.risk||swimRank(a.r)-swimRank(b.r)||b.r.kidsScore-a.r.kidsScore||a.mid-b.mid, kids:(a,b)=>kidCount(b.r)-kidCount(a.r)||b.r.kidsScore-a.r.kidsScore||a.r.risk-b.r.risk, drinks:(a,b)=>b.r.drinks-a.r.drinks||a.r.risk-b.r.risk, travel:(a,b)=>a.r.travelMin-b.r.travelMin||a.r.risk-b.r.risk}[s];
   list=list.filter(x=>passes(x.r) && x.mid<=+cs.value).sort(by);
-  $("count").textContent=`${list.length} of ${resorts.length} resorts`;
+  const nonAI=resorts.filter(r=>r.ai!=="yes").length;
+  $("count").textContent=`${list.length} of ${resorts.length} resorts`+($("aiOnly").checked?` · ${nonAI} non-all-inclusive options hidden (uncheck "All-inclusive only" to see them)`:"");
   $("favCount").textContent=favs.size;
   $("empty").hidden=list.length>0;
   $("cards").innerHTML=list.map(card).join("");
@@ -780,7 +821,7 @@ function reasons(r){
     seaweed:`Seaweed risk: ${RISK_LABEL[r.risk]}. ${RISK_WHY[r.risk]} ${swimTxt}\n${r.beach}`,
     kids:`Pools: ${r.poolsNote}.`,
     drinks:r.drinksNote,
-    price:`Est. ${money(r.price[0])}–${money(r.price[1])} per night for 2 adults + 2 kids in spring break week. $ ≤ $650, $$ ≤ $950, $$$ ≤ $1,400, $$$$ above.`,
+    price:`Est. ${money(r.price[0])}–${money(r.price[1])} per night for 2 adults + 2 kids in spring break week${r.ai==="yes"?" (all-inclusive)":`, room only. Add ~${money(r.food[0])}–${money(r.food[1])}/day for food & drinks (the $ tier includes it)`}. $ ≤ $650, $$ ≤ $950, $$$ ≤ $1,400, $$$$ above.`,
     flight:`${ns}. Flight ~${hm(r.flightMin)} + ~${r.transfer} min transfer = ~${hm(r.travelMin)} door to resort.\n${r.flightNote}`
   };
 }
@@ -789,7 +830,7 @@ function card(x){
   const swimShort = r.swim===true?"swimmable": r.swim===false?"no ocean swimming":"swim varies";
   const quick=[
     ["seaweed","🌊 Beach",`${r.risk===0?"No":RISK_LABEL[r.risk]} seaweed · ${swimShort}`],
-    ["price","💵 Price",`${priceTier((r.price[0]+r.price[1])/2)} · ${money(r.price[0])}–${money(r.price[1])}/night`],
+    ["price","💵 Price",`${priceTier((r.price[0]+r.price[1]+r.food[0]+r.food[1])/2)} · ${money(r.price[0])}–${money(r.price[1])}/night${r.ai==="yes"?"":" + food"}`],
     ["flight","✈️ Travel",`${r.nonstop==="none"?"1 stop":"Nonstop"} · ~${hm(r.travelMin)} to resort`]];
   const enc=encodeURIComponent;
   const gf=`https://www.google.com/travel/flights?q=${enc(`Flights from AUS to ${r.airport} on 2027-03-14 through 2027-03-18`)}`;
@@ -800,13 +841,13 @@ function card(x){
   const nonstop = r.nonstop==="daily"?"Nonstop": r.nonstop==="seasonal"?"Seasonal nonstop":"1 stop";
   const flightFact = r.nonstop==="none" ? `~${hm(r.flightMin)} (1 stop)` : `~${hm(r.flightMin)} nonstop${r.flightFallback?` (or ~${hm(r.flightFallback)} w/ 1 stop)`:""}`;
   const kidChips=Object.keys(KID_LABELS).filter(k=>r.k[k]).map(k=>`<span class="kid yes">✓ ${KID_LABELS[k]}</span>`).join("")||'<span class="kid">Pools and beach only</span>';
-  const drinkChips=Object.keys(DRINK_LABELS).filter(k=>r.d.includes(k)).map(k=>`<span class="kid yes">✓ ${DRINK_LABELS[k]}</span>`).join("");
+  const drinkChips=Object.keys(DRINK_LABELS).filter(k=>r.d.includes(k)).map(k=>k==="paygo"?`<span class="tag noai">${DRINK_LABELS[k]}</span>`:`<span class="kid yes">✓ ${DRINK_LABELS[k]}</span>`).join("");
   const band = r.risk>=5?"hi": r.risk>=3?"mid":"";
   const pin='<svg width="13" height="13" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>';
   return `<article class="card">
     <div class="band ${band}">
       <div class="rankb">🌊 Seaweed: ${RISK_LABEL[r.risk]}</div>
-      <div class="score" tabindex="0" data-tip="${attr(why.price)}"><div class="k">Est. rate*</div><div class="v">${money(r.price[0])}<small>–${money(r.price[1])}</small></div><div class="k" style="margin-top:2px">per night (2+2)</div></div>
+      <div class="score" tabindex="0" data-tip="${attr(why.price)}"><div class="k">${r.ai==="yes"?"Est. rate*":"Room only*"}</div><div class="v">${money(r.price[0])}<small>–${money(r.price[1])}</small></div><div class="k" style="margin-top:2px">per night (2+2)</div></div>
       <div class="bandloc">${pin}${r.area.split(",").slice(-1)[0].trim()===r.area?r.area:r.area.split(",")[0]}, ${r.region.replace(" (high seaweed)","").replace(" (protected)","")}</div>
     </div>
     <div class="cbody">
@@ -816,15 +857,16 @@ function card(x){
         <div class="loc">${r.area}</div>
       </div>
       <div class="badges">
+        ${r.ai==="yes"?'<span class="tag ai">✓ All-inclusive</span>':'<span class="tag noai">Not all-inclusive</span>'}
         <span class="tag ocean">${nonstop} · ${r.airport}</span>
         <span class="tag">${swim}</span>
-        <span class="tag" data-tip="${attr("US State Dept advisory. "+r.adv[1])}" tabindex="0">US advisory: L${r.adv[0]}</span>
+        ${r.adv[0]?`<span class="tag" data-tip="${attr("US State Dept advisory. "+r.adv[1])}" tabindex="0">US advisory: L${r.adv[0]}</span>`:`<span class="tag ocean">🇺🇸 No passport needed</span>`}
       </div>
       <div class="quick">${quick.map(([k,l,v])=>`<div class="qrow" tabindex="0" data-tip="${attr(why[k])}"><span>${l}</span><b>${v}</b></div>`).join("")}
         <div class="qrow list" tabindex="0" data-tip="${attr(why.kids)}"><span>🛝 Kids' fun</span><div class="kids">${kidChips}</div></div>
         <div class="qrow list" tabindex="0" data-tip="${attr(why.drinks)}"><span>🍹 Drinks</span><div class="kids">${drinkChips}</div></div></div>
-      <div class="cost"><span class="k">Est. trip total · ${c.people} people · ${c.n} nights · flights + resort</span><span class="v">${money(c.lo)}–${money(c.hi)}</span>
-        <span class="s">Flights ~$${r.flight[0]}–${r.flight[1]} per person RT · resort ${money(r.price[0])}–${money(r.price[1])}/night (2+2)</span></div>
+      <div class="cost"><span class="k">Est. trip total · ${c.people} people · ${c.n} nights · flights + ${r.ai==="yes"?"resort":"room + food & drink"}</span><span class="v">${money(c.lo)}–${money(c.hi)}</span>
+        <span class="s">Flights ~$${r.flight[0]}–${r.flight[1]} per person RT · ${r.ai==="yes"?"resort":"room only"} ${money(r.price[0])}–${money(r.price[1])}/night (2+2)${r.ai==="yes"?"":` · food &amp; drink ~${money(r.food[0])}–${money(r.food[1])}/day`}</span></div>
       <div class="facts">
         <div class="fact"><div class="k">Flight from AUS</div><div class="v">${flightFact}</div></div>
         <div class="fact"><div class="k">Door to resort</div><div class="v">~${hm(r.travelMin)} <span class="muted" style="font-weight:500">(+${r.transfer} min transfer)</span></div></div>
@@ -865,7 +907,7 @@ $("regionPills").addEventListener("click",e=>{const b=e.target.closest(".pill");
 drawPills();
 document.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",render));
 $("reset").addEventListener("click",()=>{
-  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("q").value="";drawPills();$("maxRisk").value="6";$("sort").value="seaweed";$("favOnly").checked=false;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
+  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("q").value="";drawPills();$("maxRisk").value="6";$("sort").value="seaweed";$("favOnly").checked=false;$("aiOnly").checked=true;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
   document.querySelectorAll("[data-need],[data-kid],[data-drink]").forEach(c=>c.checked=false); render();
 });
 render();
