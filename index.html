@@ -86,6 +86,9 @@ section{margin:24px 0}
 .chipcheck:has(input:focus-visible){box-shadow:0 0 0 2px var(--brand)}
 .chipgroup{display:flex;flex-wrap:wrap;gap:6px}
 .chipgroup .chipcheck{font-size:11.5px;padding:6px 10px}
+.chipcheck.zero{opacity:.4;cursor:not-allowed}
+.pill.zero{opacity:.45}
+.pill .n{font-weight:500;opacity:.75}
 .chipcheck .n{color:var(--ink-4);font-weight:500}
 .qrow.list{flex-direction:column;align-items:stretch;gap:5px}
 .qrow.list .kids{padding:0}
@@ -112,6 +115,7 @@ input[type=checkbox]{accent-color:var(--brand)}
 .rangebox label{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px}
 .rangebox output{font-weight:700;color:var(--brand-7)}
 .rangebox .muted{font-size:12px;margin-top:4px}
+.namebar{display:flex;margin:28px 0 0}
 .resultbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin:26px 0 14px}
 .resultbar .count{font-weight:700;color:var(--ink-strong)}
 /* cards */
@@ -135,6 +139,11 @@ input[type=checkbox]{accent-color:var(--brand)}
 .bandloc{position:absolute;left:14px;bottom:12px;color:#e2e8f0;font-size:12px;font-weight:500;display:flex;align-items:center;gap:5px;z-index:2}
 .bandloc svg{color:#4ade80}
 .cbody{padding:18px 20px 4px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
+.tabadge{display:inline-flex;align-items:center;gap:5px;margin:6px 0 2px;font-size:12px;color:var(--ink-2);text-decoration:none;background:#ecfdf5;border:1px solid #a7f3d0;padding:3px 9px;border-radius:999px}
+.tabadge b{color:#065f46;font-size:13px}
+.tabadge .owl{color:#00aa6c;font-size:10px}
+.tabadge .n{color:var(--ink-3)}
+.tabadge:hover{border-color:#00aa6c}
 .metarow{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .regchip{font-size:10px;font-weight:600;background:var(--surface-3);color:var(--ink-2);padding:3px 8px;border-radius:6px}
 .card h3{font-size:18px;line-height:1.25;letter-spacing:-.01em;transition:color .2s}
@@ -258,9 +267,9 @@ footer .center{text-align:center;color:var(--ink-4)}
     </div>
     <div class="tagrow">
       <span class="lbl">Must have:</span>
-      <label class="chipcheck"><input type="checkbox" id="aiOnly" checked><span>✓ All-inclusive only</span></label>
-      <label class="chipcheck"><input type="checkbox" data-need="swim">Swimmable beach</label>
-      <label class="chipcheck"><input type="checkbox" data-need="pools4">4+ pools</label>
+      <label class="chipcheck"><input type="checkbox" id="aiOnly" checked><span>✓ All-inclusive only <span class="n" data-count="ai"></span></span></label>
+      <label class="chipcheck"><input type="checkbox" data-need="swim"><span>Swimmable beach <span class="n" data-count="swim"></span></span></label>
+      <label class="chipcheck"><input type="checkbox" data-need="pools4"><span>4+ pools <span class="n" data-count="pools4"></span></span></label>
       <label class="chipcheck"><input type="checkbox" id="favOnly"><span>★ Favorites (<span id="favCount">0</span>)</span></label>
       <button class="resetlink" id="reset">Reset Filters</button>
     </div>
@@ -304,6 +313,7 @@ footer .center{text-align:center;color:var(--ink-4)}
               <option value="kids">Most kid fun</option>
               <option value="drinks">Best drinks</option>
               <option value="travel">Shortest travel</option>
+              <option value="ta">Highest Tripadvisor rating</option>
             </select>
           </div>
         </div>
@@ -331,6 +341,12 @@ footer .center{text-align:center;color:var(--ink-4)}
     </details>
   </section>
 
+  <div class="namebar">
+    <div class="search" style="max-width:none;flex:1 1 320px">
+      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <input type="text" id="nameQ" placeholder="Find a resort by name (e.g. Hyatt, Beaches, Moon Palace)…" aria-label="Search resorts by name">
+    </div>
+  </div>
   <div class="resultbar">
     <div class="count" id="count"></div>
     <div class="muted" style="font-size:13px">Hover (or tap) any line on a card for the details behind it.</div>
@@ -460,6 +476,7 @@ footer .center{text-align:center;color:var(--ink-4)}
     <li>Other options: <a href="https://globetotting.com/all-inclusive-family-hotel-club-med-ixtapa" target="_blank" rel="noopener">Club Med Ixtapa</a>, <a href="https://all-inclusive-guide.com/resorts/dreams-playa-bonita-panama/" target="_blank" rel="noopener">Dreams Playa Bonita</a>, <a href="https://familydestinationsguide.com/best-all-inclusive-resorts-in-mazatlan/" target="_blank" rel="noopener">Mazatlán</a>, <a href="https://www.howisthesargassum.com/blog/best-hotels-cozumel-2026" target="_blank" rel="noopener">Cozumel</a></li>
   </ol>
   <p>Estimates are for planning only. Resort amenities change, so confirm anything that's a dealbreaker (slides, lazy river, kids club hours) directly with the resort.</p>
+  <p>Tripadvisor ratings and review counts were taken from each resort's Tripadvisor page on Oct 14, 2026. Grand Palladium Vallarta shows the main resort's score (its Family Selection section rates 4.5), and Atlantis shows The Royal tower's (The Coral is also 3.7).</p>
   <p class="center">Curated for March 14–18, 2027 family spring break from Austin (AUS) · beachfront all-inclusives · low-seaweed guidance. All pricing is estimated.</p>
 </div>
 </footer>
@@ -753,9 +770,10 @@ const ADV_BY_ID={hzpv:[3,"Jalisco: Level 3 'reconsider travel' statewide. Puerto
 resorts.forEach(r=>{r.ai=r.ai||"yes"; r.food=r.food||[0,0]; r.adv=ADV_BY_ID[r.id]||ADVISORY[r.region];});
 resorts.forEach(r=>{const f=FLIGHT[r.airport]; r.flightMin = r.nonstop!=="none"&&f.ns ? f.ns : f.one; r.flightFallback = r.nonstop==="seasonal"? f.one : null; r.travelMin=r.flightMin+r.transfer;});
 const KID_EXTRA={rspc:["wavepool"],mpc:["wavepool"],btc:["characters","scuba"],bneg:["characters","scuba"],nrm:["characters"],rsrc:["trampoline"],dbm:["heated"],fpm:["heated"]};
+const TA={hzpv:[4.5,15763,481596],hrv:[4.7,14327,154718],dbm:[4.5,3754,23546474],gpv:[4.2,15225,218958],rpcsl:[4.1,11144,503041],hzlc:[4.4,14310,469312],hrlc:[4.5,9649,15751779],riugc:[3.9,10876,1154805],barua:[4.2,13259,151981],btc:[4.3,17036,254897],bneg:[4.5,9854,214530],mpj:[4.4,7892,7134812],rbw:[4.3,8030,10300577],gpj:[4.0,19189,1094847],hzc:[4.6,15077,152887],dpm:[4.4,9455,11737960],gpcm:[4.4,14552,13964145],mecm:[4.6,8080,16855390],fpm:[4.6,14749,6966139],phc:[4.2,9905,17789352],hrpc:[4.3,43081,1076311],rspc:[4.3,16184,4543606],hzcc:[4.9,7557,16663802],mpc:[4.7,15335,13138532],rsrc:[4.2,6612,24076429],nrm:[4.7,2719,23184727],atl:[3.7,12499,507175],bmgh:[3.9,10687,9838640],ssc:[3.9,4898,216486],mhb:[4.5,4290,8433501]};
 const DRINKS={atl:["paygo"],bmgh:["paygo"],ssc:["paygo"],mhb:["paygo"],hzpv:["topshelf","swimup","tasting"],hrv:["intl","swimup"],dbm:["intl","upgrade"],gpv:["intl","upgrade","swimup"],rpcsl:["intl","swimup","bar24"],hzlc:["topshelf","swimup","tasting"],hrlc:["topshelf","swimup"],riugc:["intl","swimup","bar24"],barua:["intl"],btc:["topshelf","wine","inroom","swimup"],bneg:["topshelf","wine","inroom","swimup"],mpj:["intl","swimup"],rbw:["intl","upgrade","swimup"],gpj:["intl","upgrade","inroom"],hzc:["topshelf","swimup","tasting","brewery"],dpm:["intl","upgrade","swimup"],gpcm:["intl","upgrade","inroom"],mecm:["topshelf"],fpm:["topshelf","swimup"],phc:["intl","upgrade"],hrpc:["topshelf","swimup"],rspc:["intl","upgrade"],hzcc:["intl","upgrade","swimup"],mpc:["topshelf","dispenser"],rsrc:["intl","upgrade"],nrm:["intl"]};
 const DRINK_LABELS={paygo:"Not included (pay as you go)",topshelf:"Top-shelf spirits for everyone",intl:"House + select international brands",upgrade:"Premium spirits with club upgrade",wine:"Premium wine (Mondavi)",swimup:"Swim-up bar",inroom:"Stocked in-room bar / minibar",dispenser:"In-room liquor dispenser",tasting:"Tequila / mezcal tastings",brewery:"On-site microbrewery",bar24:"24-hour bar"};
-resorts.forEach(r=>{(KID_EXTRA[r.id]||[]).forEach(k=>r.k[k]=true); r.d=DRINKS[r.id]||[];});
+resorts.forEach(r=>{(KID_EXTRA[r.id]||[]).forEach(k=>r.k[k]=true); r.d=DRINKS[r.id]||[]; const t=TA[r.id]; r.ta=t?{score:t[0],n:t[1],url:`https://www.tripadvisor.com/Hotel_Review-d${t[2]}`}:null;});
 // ---------- category labels ----------
 const kidCount=r=>Object.keys(KID_LABELS).filter(k=>r.k[k]).length;
 const priceTier=mid=> mid<=650?"$": mid<=950?"$$": mid<=1400?"$$$":"$$$$";
@@ -774,8 +792,9 @@ function costRange(r){
 }
 const money=v=>"$"+(Math.round(v/50)*50).toLocaleString();
 
-function passes(r){
-  const reg=$("region").value; if(reg!=="all" && r.region!==reg) return false;
+function passes(r,skip){
+  const reg=$("region").value; if(skip!=="region" && reg!=="all" && r.region!==reg) return false;
+  const nq=$("nameQ").value.trim().toLowerCase(); if(nq && !r.name.toLowerCase().includes(nq)) return false;
   const q=$("q").value.trim().toLowerCase();
   if(q){ const hay=[r.name,r.area,r.region,r.beach,r.drinksNote,r.flightNote,r.poolsNote,r.restaurants,...r.pros,...r.cons,...Object.keys(r.k).filter(k=>r.k[k]).map(k=>KID_LABELS[k])].join(" ").toLowerCase(); if(!q.split(/\s+/).every(w=>hay.includes(w))) return false; }
   if(r.risk>+$("maxRisk").value) return false;
@@ -802,8 +821,11 @@ function render(){
   const tv=$("maxTravel"); $("o-travel").textContent = +tv.value>=+tv.max ? "Any" : "≤ "+hm(+tv.value);
   const s=$("sort").value;
   const swimRank=r=>r.swim===true?0:r.swim==="partial"?1:2;
-  const by={cost:(a,b)=>a.mid-b.mid, seaweed:(a,b)=>a.r.risk-b.r.risk||swimRank(a.r)-swimRank(b.r)||b.r.kidsScore-a.r.kidsScore||a.mid-b.mid, kids:(a,b)=>kidCount(b.r)-kidCount(a.r)||b.r.kidsScore-a.r.kidsScore||a.r.risk-b.r.risk, drinks:(a,b)=>b.r.drinks-a.r.drinks||a.r.risk-b.r.risk, travel:(a,b)=>a.r.travelMin-b.r.travelMin||a.r.risk-b.r.risk}[s];
-  list=list.filter(x=>passes(x.r) && x.mid<=+cs.value).sort(by);
+  const by={cost:(a,b)=>a.mid-b.mid, seaweed:(a,b)=>a.r.risk-b.r.risk||swimRank(a.r)-swimRank(b.r)||b.r.kidsScore-a.r.kidsScore||a.mid-b.mid, kids:(a,b)=>kidCount(b.r)-kidCount(a.r)||b.r.kidsScore-a.r.kidsScore||a.r.risk-b.r.risk, drinks:(a,b)=>b.r.drinks-a.r.drinks||a.r.risk-b.r.risk, travel:(a,b)=>a.r.travelMin-b.r.travelMin||a.r.risk-b.r.risk, ta:(a,b)=>(b.r.ta?.score||0)-(a.r.ta?.score||0)||(b.r.ta?.n||0)-(a.r.ta?.n||0)}[s];
+  const inBudget=x=>x.mid<=+cs.value;
+  const regionBase=list.filter(x=>passes(x.r,"region")&&inBudget(x));
+  list=list.filter(x=>passes(x.r) && inBudget(x)).sort(by);
+  updateFacets(list.map(x=>x.r), regionBase.map(x=>x.r));
   const nonAI=resorts.filter(r=>r.ai!=="yes").length;
   $("count").textContent=`${list.length} of ${resorts.length} resorts`+($("aiOnly").checked?` · ${nonAI} non-all-inclusive options hidden (uncheck "All-inclusive only" to see them)`:"");
   $("favCount").textContent=favs.size;
@@ -812,6 +834,17 @@ function render(){
   document.querySelectorAll(".fav").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.id; favs.has(id)?favs.delete(id):favs.add(id); store.set("sb27-favs",[...favs]); render();}));
 }
 
+const FACET={kid:(r,k)=>!!r.k[k], drink:(r,k)=>r.d.includes(k), need:(r,k)=>k==="swim"?r.swim===true:r.pools>=4};
+function setChip(input,n){ const lab=input.closest(".chipcheck"); const zero=!input.checked&&n===0; lab.classList.toggle("zero",zero); input.disabled=zero; }
+function updateFacets(rs,regionRs){
+  for(const t of ["kid","drink","need"]) document.querySelectorAll(`[data-${t}]`).forEach(inp=>{
+    const k=inp.dataset[t]; const n=inp.checked?rs.length:rs.filter(r=>FACET[t](r,k)).length;
+    const span=inp.closest(".chipcheck").querySelector(".n"); if(span) span.textContent=`(${n})`; setChip(inp,n); });
+  const ai=$("aiOnly"); const nAI=ai.checked?rs.length:rs.filter(r=>r.ai==="yes").length;
+  document.querySelector('[data-count="ai"]').textContent=`(${nAI})`;
+  document.querySelectorAll("#regionPills .pill").forEach(b=>{ const v=b.dataset.reg; const n=v==="all"?regionRs.length:regionRs.filter(r=>r.region===v).length;
+    b.querySelector(".n").textContent=` (${n})`; b.classList.toggle("zero",n===0&&v!==$("region").value); });
+}
 const attr=t=>String(t).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;");
 function reasons(r){
   const kidsHave=Object.keys(KID_LABELS).filter(k=>r.k[k]).map(k=>KID_LABELS[k]);
@@ -835,7 +868,8 @@ function card(x){
   const enc=encodeURIComponent;
   const gf=`https://www.google.com/travel/flights?q=${enc(`Flights from AUS to ${r.airport} on 2027-03-14 through 2027-03-18`)}`;
   const gh=`https://www.google.com/travel/search?q=${enc(r.name)}`;
-  const ta=`https://www.tripadvisor.com/Search?q=${enc(r.name)}`;
+  const ta=r.ta?r.ta.url:`https://www.tripadvisor.com/Search?q=${enc(r.name)}`;
+  const taBadge=r.ta?`<a class="tabadge" href="${r.ta.url}" target="_blank" rel="noopener" title="Tripadvisor traveler rating (checked Oct 14, 2026)"><span class="owl">●</span> Tripadvisor <b>${r.ta.score.toFixed(1)}</b>/5 <span class="n">· ${r.ta.n.toLocaleString()} reviews</span></a>`:"";
   const off=r.url;
   const swim = r.swim===true?"Swimmable beach": r.swim===false?"Beach not swimmable":"Beach: conditions vary";
   const nonstop = r.nonstop==="daily"?"Nonstop": r.nonstop==="seasonal"?"Seasonal nonstop":"1 stop";
@@ -854,6 +888,7 @@ function card(x){
       <div>
         <div class="metarow"><span class="regchip">${r.region}</span><button class="fav ${favs.has(r.id)?"on":""}" data-id="${r.id}" aria-pressed="${favs.has(r.id)}">${favs.has(r.id)?"★ Favorited":"☆ Add to favorites"}</button></div>
         <h3 style="margin-top:8px">${r.name}</h3>
+        ${taBadge}
         <div class="loc">${r.area}</div>
       </div>
       <div class="badges">
@@ -888,7 +923,7 @@ function card(x){
         <div class="links">
           <a href="${gf}" target="_blank" rel="noopener">✈️ Google Flights (Mar 14–18)</a>
           <a href="${gh}" target="_blank" rel="noopener">🏨 Live rates</a>
-          <a href="${ta}" target="_blank" rel="noopener">⭐ Tripadvisor reviews & photos</a>
+          <a href="${ta}" target="_blank" rel="noopener">⭐ Tripadvisor reviews &amp; photos</a>
           <a href="${off}" target="_blank" rel="noopener">🌐 Official resort website</a>
         </div>
       </div>
@@ -897,18 +932,18 @@ function card(x){
 }
 
 // ---------- init ----------
-function buildChips(el,labels,attrName,has){ $(el).innerHTML=Object.keys(labels).map(k=>{const n=resorts.filter(r=>has(r,k)).length; return n?`<label class="chipcheck"><input type="checkbox" data-${attrName}="${k}"><span>${labels[k]} <span class="n">(${n})</span></span></label>`:""}).join(""); }
+function buildChips(el,labels,attrName,has){ $(el).innerHTML=Object.keys(labels).map(k=>{const n=resorts.filter(r=>has(r,k)).length; return n>=4?`<label class="chipcheck"><input type="checkbox" data-${attrName}="${k}"><span>${labels[k]} <span class="n">(${n})</span></span></label>`:""}).join(""); }
 buildChips("kidFilters",KID_LABELS,"kid",(r,k)=>r.k[k]);
 buildChips("drinkFilters",DRINK_LABELS,"drink",(r,k)=>r.d.includes(k));
 const REGIONS=[...new Set(resorts.map(r=>r.region))];
 REGIONS.forEach(reg=>{const o=document.createElement("option");o.value=reg;o.textContent=reg;$("region").appendChild(o);});
-function drawPills(){ const cur=$("region").value; $("regionPills").innerHTML=["all",...REGIONS].map(v=>`<button class="pill ${v===cur?"on":""}" data-reg="${attr(v)}">${v==="all"?"All Regions":v.replace(" (high seaweed)","")}</button>`).join(""); }
+function drawPills(){ const cur=$("region").value; $("regionPills").innerHTML=["all",...REGIONS].map(v=>`<button class="pill ${v===cur?"on":""}" data-reg="${attr(v)}">${v==="all"?"All Regions":v.replace(" (high seaweed)","")}<span class="n"></span></button>`).join(""); }
 $("regionPills").addEventListener("click",e=>{const b=e.target.closest(".pill"); if(!b)return; $("region").value=b.dataset.reg; drawPills(); render();});
 drawPills();
 document.querySelectorAll("input,select").forEach(el=>el.addEventListener("input",render));
 $("reset").addEventListener("click",()=>{
-  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("q").value="";drawPills();$("maxRisk").value="6";$("sort").value="seaweed";$("favOnly").checked=false;$("aiOnly").checked=true;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
-  document.querySelectorAll("[data-need],[data-kid],[data-drink]").forEach(c=>c.checked=false); render();
+  $("adults").value=2;$("kids").value=2;$("nights").value=4;$("region").value="all";$("q").value="";$("nameQ").value="";drawPills();$("maxRisk").value="6";$("sort").value="seaweed";$("favOnly").checked=false;$("aiOnly").checked=true;$("stops").value="any";$("maxTravel").value=$("maxTravel").max;$("maxCost").value=$("maxCost").max;
+  document.querySelectorAll("[data-need],[data-kid],[data-drink]").forEach(c=>{c.checked=false;c.disabled=false;}); render();
 });
 render();
 </script>
